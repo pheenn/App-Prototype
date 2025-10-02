@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search Results</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13a4ec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            "display": ["Plus Jakarta Sans"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    .material-symbols-outlined.filled {
+        font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#101c22] dark:text-background-light">
+<div class="max-w-md mx-auto min-h-screen flex flex-col">
+<header class="flex items-center justify-between p-4 bg-background-light dark:bg-background-dark sticky top-0 z-10 border-b border-primary/20 dark:border-primary/30">
+<button>
+<span class="material-symbols-outlined">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold">Search Results</h1>
+<div class="w-8"></div>
+</header>
+<main class="flex-grow p-4">
+<div class="mb-4">
+<p class="text-sm text-[#101c22]/60 dark:text-background-light/60">Showing 12 results</p>
+</div>
+<div class="flex items-center gap-2 mb-6 overflow-x-auto pb-2 -mx-4 px-4">
+<div class="flex-shrink-0 flex items-center gap-1.5 bg-primary/20 text-primary px-3 py-1.5 rounded-full text-sm font-medium">
+<span>Price: ₱5k - ₱10k</span>
+<button class="text-primary/80 hover:text-primary">
+<span class="material-symbols-outlined text-base">cancel</span>
+</button>
+</div>
+<div class="flex-shrink-0 flex items-center gap-1.5 bg-primary/20 text-primary px-3 py-1.5 rounded-full text-sm font-medium">
+<span>Amenities: WiFi</span>
+<button class="text-primary/80 hover:text-primary">
+<span class="material-symbols-outlined text-base">cancel</span>
+</button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="bg-white dark:bg-[#101c22]/50 rounded-lg overflow-hidden flex items-start gap-4 p-3 shadow-sm">
+<img alt="Cozy Room" class="w-24 h-24 object-cover rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYjplI0AdxEtcVg3GXgqFTQ_njcCLuknWRI3h7_2NYU7wBgTwwENO9tJFYBDRZ-C2qB5a3faSERECFr6oyIBLcKFG9wS9SeT0S_5DZr049B4OU2pG15VXoPoRq1HWNI1U6HQfwmwtyHlt9TJClP6dGpqi_DSwIM1WVOAJJCDT3LnyZ3DHSaPRrJZW7yFwASjqtwgz2ingdDVS_akmq05tZ4AC9A8nuvmIZFJcN8PGKIUhFMcJe6T7VqCdGZmNjzol6pou8Sunigg"/>
+<div class="flex-1">
+<span class="text-xs uppercase font-semibold text-primary">Verified</span>
+<h3 class="font-bold text-base mt-1 text-[#101c22] dark:text-background-light">Cozy Room Near University</h3>
+<p class="text-sm text-[#101c22]/60 dark:text-background-light/60">Odiongan, Romblon</p>
+<p class="font-bold text-base mt-1 text-[#101c22] dark:text-background-light">₱6,500/month</p>
+</div>
+</div>
+<div class="bg-white dark:bg-[#101c22]/50 rounded-lg overflow-hidden flex items-start gap-4 p-3 shadow-sm">
+<img alt="Shared Apartment" class="w-24 h-24 object-cover rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkVgYw_bDBqD8I8vxrZbs8TFkgtz6gQ3i4j7KjdCFDhKNBYTD_muEZrTULEjr1XTgpWTXup2vtvX8xZD16lJwe-KGiQ-9I495wkQBA3McMMEO0lb8VscHHSeg2NMrR0-fRWcYT0G_QAhK3_Sijh1rzlXiZhzAYBOs31pIHhANjZ7-BLxrYu--ndPIV_TIXlSET_GL9fDYjE-rF-SG2AcSW6bvzVFj_Q1YZYLV45tAVTzwqNiMA72bhHBmk35d02MygD5f9RM0yXA"/>
+<div class="flex-1">
+<span class="text-xs uppercase font-semibold text-primary">Verified</span>
+<h3 class="font-bold text-base mt-1 text-[#101c22] dark:text-background-light">Shared Apartment with Amenities</h3>
+<p class="text-sm text-[#101c22]/60 dark:text-background-light/60">Odiongan, Romblon</p>
+<p class="font-bold text-base mt-1 text-[#101c22] dark:text-background-light">₱7,200/month</p>
+</div>
+</div>
+<div class="bg-white dark:bg-[#101c22]/50 rounded-lg overflow-hidden flex items-start gap-4 p-3 shadow-sm">
+<img alt="Private Studio" class="w-24 h-24 object-cover rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjSP924JYmcNOzZdiczDgWbErEUDa6SlvT56-2zyBbX76RdjtB0Bk0FthoQWKoJSTL7RDxcXOHHXNeg6iDrEE0bpVt_9AjujujzDm0Cte0qO7tiCTfn7NSLQi2q_-tRAjSig_CjKNcQzwLoJvSDCxTICtWsBqMjX-0T5BhL2n-OhyJuqdFAOZkDx45tV_JC44Zq6Zw_Fx-udAOKNcDCBWQuTMC7uZkR3s4GyzTQqlrUYUt8-O6QX5W_0pgggNKrL1kRgZlOv7u5Q"/>
+<div class="flex-1">
+<span class="text-xs uppercase font-semibold text-primary">Verified</span>
+<h3 class="font-bold text-base mt-1 text-[#101c22] dark:text-background-light">Private Studio with Balcony</h3>
+<p class="text-sm text-[#101c22]/60 dark:text-background-light/60">Odiongan, Romblon</p>
+<p class="font-bold text-base mt-1 text-[#101c22] dark:text-background-light">₱8,000/month</p>
+</div>
+</div>
+</div>
+</main>
+<nav class="sticky bottom-0 bg-background-light dark:bg-[#101c22] border-t border-primary/20 dark:border-primary/30 p-2">
+<div class="flex justify-around">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined filled">home</span>
+<span class="text-xs font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#101c22]/60 dark:text-background-light/60" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-xs font-medium">Map</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#101c22]/60 dark:text-background-light/60" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<span class="text-xs font-medium">Saved</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#101c22]/60 dark:text-background-light/60" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="text-xs font-medium">Messages</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-[#101c22]/60 dark:text-background-light/60" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-xs font-medium">Profile</span>
+</a>
+</div>
+</nav>
+</div>
+
+</body></html>

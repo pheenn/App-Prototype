@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans"],
+            },
+            borderRadius: { DEFAULT: "0.5rem", lg: "1rem", xl: "1.5rem", full: "9999px" },
+          },
+        },
+      };
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200">
+<div class="flex h-full min-h-screen w-full flex-col">
+<header class="sticky top-0 z-10 flex h-16 w-full items-center justify-between bg-background-light/80 px-4 backdrop-blur-sm dark:bg-background-dark/80">
+<div class="w-10"></div>
+<h1 class="text-lg font-bold">Profile</h1>
+<button class="flex h-10 w-10 items-center justify-center rounded-full text-slate-600 dark:text-slate-400">
+<span class="material-symbols-outlined text-2xl"> settings </span>
+</button>
+</header>
+<main class="flex-1 overflow-y-auto px-4 pb-24">
+<div class="flex flex-col items-center py-8">
+<div class="mb-4 h-28 w-28 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAcnWCTWR1gRKjqSYAotEa6AXFaR1w1ev9sFhoyll_w3TGk2PnbUkR7tpgm_eS1w60QtEVKVihI5aTXRbZl5QOID4eeEdkZu1L8plXK2wOhFELOqsURxQ7NuuvFtvioclovrrrhoLKNyFmFbQ8xkqrYZQ5fPCKG2_eoFhau1jNKPK-lQtM7jZl9FSctO_Ni5MfFuYM6RudbYYVGvCS3HPSy86aYBtCe4TjWmGeDNfHaXuwUh7B6N6hFjXDZpRRN0GibPB0mjrbE7Q")'></div>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Ethan Reyes</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400">Student ID: 2021-12345</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">University of Odiongan</p>
+</div>
+<div class="space-y-6">
+<div>
+<h3 class="mb-2 px-2 text-sm font-semibold text-slate-500 dark:text-slate-400">ACCOUNT SETTINGS</h3>
+<div class="rounded-lg bg-white dark:bg-slate-900/50">
+<a class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800" href="#">
+<span>Change Password</span>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500"> chevron_right </span>
+</a>
+<a class="flex items-center justify-between p-4" href="#">
+<span>Email Preferences</span>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500"> chevron_right </span>
+</a>
+</div>
+</div>
+<div>
+<h3 class="mb-2 px-2 text-sm font-semibold text-slate-500 dark:text-slate-400">PERSONAL INFORMATION</h3>
+<div class="rounded-lg bg-white dark:bg-slate-900/50">
+<a class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800" href="#">
+<span>Edit Name</span>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500"> chevron_right </span>
+</a>
+<a class="flex items-center justify-between p-4" href="#">
+<span>Contact Details</span>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500"> chevron_right </span>
+</a>
+</div>
+</div>
+<div>
+<h3 class="mb-2 px-2 text-sm font-semibold text-slate-500 dark:text-slate-400">NOTIFICATIONS</h3>
+<div class="rounded-lg bg-white dark:bg-slate-900/50 p-4">
+<div class="flex items-center justify-between">
+<div class="pr-4">
+<p class="font-medium text-slate-800 dark:text-slate-200">Toggle Alerts</p>
+<p class="text-sm text-slate-500 dark:text-slate-400">Receive alerts for new listings and price drops</p>
+</div>
+<label class="relative inline-flex cursor-pointer items-center">
+<input class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-slate-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-slate-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none dark:border-slate-600 dark:bg-slate-700"></div>
+</label>
+</div>
+</div>
+</div>
+<div>
+<h3 class="mb-2 px-2 text-sm font-semibold text-slate-500 dark:text-slate-400">PRIVACY</h3>
+<div class="rounded-lg bg-white dark:bg-slate-900/50">
+<a class="flex items-center justify-between p-4" href="#">
+<span>Privacy Settings</span>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500"> chevron_right </span>
+</a>
+</div>
+</div>
+<div>
+<h3 class="mb-2 px-2 text-sm font-semibold text-slate-500 dark:text-slate-400">HELP &amp; SUPPORT</h3>
+<div class="rounded-lg bg-white dark:bg-slate-900/50">
+<a class="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-800" href="#">
+<span>Help Center</span>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500"> chevron_right </span>
+</a>
+<a class="flex items-center justify-between p-4" href="#">
+<span>Contact Us</span>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500"> chevron_right </span>
+</a>
+</div>
+</div>
+<div>
+<h3 class="mb-2 px-2 text-sm font-semibold text-slate-500 dark:text-slate-400">ABOUT</h3>
+<div class="rounded-lg bg-white dark:bg-slate-900/50">
+<a class="flex items-center justify-between p-4" href="#">
+<span>About Us</span>
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500"> chevron_right </span>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full rounded-lg bg-white dark:bg-slate-900/50 py-3 text-center font-bold text-red-500 dark:text-red-400">Log Out</button>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 right-0 z-10 border-t border-slate-200/80 bg-background-light/90 px-4 pb-3 pt-2 backdrop-blur-sm dark:border-slate-800/80 dark:bg-background-dark/90">
+<div class="flex justify-around">
+<a class="flex flex-1 flex-col items-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined"> home </span>
+<span class="text-xs">Home</span>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined"> map </span>
+<span class="text-xs">Map</span>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-slate-500 dark:text-slate-400" href="#">
+<span class="material-symbols-outlined"> bookmark </span>
+<span class="text-xs">Saved</span>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined"> person </span>
+<span class="text-xs font-semibold">Profile</span>
+</a>
+</div>
+</nav>
+</div>
+
+</body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Stitch Design</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              "display": ["Plus Jakarta Sans"]
+            },
+            borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+          },
+        },
+      }
+    </script>
+<style type="text/css">
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body>
+<div class="relative flex h-screen min-h-screen w-full flex-col bg-background-light font-display text-gray-800 dark:bg-background-dark dark:text-white">
+<div class="absolute inset-x-0 top-0 z-10 flex flex-col p-4">
+<div class="flex items-center rounded-lg bg-background-light shadow-lg dark:bg-background-dark">
+<div class="p-3 text-gray-400 dark:text-gray-500">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</div>
+<input class="w-full flex-1 appearance-none border-none bg-transparent py-3 pr-4 text-gray-800 placeholder-gray-400 focus:outline-none dark:text-white dark:placeholder-gray-500" placeholder="Search for boarding houses"/>
+</div>
+<div class="mt-2 flex flex-wrap items-center gap-2">
+<button class="flex items-center gap-1 rounded-full bg-primary/20 px-3 py-1.5 text-sm font-semibold text-primary dark:bg-primary/30">
+<span>Verified</span>
+<svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path>
+</svg>
+</button>
+<button class="flex items-center gap-1 rounded-full bg-primary/20 px-3 py-1.5 text-sm font-semibold text-primary dark:bg-primary/30">
+<span>Price: Low to High</span>
+<svg fill="currentColor" height="16" viewBox="0 0 256 256" width="16" xmlns="http://www.w3.org/2000/svg">
+<path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"></path>
+</svg>
+</button>
+<button class="flex items-center gap-1 rounded-full bg-primary/20 px-3 py-1.5 text-sm font-semibold text-primary dark:bg-primary/30">
+<span>Rating: 4+</span>
+</button>
+</div>
+</div>
+<div class="flex-1 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3bgNbOOH-hSXeevf3rlkB8hEalDciZgvgnQIebOy5x0APkYp1_oJmeAAJtEnWWOXIJSyme5dUxVQw0ifwx1etn2A_MIQVzPBewdbnhYjJksQvhL6od2CkBY3OMP32BVhGyVmdwPpA7uZ4Sg4loPABBSWUZ_uVL7msazHzbr0nRAxZIrjfZDXboRU8Ci_AT2G9gArqgso43j80lgjBKRqXhCxwxaC-r-WkHU4EGwioVW93vd8b99lRC4VGh30TaKMiY9AXT-GTDQ");'></div>
+<div class="absolute inset-x-0 bottom-0 z-10 p-4">
+<div class="flex items-end justify-between">
+<button class="flex h-14 items-center justify-center gap-2 rounded-xl bg-primary px-4 text-white shadow-lg">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M40,88H73a32,32,0,0,0,62,0h81a8,8,0,0,0,0-16H135a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16Zm64-24A16,16,0,1,1,88,80,16,16,0,0,1,104,64ZM216,168H199a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16h97a32,32,0,0,0,62,0h17a8,8,0,0,0,0-16Zm-48,24a16,16,0,1,1,16-16A16,16,0,0,1,168,192Z"></path>
+</svg>
+<span class="font-bold">Filters</span>
+</button>
+<div class="flex flex-col items-center gap-2">
+<div class="flex flex-col overflow-hidden rounded-lg bg-background-light shadow-lg dark:bg-background-dark">
+<button class="p-3 text-gray-800 transition-colors hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+</svg>
+</button>
+<button class="p-3 text-gray-800 transition-colors hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"></path>
+</svg>
+</button>
+</div>
+<button class="flex h-14 w-14 items-center justify-center rounded-lg bg-background-light text-gray-800 shadow-lg dark:bg-background-dark dark:text-white">
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.33,98.21,53.41,33l-.16-.05A16,16,0,0,0,32.9,53.25a1,1,0,0,0,.05.16L98.21,229.33A15.77,15.77,0,0,0,113.28,240h.3a15.77,15.77,0,0,0,15-11.29l23.56-76.56,76.56-23.56a16,16,0,0,0,.62-30.38ZM224,113.3l-76.56,23.56a16,16,0,0,0-10.58,10.58L113.3,224h0l-.06-.17L48,48l175.82,65.22.16.06Z"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+<div class="absolute inset-0 z-20 flex flex-col justify-end bg-black/40">
+<div class="rounded-t-xl bg-background-light dark:bg-background-dark">
+<div class="flex justify-center py-3">
+<div class="h-1.5 w-10 rounded-full bg-gray-300 dark:bg-gray-700"></div>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-4">
+<div class="flex-1">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white">Cozy Boarding House</h3>
+<p class="text-sm text-gray-600 dark:text-gray-400">4.8 · 12 reviews · ₱1,500/month</p>
+</div>
+<div class="h-20 w-20 flex-shrink-0 rounded-lg bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBfbbAaz6nTcXribgpimUja1f_jNLo_Zp4EcpQ0btJj4pYhVbwUREkAna8mhuyqXTrYoysaPGZ9hIqXZot6NJkMs9_NqORcjKx2-zgiAgnL0KF3gzIRbfLiq9LSW8-nD0rl04XbpFAa2e_la8zg47k_NL63JvyDQFA-qWVwKqrQXifYTGM42y4PV-lLbgs7GSusxn-ZaRXWtkDssR85ebScSLh-HRfFuT3h7dQP7J7yK00OxYnJZ2uJO5abdrc9MbJr-Op1A-66Yw");'></div>
+</div>
+<button class="mt-4 w-full rounded-lg bg-primary py-3 text-center font-bold text-white">View Details</button>
+</div>
+</div>
+</div>
+</div>
+
+</body></html>

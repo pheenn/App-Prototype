@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<title>Stitch Design</title>
+		<link
+			crossorigin=""
+			href="https://fonts.gstatic.com/"
+			rel="preconnect"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+		<script id="tailwind-config">
+			tailwind.config = {
+				darkMode: 'class',
+				theme: {
+					extend: {
+						colors: {
+							primary: '#13a4ec',
+							'background-light': '#f6f7f8',
+							'background-dark': '#101c22'
+						},
+						fontFamily: {
+							display: ['Plus Jakarta Sans']
+						},
+						borderRadius: {
+							DEFAULT: '0.5rem',
+							lg: '1rem',
+							xl: '1.5rem',
+							full: '9999px'
+						}
+					}
+				}
+			};
+		</script>
+		<style>
+			body {
+				min-height: max(884px, 100dvh);
+			}
+			.material-symbols-outlined {
+				font-variation-settings:
+					'FILL' 0,
+					'wght' 400,
+					'GRAD' 0,
+					'opsz' 24;
+			}
+			.material-symbols-outlined.filled {
+				font-variation-settings:
+					'FILL' 1,
+					'wght' 400,
+					'GRAD' 0,
+					'opsz' 24;
+			}
+		</style>
+		<style>
+			body {
+				min-height: max(884px, 100dvh);
+			}
+		</style>
+	</head>
+	<body class="bg-background-light dark:bg-background-dark font-display">
+		<div class="flex flex-col min-h-screen">
+			<header
+				class="flex items-center justify-between p-4 bg-background-light dark:bg-background-dark sticky top-0 z-10"
+			>
+				<button class="text-slate-800 dark:text-white">
+					<span class="material-symbols-outlined"> arrow_back </span>
+				</button>
+				<h1
+					class="text-lg font-bold text-slate-800 dark:text-white text-center flex-grow"
+				>
+					Inquiry
+				</h1>
+				<div class="w-8"></div>
+			</header>
+			<main class="flex-grow px-4 pt-4 pb-20">
+				<h2
+					class="text-2xl font-bold text-slate-900 dark:text-white mb-6"
+				>
+					How would you like to inquire?
+				</h2>
+				<div class="space-y-4">
+					<div
+						class="bg-white dark:bg-slate-800/50 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700/50"
+					>
+						<div class="flex items-start gap-4">
+							<div class="flex-grow">
+								<h3
+									class="text-base font-bold text-slate-900 dark:text-white"
+								>
+									Message Landlord Directly
+								</h3>
+								<p
+									class="text-sm text-slate-500 dark:text-slate-400 mt-1"
+								>
+									Ask questions or request more information
+									about the property.
+								</p>
+							</div>
+							<div
+								class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-lg"
+								style="
+									background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrQVb5AsXenJ24Oy_Y1kd9F6HTBMSVPllafoa5pAahxPGChT8f_ex1pF7nHXKioK22MhQb29n7IqTuFAuJSmH8GzRdsVMIMizAG5ZzNARdWx_bOm_7hCZcY-ClTl2zjryiaFOK8rdnRg7s68rH0EBGqGqRnk5Zm4HvM_tCZc6XgD-fYmw56G1FN3jwHVCo36ZrwHHbMytb0bQsAIUjripeKhJ980jle6c1rNEf2Yexn6f3jfef0pQJFQow6TNPQCU3coVtOQK9mQ');
+								"
+							></div>
+						</div>
+						<div class="mt-4">
+							<label
+								class="text-sm font-medium text-slate-700 dark:text-slate-300"
+								for="message"
+								>Your Message</label
+							>
+							<textarea
+								class="mt-1 block w-full rounded-lg border-slate-300 dark:border-slate-600 bg-background-light dark:bg-background-dark text-slate-900 dark:text-white focus:border-primary focus:ring-primary"
+								id="message"
+								name="message"
+								rows="4"
+							></textarea>
+						</div>
+					</div>
+					<button
+						class="w-full bg-white dark:bg-slate-800/50 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700/50 text-left"
+					>
+						<div class="flex items-start gap-4">
+							<div class="flex-grow">
+								<h3
+									class="text-base font-bold text-slate-900 dark:text-white"
+								>
+									Schedule a Visit
+								</h3>
+								<p
+									class="text-sm text-slate-500 dark:text-slate-400 mt-1"
+								>
+									Arrange a time to see the property in
+									person.
+								</p>
+							</div>
+							<div
+								class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-lg"
+								style="
+									background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1ZfcR0BIpzK5m7iCgQr6KwP5qznbdq0STbcP_rr3wk_GczzNDUGQKABOUxNWXG0aRihdkl8pol4Cb2t-4VR6OirNyozEtd_OwajNZDD78OguAIBgpgL3U1O6gonPvR3boZCtSLhwKzV021VRWQ27Lx3pwh_IxRrHUjUwRPgOG7FVH-C1nmGENAftmsffEKHR6od5Sv9QOd36xZ7xxXxejaWFSth57PUrizo1MEKN4NnNkrmdk9wNbliakRuagPhDYyTFXYj4UJQ');
+								"
+							></div>
+						</div>
+					</button>
+				</div>
+			</main>
+			<footer
+				class="fixed bottom-0 left-0 right-0 bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800"
+			>
+				<nav class="flex justify-around items-center h-16 px-2">
+					<a
+						class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 w-16 h-16"
+						href="#"
+					>
+						<span class="material-symbols-outlined">home</span>
+						<span class="text-xs font-medium">Home</span>
+					</a>
+					<a
+						class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 w-16 h-16"
+						href="#"
+					>
+						<span class="material-symbols-outlined">map</span>
+						<span class="text-xs font-medium">Map</span>
+					</a>
+					<a
+						class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 w-16 h-16"
+						href="#"
+					>
+						<span class="material-symbols-outlined">bookmark</span>
+						<span class="text-xs font-medium">Saved</span>
+					</a>
+					<a
+						class="flex flex-col items-center justify-center text-primary w-16 h-16"
+						href="#"
+					>
+						<span class="material-symbols-outlined filled"
+							>chat</span
+						>
+						<span class="text-xs font-medium">Messages</span>
+					</a>
+					<a
+						class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 w-16 h-16"
+						href="#"
+					>
+						<span class="material-symbols-outlined">person</span>
+						<span class="text-xs font-medium">Profile</span>
+					</a>
+				</nav>
+			</footer>
+		</div>
+	</body>
+</html>
