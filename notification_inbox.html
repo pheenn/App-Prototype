@@ -1,175 +1,278 @@
-<!DOCTYPE html>
-
-<!-- STANDARDIZED HEAD START -->
-
-
-<!-- STANDARDIZED HEAD START -->
-
-
-<!-- STANDARDIZED HEAD START -->
-<html>   
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Standard Head</title>
-
-  <!-- Fonts: Plus Jakarta Sans (consistent) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" crossorigin href="https://fonts.gstatic.com/"/>
-  <link as="style"
-        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800"
-        onload="this.rel='stylesheet'"/>
-  <!-- Material Symbols (single consistent variant) -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        rel="stylesheet"/>
-
-  <!-- Tailwind (single config used everywhere) -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#13a4ec",
-            "background-light": "#f6f7f8",
-            "background-dark": "#101c22"
-          },
-          fontFamily: {
-            display: ["Plus Jakarta Sans", "sans-serif"]
-          },
-          borderRadius: {
-            DEFAULT: "0.5rem",
-            lg: "1rem",
-            xl: "1.5rem",
-            full: "9999px"
-          }
-        }
-      }
-    };
-  </script>
-
-  <!-- Standard base styles (apply same material symbol variable settings everywhere) -->
-  <style>
-    body { min-height: max(884px, 100dvh); }
-    /* Material Symbols consistent baseline */
-    .material-symbols-outlined {
-      font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
-      font-family: 'Material Symbols Outlined';
-      speak: none;
-      line-height: 1;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    /* Use this to switch to filled look where needed */
-    .material-symbols-outlined.filled {
-      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-  </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark font-display">
-<div class="relative flex flex-col min-h-screen w-full">
-<header class="sticky top-0 z-10 flex items-center justify-between p-4 bg-background-light dark:bg-background-dark border-b border-white/10 dark:border-white/10">
-<button class="p-2 text-gray-700 dark:text-gray-300">
-<span class="material-symbols-outlined">arrow_back_ios_new</span>
-</button>
-<h1 class="text-lg font-bold text-gray-900 dark:text-white flex-1 text-center">Notifications</h1>
-<div class="w-10"></div>
-</header>
-<main class="flex-1 overflow-y-auto">
-<div class="p-4 space-y-4">
-<div class="flex items-start gap-4 p-4 rounded-lg bg-primary/10 dark:bg-primary/20 cursor-pointer">
-<div class="relative">
-<div class="flex items-center justify-center rounded-full bg-primary/20 dark:bg-primary/30 shrink-0 size-12 text-primary">
-<span class="material-symbols-outlined text-2xl">check_circle</span>
-</div>
-<span class="absolute top-0 right-0 block h-3 w-3 rounded-full bg-primary border-2 border-background-light dark:border-background-dark"></span>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-center">
-<h3 class="font-bold text-gray-900 dark:text-white">Booking Confirmation</h3>
-<p class="text-xs text-gray-500 dark:text-gray-400">2 min ago</p>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-300 mt-1 line-clamp-2">Your booking for the apartment is confirmed. Welcome aboard!</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 rounded-lg bg-white/50 dark:bg-white/5 cursor-pointer">
-<div class="flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shrink-0 size-12 text-gray-500 dark:text-gray-400">
-<span class="material-symbols-outlined text-2xl">sell</span>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-center">
-<h3 class="font-medium text-gray-800 dark:text-gray-200">Price Drop</h3>
-<p class="text-xs text-gray-500 dark:text-gray-400">1 hour ago</p>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">The price for the studio you saved has been reduced.</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 rounded-lg bg-primary/10 dark:bg-primary/20 cursor-pointer">
-<div class="relative">
-<div class="flex items-center justify-center rounded-full bg-primary/20 dark:bg-primary/30 shrink-0 size-12 text-primary">
-<span class="material-symbols-outlined text-2xl">mail</span>
-</div>
-<span class="absolute top-0 right-0 block h-3 w-3 rounded-full bg-primary border-2 border-background-light dark:border-background-dark"></span>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-center">
-<h3 class="font-bold text-gray-900 dark:text-white">New Message</h3>
-<p class="text-xs text-gray-500 dark:text-gray-400">3 hours ago</p>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-300 mt-1 line-clamp-2">You have a new message from Jane Doe, the host.</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 rounded-lg bg-white/50 dark:bg-white/5 cursor-pointer">
-<div class="flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shrink-0 size-12 text-gray-500 dark:text-gray-400">
-<span class="material-symbols-outlined text-2xl">star</span>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-center">
-<h3 class="font-medium text-gray-800 dark:text-gray-200">Review Published</h3>
-<p class="text-xs text-gray-500 dark:text-gray-400">Yesterday</p>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">Your review for 'Cozy Downtown Loft' has been published.</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 rounded-lg bg-white/50 dark:bg-white/5 cursor-pointer">
-<div class="flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shrink-0 size-12 text-gray-500 dark:text-gray-400">
-<span class="material-symbols-outlined text-2xl">edit_note</span>
-</div>
-<div class="flex-1">
-<div class="flex justify-between items-center">
-<h3 class="font-medium text-gray-800 dark:text-gray-200">Listing Update</h3>
-<p class="text-xs text-gray-500 dark:text-gray-400">2 days ago</p>
-</div>
-<p class="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2">The host has updated details for 'Seaside Bungalow'.</p>
-</div>
-</div>
-</div>
-</main>
-<footer class="sticky bottom-0 bg-background-light dark:bg-background-dark border-t border-white/10 dark:border-white/10">
-<nav class="flex justify-around p-2">
-<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-20 text-primary" href="#">
-<span class="material-symbols-outlined">home</span>
-<span class="text-xs font-medium">Home</span>
-</a>
-<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-20 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">map</span>
-<span class="text-xs font-medium">Map</span>
-</a>
-<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-20 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">bookmark</span>
-<span class="text-xs font-medium">Saved</span>
-</a>
-<a class="flex flex-col items-center gap-1 p-2 rounded-lg w-20 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">person</span>
-<span class="text-xs font-medium">Profile</span>
-</a>
-</nav>
-</footer>
-</div>
-
-</body></html>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<title>Stitch Design</title>
+		<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+		<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+		<link href="https://fonts.googleapis.com" rel="preconnect" />
+		<link
+			crossorigin=""
+			href="https://fonts.gstatic.com/"
+			rel="preconnect"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+			rel="stylesheet"
+		/>
+		<script>
+			tailwind.config = {
+				darkMode: 'class',
+				theme: {
+					extend: {
+						colors: {
+							primary: '#13a4ec',
+							'background-light': '#f6f7f8',
+							'background-dark': '#101c22'
+						},
+						fontFamily: {
+							display: ['Plus Jakarta Sans']
+						},
+						borderRadius: {
+							DEFAULT: '0.5rem',
+							lg: '1rem',
+							xl: '1.5rem',
+							full: '9999px'
+						}
+					}
+				}
+			};
+		</script>
+		<style>
+			body {
+				min-height: max(884px, 100dvh);
+			}
+		</style>
+	</head>
+	<body class="bg-background-light dark:bg-background-dark font-display">
+		<div class="relative flex flex-col min-h-screen w-full">
+			<header
+			class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-800"
+		>
+			<div class="h-14 flex items-center gap-3 px-4">
+				<a
+					aria-label="Back"
+					class="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200"
+					href="javascript:history.back()"
+				>
+					<span
+						aria-hidden="true"
+						class="material-symbols-outlined text-[24px]"
+						>arrow_back</span
+					>
+				</a>
+				<h1 class="text-base font-bold tracking-wide truncate">
+					Notifications
+				</h1>
+			</div>
+		</header>
+			<main class="flex-1 overflow-y-auto">
+				<div class="p-4 space-y-4">
+					<div
+						class="flex items-start gap-4 p-4 rounded-lg bg-primary/10 dark:bg-primary/20 cursor-pointer"
+					>
+						<div class="relative">
+							<div
+								class="flex items-center justify-center rounded-full bg-primary/20 dark:bg-primary/30 shrink-0 size-12 text-primary"
+							>
+								<span class="material-symbols-outlined text-2xl"
+									>check_circle</span
+								>
+							</div>
+							<span
+								class="absolute top-0 right-0 block h-3 w-3 rounded-full bg-primary border-2 border-background-light dark:border-background-dark"
+							></span>
+						</div>
+						<div class="flex-1">
+							<div class="flex justify-between items-center">
+								<h3
+									class="font-bold text-gray-900 dark:text-white"
+								>
+									Booking Confirmation
+								</h3>
+								<p
+									class="text-xs text-gray-500 dark:text-gray-400"
+								>
+									2 min ago
+								</p>
+							</div>
+							<p
+								class="text-sm text-gray-600 dark:text-gray-300 mt-1 line-clamp-2"
+							>
+								Your booking for the apartment is confirmed.
+								Welcome aboard!
+							</p>
+						</div>
+					</div>
+					<div
+						class="flex items-start gap-4 p-4 rounded-lg bg-white/50 dark:bg-white/5 cursor-pointer"
+					>
+						<div
+							class="flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shrink-0 size-12 text-gray-500 dark:text-gray-400"
+						>
+							<span class="material-symbols-outlined text-2xl"
+								>sell</span
+							>
+						</div>
+						<div class="flex-1">
+							<div class="flex justify-between items-center">
+								<h3
+									class="font-medium text-gray-800 dark:text-gray-200"
+								>
+									Price Drop
+								</h3>
+								<p
+									class="text-xs text-gray-500 dark:text-gray-400"
+								>
+									1 hour ago
+								</p>
+							</div>
+							<p
+								class="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2"
+							>
+								The price for the studio you saved has been
+								reduced.
+							</p>
+						</div>
+					</div>
+					<div
+						class="flex items-start gap-4 p-4 rounded-lg bg-primary/10 dark:bg-primary/20 cursor-pointer"
+					>
+						<div class="relative">
+							<div
+								class="flex items-center justify-center rounded-full bg-primary/20 dark:bg-primary/30 shrink-0 size-12 text-primary"
+							>
+								<span class="material-symbols-outlined text-2xl"
+									>mail</span
+								>
+							</div>
+							<span
+								class="absolute top-0 right-0 block h-3 w-3 rounded-full bg-primary border-2 border-background-light dark:border-background-dark"
+							></span>
+						</div>
+						<div class="flex-1">
+							<div class="flex justify-between items-center">
+								<h3
+									class="font-bold text-gray-900 dark:text-white"
+								>
+									New Message
+								</h3>
+								<p
+									class="text-xs text-gray-500 dark:text-gray-400"
+								>
+									3 hours ago
+								</p>
+							</div>
+							<p
+								class="text-sm text-gray-600 dark:text-gray-300 mt-1 line-clamp-2"
+							>
+								You have a new message from Jane Doe, the host.
+							</p>
+						</div>
+					</div>
+					<div
+						class="flex items-start gap-4 p-4 rounded-lg bg-white/50 dark:bg-white/5 cursor-pointer"
+					>
+						<div
+							class="flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shrink-0 size-12 text-gray-500 dark:text-gray-400"
+						>
+							<span class="material-symbols-outlined text-2xl"
+								>star</span
+							>
+						</div>
+						<div class="flex-1">
+							<div class="flex justify-between items-center">
+								<h3
+									class="font-medium text-gray-800 dark:text-gray-200"
+								>
+									Review Published
+								</h3>
+								<p
+									class="text-xs text-gray-500 dark:text-gray-400"
+								>
+									Yesterday
+								</p>
+							</div>
+							<p
+								class="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2"
+							>
+								Your review for 'Cozy Downtown Loft' has been
+								published.
+							</p>
+						</div>
+					</div>
+					<div
+						class="flex items-start gap-4 p-4 rounded-lg bg-white/50 dark:bg-white/5 cursor-pointer"
+					>
+						<div
+							class="flex items-center justify-center rounded-full bg-gray-200 dark:bg-gray-700 shrink-0 size-12 text-gray-500 dark:text-gray-400"
+						>
+							<span class="material-symbols-outlined text-2xl"
+								>edit_note</span
+							>
+						</div>
+						<div class="flex-1">
+							<div class="flex justify-between items-center">
+								<h3
+									class="font-medium text-gray-800 dark:text-gray-200"
+								>
+									Listing Update
+								</h3>
+								<p
+									class="text-xs text-gray-500 dark:text-gray-400"
+								>
+									2 days ago
+								</p>
+							</div>
+							<p
+								class="text-sm text-gray-600 dark:text-gray-400 mt-1 line-clamp-2"
+							>
+								The host has updated details for 'Seaside
+								Bungalow'.
+							</p>
+						</div>
+					</div>
+				</div>
+			</main>
+			<footer
+				class="sticky bottom-0 bg-background-light dark:bg-background-dark border-t border-white/10 dark:border-white/10"
+			>
+				<nav class="flex justify-around p-2">
+					<a
+						class="flex flex-col items-center gap-1 p-2 rounded-lg w-20 text-primary"
+						href="#"
+					>
+						<span class="material-symbols-outlined">home</span>
+						<span class="text-xs font-medium">Home</span>
+					</a>
+					<a
+						class="flex flex-col items-center gap-1 p-2 rounded-lg w-20 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+						href="#"
+					>
+						<span class="material-symbols-outlined">map</span>
+						<span class="text-xs font-medium">Map</span>
+					</a>
+					<a
+						class="flex flex-col items-center gap-1 p-2 rounded-lg w-20 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+						href="#"
+					>
+						<span class="material-symbols-outlined">bookmark</span>
+						<span class="text-xs font-medium">Saved</span>
+					</a>
+					<a
+						class="flex flex-col items-center gap-1 p-2 rounded-lg w-20 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors"
+						href="#"
+					>
+						<span class="material-symbols-outlined">person</span>
+						<span class="text-xs font-medium">Profile</span>
+					</a>
+				</nav>
+			</footer>
+		</div>
+	</body>
+</html>

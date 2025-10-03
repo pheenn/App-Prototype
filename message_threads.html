@@ -1,227 +1,168 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <!-- STANDARDIZED HEAD START -->
-
-
 <!-- STANDARDIZED HEAD START -->
-
-
 <!-- STANDARDIZED HEAD START -->
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Standard Head</title>
-
-  <!-- Fonts: Plus Jakarta Sans (consistent) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" crossorigin href="https://fonts.gstatic.com/"/>
-  <link as="style"
-        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800"
-        onload="this.rel='stylesheet'"/>
-  <!-- Material Symbols (single consistent variant) -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        rel="stylesheet"/>
-
-  <!-- Tailwind (single config used everywhere) -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#13a4ec",
-            "background-light": "#f6f7f8",
-            "background-dark": "#101c22"
-          },
-          fontFamily: {
-            display: ["Plus Jakarta Sans", "sans-serif"]
-          },
-          borderRadius: {
-            DEFAULT: "0.5rem",
-            lg: "1rem",
-            xl: "1.5rem",
-            full: "9999px"
-          }
-        }
-      }
-    };
-  </script>
-
-  <!-- Standard base styles (apply same material symbol variable settings everywhere) -->
-  <style>
-    body { min-height: max(884px, 100dvh); }
-    /* Material Symbols consistent baseline */
-    .material-symbols-outlined {
-      font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
-      font-family: 'Material Symbols Outlined';
-      speak: none;
-      line-height: 1;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    /* Use this to switch to filled look where needed */
-    .material-symbols-outlined.filled {
-      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-  </style>
-</head>
-	<body class="bg-background-light dark:bg-background-dark font-display">
-		<div class="flex h-screen flex-col">
-			<header
-				class="sticky top-0 z-10 flex items-center justify-between border-b border-black/10 bg-background-light px-4 py-3 dark:border-white/10 dark:bg-background-dark"
-			>
-				<button
-					class="flex items-center justify-center text-black dark:text-white"
-				>
-					<span class="material-symbols-outlined">arrow_back</span>
-				</button>
-				<h1
-					class="flex-1 text-center text-lg font-bold text-black dark:text-white"
-				>
+<head><title>Standard Head</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="True" href="https://fonts.gstatic.com" rel="preconnect"/><link as_="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" onload="this.rel='stylesheet'" rel="preload"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: "#13a4ec",
+        "background-light": "#f6f7f8",
+        "background-dark": "#101c22",
+      },
+      fontFamily: {
+        display: ["Plus Jakarta Sans", "sans-serif"],
+      },
+      borderRadius: {
+        DEFAULT: "0.5rem",
+        lg: "1rem",
+        xl: "1.5rem",
+        full: "9999px",
+      },
+    },
+  },
+};
+</script><style>/* Material Symbols baseline */
+.material-symbols-outlined{
+  font-family:"Material Symbols Outlined";
+  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
+  line-height:1;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+</style></head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen flex-col">
+<header class="sticky top-0 z-10 flex items-center justify-between border-b border-black/10 bg-background-light px-4 py-3 dark:border-white/10 dark:bg-background-dark">
+<button class="flex items-center justify-center text-black dark:text-white">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="flex-1 text-center text-lg font-bold text-black dark:text-white">
 					Messages
 				</h1>
-				<div class="w-6"></div>
-			</header>
-			<main class="flex-1 overflow-y-auto">
-				<div class="divide-y divide-black/5 dark:divide-white/5">
-					<div
-						class="flex cursor-pointer items-start gap-4 p-4 transition-colors hover:bg-black/5 dark:hover:bg-white/5"
-					>
-						<div class="relative shrink-0">
-							<div
-								class="h-14 w-14 rounded-full bg-cover bg-center"
-								style="
+<div class="w-6"></div>
+</header>
+<main class="flex-1 overflow-y-auto">
+<div class="divide-y divide-black/5 dark:divide-white/5">
+<div class="flex cursor-pointer items-start gap-4 p-4 transition-colors hover:bg-black/5 dark:hover:bg-white/5">
+<div class="relative shrink-0">
+<div class="h-14 w-14 rounded-full bg-cover bg-center" style="
 									background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDwd2Bt9YzlO4I5eRCu7E1PWFEBjMgrMVfOhY-5ezr9uyqRwaZzLMaqjokKT3EfqmE56EqIi1q4-oaScQw4-7MXdWxdBo0MU_v8jOT_tprGSUmiPNm-c3pnhjnSs6IvpA5QyZL6uFpIrkVZfiQiZeAOZGQ7ZFh08E93zfGapZymiTAeIzTOgNNVc9nyCqvjXgNgs_UdsuPWe_2QKhhHgkhV_BK2S3ihs6bKlOcTKz-DoSOD2KX8sw5wVUTXkjtrpJy7n1eP4IhxkA');
-								"
-							></div>
-						</div>
-						<div class="flex-1">
-							<div class="flex items-baseline justify-between">
-								<p class="font-bold text-black dark:text-white">
+								"></div>
+</div>
+<div class="flex-1">
+<div class="flex items-baseline justify-between">
+<p class="font-bold text-black dark:text-white">
 									Ms. Evelyn
 								</p>
-								<p
-									class="text-xs text-gray-500 dark:text-gray-400"
-								>
+<p class="text-xs text-gray-500 dark:text-gray-400">
 									10:30 AM
 								</p>
-							</div>
-							<p
-								class="mt-1 line-clamp-2 text-sm text-gray-500 dark:text-gray-400"
-							>
+</div>
+<p class="mt-1 line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
 								Perfect! See you then.
 							</p>
-						</div>
-					</div>
-					<div
-						class="flex cursor-pointer items-start gap-4 p-4 transition-colors hover:bg-black/5 dark:hover:bg-white/5"
-					>
-						<div
-							class="h-14 w-14 shrink-0 rounded-full bg-cover bg-center"
-							style="
+</div>
+</div>
+<div class="flex cursor-pointer items-start gap-4 p-4 transition-colors hover:bg-black/5 dark:hover:bg-white/5">
+<div class="h-14 w-14 shrink-0 rounded-full bg-cover bg-center" style="
 								background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGUJcHnXSJhZB04PnWcU3bbTi22OW2zgRl8WZhSO1qIBaWIJwtQBV-zpSqxsdOoN8DkPPeOwdGbhLdzSu5-gFoVHwB02Tfc3-YZOEPpL_6rHTaMk8e72WwYfQuescuaRZ9pnN4J1ZvHdI9oNrkZb7kQp4CUUo2Xv4Y41uOqEzm9SDBeOQHsrjgCFKMtWCSZFGzYGRUIrDXnaxFja6N0OeHARBxDAFqjlwHNso9m47KPxry1JO2cd6mvJgX_wOvmQpkCvkOTbYgcA');
-							"
-						></div>
-						<div class="flex-1">
-							<div class="flex items-baseline justify-between">
-								<p class="text-black dark:text-white font-bold">
+							"></div>
+<div class="flex-1">
+<div class="flex items-baseline justify-between">
+<p class="text-black dark:text-white font-bold">
 									Room for Rent - Quiet Area
 								</p>
-								<p
-									class="text-xs text-gray-500 dark:text-gray-400"
-								>
+<p class="text-xs text-gray-500 dark:text-gray-400">
 									Yesterday
 								</p>
-							</div>
-							<p
-								class="mt-1 line-clamp-2 text-sm text-primary font-bold"
-							>
+</div>
+<p class="mt-1 line-clamp-2 text-sm text-primary font-bold">
 								Yes, the room is available. When would you like
 								to view it?
 							</p>
-						</div>
-					</div>
-					<div
-						class="flex cursor-pointer items-start gap-4 p-4 transition-colors hover:bg-black/5 dark:hover:bg-white/5"
-					>
-						<div
-							class="h-14 w-14 shrink-0 rounded-full bg-cover bg-center"
-							style="
+</div>
+</div>
+<div class="flex cursor-pointer items-start gap-4 p-4 transition-colors hover:bg-black/5 dark:hover:bg-white/5">
+<div class="h-14 w-14 shrink-0 rounded-full bg-cover bg-center" style="
 								background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuClhnbMjs7M2jxl3G8_UUajqquwB1HWzA5WI-GLUcNNx6P2o2vhan9JgBOrkJSPnD-71W6TouEfJ_S2GVIWCG0Gg2_K94QZUcAxzSPhMZaWLNZtkUjFYiNeYWwW3iI-JZ0mMEuKR46GJ0_SPflo0aqZSqoz-pH8KO1KlehHGebtutGvoZULhsl45uodc-0CKWBiwO9zZrVNHxjV-NRJqgMHO6tKocrDHA2M_P3UKPj93gQjYpZeEq-tGNC4TeMaYs51y_cXV9bZAw');
-							"
-						></div>
-						<div class="flex-1">
-							<div class="flex items-baseline justify-between">
-								<p class="text-black dark:text-white">
+							"></div>
+<div class="flex-1">
+<div class="flex items-baseline justify-between">
+<p class="text-black dark:text-white">
 									House for Rent - 3 Bedrooms
 								</p>
-								<p
-									class="text-xs text-gray-500 dark:text-gray-400"
-								>
+<p class="text-xs text-gray-500 dark:text-gray-400">
 									2 days ago
 								</p>
-							</div>
-							<p
-								class="mt-1 line-clamp-2 text-sm text-gray-500 dark:text-gray-400"
-							>
+</div>
+<p class="mt-1 line-clamp-2 text-sm text-gray-500 dark:text-gray-400">
 								I've sent you the address. Let me know when
 								you're close.
 							</p>
-						</div>
-					</div>
-				</div>
-			</main>
-			<footer
-				class="sticky bottom-0 border-t border-black/10 bg-background-light px-4 pb-3 pt-2 dark:border-white/10 dark:bg-background-dark"
-			>
-				<nav class="flex justify-around">
-					<a
-						class="flex flex-1 flex-col items-center gap-1 text-gray-500 transition-colors hover:text-primary dark:text-gray-400"
-						href="#"
-					>
-						<span class="material-symbols-outlined">home</span>
-						<p class="text-xs font-medium">Home</p>
-					</a>
-					<a
-						class="flex flex-1 flex-col items-center gap-1 text-gray-500 transition-colors hover:text-primary dark:text-gray-400"
-						href="#"
-					>
-						<span class="material-symbols-outlined">map</span>
-						<p class="text-xs font-medium">Map</p>
-					</a>
-					<a
-						class="flex flex-1 flex-col items-center gap-1 text-gray-500 transition-colors hover:text-primary dark:text-gray-400"
-						href="#"
-					>
-						<span class="material-symbols-outlined">bookmark</span>
-						<p class="text-xs font-medium">Saved</p>
-					</a>
-					<a
-						class="flex flex-1 flex-col items-center gap-1 text-primary"
-						href="#"
-					>
-						<span
-							class="material-symbols-outlined"
-							style="font-variation-settings: 'FILL' 1"
-							>chat_bubble</span
-						>
-						<p class="text-xs font-bold">Messages</p>
-					</a>
-					<a
-						class="flex flex-1 flex-col items-center gap-1 text-gray-500 transition-colors hover:text-primary dark:text-gray-400"
-						href="#"
-					>
-						<span class="material-symbols-outlined">person</span>
-						<p class="text-xs font-medium">Profile</p>
-					</a>
-				</nav>
-			</footer>
-		</div>
-	</body>
+</div>
+</div>
+</div>
+</main>
+<footer class="sticky bottom-0 border-t border-black/10 bg-background-light px-4 pb-3 pt-2 dark:border-white/10 dark:bg-background-dark">
+<nav class="flex justify-around">
+<a class="flex flex-1 flex-col items-center gap-1 text-gray-500 transition-colors hover:text-primary dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">home</span>
+<p class="text-xs font-medium">Home</p>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-gray-500 transition-colors hover:text-primary dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">map</span>
+<p class="text-xs font-medium">Map</p>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-gray-500 transition-colors hover:text-primary dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">bookmark</span>
+<p class="text-xs font-medium">Saved</p>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">chat_bubble</span>
+<p class="text-xs font-bold">Messages</p>
+</a>
+<a class="flex flex-1 flex-col items-center gap-1 text-gray-500 transition-colors hover:text-primary dark:text-gray-400" href="#">
+<span class="material-symbols-outlined">person</span>
+<p class="text-xs font-medium">Profile</p>
+</a>
+</nav>
+</footer>
+</div>
+<nav class="fixed bottom-0 inset-x-0 z-50 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur">
+<ul class="grid grid-cols-5 text-xs">
+<li>
+<a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="home" href="home.html">
+<span class="material-symbols-outlined text-[22px]">home</span>
+<span class="text-[10px] leading-none mt-1">Home</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="search" href="search_results.html">
+<span class="material-symbols-outlined text-[22px]">search</span>
+<span class="text-[10px] leading-none mt-1">Search</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="saved" href="saved.html">
+<span class="material-symbols-outlined text-[22px]">bookmark</span>
+<span class="text-[10px] leading-none mt-1">Saved</span>
+</a>
+</li>
+<li>
+<a aria-current="page" class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary text-primary" data-tab="messages" href="message_threads.html">
+<span class="material-symbols-outlined text-[22px]">chat</span>
+<span class="text-[10px] leading-none mt-1">Messages</span>
+</a>
+</li>
+<li>
+<a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="profile" href="profile.html">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-[10px] leading-none mt-1">Profile</span>
+</a>
+</li>
+</ul>
+</nav></body>
 </html>

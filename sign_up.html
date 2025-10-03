@@ -1,156 +1,216 @@
-<!DOCTYPE html>
+<!-- sign_up.html -->
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sign up</title>
 
-<!-- STANDARDIZED HEAD START -->
+		<!-- Plus Jakarta Sans -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" crossorigin href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
 
+		<!-- Material Symbols Outlined -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+			rel="stylesheet"
+		/>
 
-<!-- STANDARDIZED HEAD START -->
+		<!-- Tailwind -->
+		<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+		<script id="tailwind-config">
+			tailwind.config = {
+				darkMode: 'class',
+				theme: {
+					extend: {
+						colors: {
+							primary: '#13a4ec',
+							'background-light': '#f6f7f8',
+							'background-dark': '#101c22'
+						},
+						fontFamily: {
+							display: ['Plus Jakarta Sans', 'sans-serif']
+						},
+						borderRadius: {
+							DEFAULT: '0.5rem',
+							lg: '1rem',
+							xl: '1.5rem',
+							full: '9999px'
+						}
+					}
+				}
+			};
+		</script>
 
+		<style>
+			.material-symbols-outlined {
+				font-family: 'Material Symbols Outlined';
+				font-variation-settings:
+					'FILL' 0,
+					'wght' 400,
+					'GRAD' 0,
+					'opsz' 24;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			body {
+				min-height: 100dvh;
+			}
+		</style>
+	</head>
+	<body
+		class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200"
+	>
+		<main class="min-h-screen flex items-center justify-center px-6 py-12">
+			<div class="w-full max-w-md">
+				<div class="text-center mb-8">
+					<div
+						class="mx-auto h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4"
+					>
+						<span
+							class="material-symbols-outlined text-primary text-[28px]"
+							aria-hidden="true"
+							>person_add</span
+						>
+					</div>
+					<h1
+						class="text-2xl font-extrabold text-slate-900 dark:text-white"
+					>
+						Create your account
+					</h1>
+					<p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
+						Sign up to get started
+					</p>
+				</div>
 
-<!-- STANDARDIZED HEAD START -->
-<html>   
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Standard Head</title>
+				<form class="space-y-4" action="#" method="post" novalidate>
+					<div>
+						<label
+							class="block text-sm font-medium mb-1"
+							for="full_name"
+							>Full name</label
+						>
+						<div class="relative">
+							<span
+								class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+								>person</span
+							>
+							<input
+								id="full_name"
+								name="full_name"
+								type="text"
+								required
+								class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 pl-10 pr-3 py-3 outline-none ring-0 focus:border-primary"
+								placeholder="Juan Dela Cruz"
+							/>
+						</div>
+					</div>
 
-  <!-- Fonts: Plus Jakarta Sans (consistent) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" crossorigin href="https://fonts.gstatic.com/"/>
-  <link as="style"
-        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800"
-        onload="this.rel='stylesheet'"/>
-  <!-- Material Symbols (single consistent variant) -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        rel="stylesheet"/>
+					<div>
+						<label
+							class="block text-sm font-medium mb-1"
+							for="email"
+							>Email</label
+						>
+						<div class="relative">
+							<span
+								class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+								>mail</span
+							>
+							<input
+								id="email"
+								name="email"
+								type="email"
+								required
+								class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 pl-10 pr-3 py-3 outline-none ring-0 focus:border-primary"
+								placeholder="name@example.com"
+							/>
+						</div>
+					</div>
 
-  <!-- Tailwind (single config used everywhere) -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#13a4ec",
-            "background-light": "#f6f7f8",
-            "background-dark": "#101c22"
-          },
-          fontFamily: {
-            display: ["Plus Jakarta Sans", "sans-serif"]
-          },
-          borderRadius: {
-            DEFAULT: "0.5rem",
-            lg: "1rem",
-            xl: "1.5rem",
-            full: "9999px"
-          }
-        }
-      }
-    };
-  </script>
+					<div>
+						<label
+							class="block text-sm font-medium mb-1"
+							for="password"
+							>Password</label
+						>
+						<div class="relative">
+							<span
+								class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+								>lock</span
+							>
+							<input
+								id="password"
+								name="password"
+								type="password"
+								required
+								class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 pl-10 pr-10 py-3 outline-none ring-0 focus:border-primary"
+								placeholder="••••••••"
+							/>
+							<button
+								type="button"
+								class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+								aria-label="Toggle password"
+							>
+								<span class="material-symbols-outlined"
+									>visibility</span
+								>
+							</button>
+						</div>
+					</div>
 
-  <!-- Standard base styles (apply same material symbol variable settings everywhere) -->
-  <style>
-    body { min-height: max(884px, 100dvh); }
-    /* Material Symbols consistent baseline */
-    .material-symbols-outlined {
-      font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
-      font-family: 'Material Symbols Outlined';
-      speak: none;
-      line-height: 1;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    /* Use this to switch to filled look where needed */
-    .material-symbols-outlined.filled {
-      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-  </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
-<div class="flex h-full min-h-screen flex-col">
-<header class="flex justify-end p-4">
-<button class="flex h-12 w-12 items-center justify-center rounded-full bg-background-light dark:bg-background-dark text-gray-500 dark:text-gray-400 shadow-sm">
-<span class="material-symbols-outlined"> help </span>
-</button>
-</header>
-<main class="flex-grow px-6 py-4">
-<h1 class="text-3xl font-bold text-gray-900 dark:text-white">
-          Create Your Account
-        </h1>
-<form class="mt-8 space-y-6">
-<div>
-<label class="sr-only" for="full-name">Full Name</label>
-<input class="form-input w-full rounded-lg border-none bg-gray-100 dark:bg-gray-800 p-4 text-base placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-primary" id="full-name" name="full-name" placeholder="Full Name" required="" type="text"/>
-</div>
-<div>
-<label class="sr-only" for="email-address">Email Address</label>
-<input autocomplete="email" class="form-input w-full rounded-lg border-none bg-gray-100 dark:bg-gray-800 p-4 text-base placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-primary" id="email-address" name="email-address" placeholder="Email Address" required="" type="email"/>
-</div>
-<div class="relative">
-<label class="sr-only" for="password">Password</label>
-<input class="form-input w-full rounded-lg border-none bg-gray-100 dark:bg-gray-800 p-4 pr-12 text-base placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-primary" id="password" name="password" placeholder="Password" required="" type="password"/>
-<button class="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 dark:text-gray-500" type="button">
-<span class="material-symbols-outlined"> visibility </span>
-</button>
-</div>
-<div class="relative">
-<label class="sr-only" for="confirm-password">Confirm Password</label>
-<input class="form-input w-full rounded-lg border-none bg-gray-100 dark:bg-gray-800 p-4 pr-12 text-base placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-primary" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required="" type="password"/>
-<button class="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 dark:text-gray-500" type="button">
-<span class="material-symbols-outlined"> visibility </span>
-</button>
-</div>
-<div class="flex items-start">
-<div class="flex h-6 items-center">
-<input class="form-checkbox h-5 w-5 rounded border-gray-300 dark:border-gray-600 bg-gray-100 dark:bg-gray-800 text-primary focus:ring-primary" id="terms" name="terms" type="checkbox"/>
-</div>
-<div class="ml-3 text-sm">
-<p class="text-gray-600 dark:text-gray-400">
-                I agree to the
-                <a class="font-medium text-primary hover:text-primary/80" href="#">Terms of Service</a>
-                and
-                <a class="font-medium text-primary hover:text-primary/80" href="#">Privacy Policy</a>
-</p>
-</div>
-</div>
-<button class="w-full rounded-lg bg-primary py-4 text-center text-base font-bold text-white shadow-lg shadow-primary/30 transition-all hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark" type="submit">
-            Sign Up
-          </button>
-</form>
-<div class="relative my-6">
-<div aria-hidden="true" class="absolute inset-0 flex items-center">
-<div class="w-full border-t border-gray-300 dark:border-gray-700"></div>
-</div>
-<div class="relative flex justify-center">
-<span class="bg-background-light dark:bg-background-dark px-2 text-sm text-gray-500 dark:text-gray-400">OR</span>
-</div>
-</div>
-<div class="space-y-4">
-<button class="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 py-3 text-center text-sm font-medium text-gray-800 dark:text-white transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
-<svg class="h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M21.35 11.1H12.18V13.83H18.69C18.36 17.64 15.19 19.27 12.19 19.27C8.36 19.27 5.03 16.09 5.03 12.24C5.03 8.39 8.36 5.21 12.19 5.21C14.04 5.21 15.33 5.94 16.03 6.62L18.25 4.54C16.57 2.95 14.46 2 12.19 2C6.96 2 2.63 6.32 2.63 12.24C2.63 18.16 6.96 22.48 12.19 22.48C17.63 22.48 21.62 18.52 21.62 12.51C21.62 11.96 21.51 11.53 21.35 11.1Z" fill="#4285F4"></path>
-</svg>
-<span>Continue with Google</span>
-</button>
-<button class="flex w-full items-center justify-center gap-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 py-3 text-center text-sm font-medium text-gray-800 dark:text-white transition-colors hover:bg-gray-50 dark:hover:bg-gray-700">
-<svg class="h-6 w-6" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<path d="M12 2.039c-2.368 0-3.83.992-5.111 2.457C5.46 5.922 5.035 8.129 6.69 11.15c.677 1.233 1.637 2.466 2.872 2.466c1.173 0 1.602-.756 3.224-.756c1.622 0 1.95.756 3.225.756c1.235 0 2.194-1.233 2.872-2.466c1.116-2.023.753-3.69.135-5.071c-.88-1.95-2.34-3.197-4.225-3.197c-.33 0-.66.033-.984.066c-.324-.033-.654-.066-.984-.066zm2.443 14.86c-.739.014-1.48-.445-1.95-.916c-.524-.524-.969-1.267-1.449-1.267c-.48 0-.925.743-1.449 1.267c-.47.47-.962.915-1.95.915c-.244 0-1.29-.028-2.062-.915c-.863-.984-1.74-2.885-1.127-4.664c.739-2.194 2.4-3.693 4.192-3.693c.725 0 1.45.485 1.936.485c.485 0 .962-.485 1.874-.485c1.805 0 3.493 1.5 4.18 3.693c.613 1.78-.264 3.68-1.127 4.664c-.773.887-1.818.915-2.063.915z" fill="currentColor"></path>
-</svg>
-<span>Continue with Apple</span>
-</button>
-</div>
-</main>
-<footer class="p-6 text-center">
-<p class="text-sm text-gray-600 dark:text-gray-400">
-          Already have an account?
-          <a class="font-semibold text-primary hover:text-primary/80" href="#">Log In</a>
-</p>
-</footer>
-</div>
+					<div>
+						<label
+							class="block text-sm font-medium mb-1"
+							for="confirm_password"
+							>Confirm password</label
+						>
+						<div class="relative">
+							<span
+								class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+								>lock</span
+							>
+							<input
+								id="confirm_password"
+								name="confirm_password"
+								type="password"
+								required
+								class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 pl-10 pr-10 py-3 outline-none ring-0 focus:border-primary"
+								placeholder="••••••••"
+							/>
+							<button
+								type="button"
+								class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+								aria-label="Toggle password"
+							>
+								<span class="material-symbols-outlined"
+									>visibility</span
+								>
+							</button>
+						</div>
+					</div>
 
-</body></html>
+					<button
+						type="submit"
+						class="w-full bg-primary text-white font-bold rounded-lg py-3 hover:opacity-90 transition"
+					>
+						Create account
+					</button>
+				</form>
+
+				<p
+					class="text-sm text-center mt-6 text-slate-600 dark:text-slate-400"
+				>
+					Already have an account?
+					<a
+						class="font-semibold text-primary hover:opacity-90"
+						href="login.html"
+						>Log in</a
+					>
+				</p>
+			</div>
+		</main>
+	</body>
+</html>

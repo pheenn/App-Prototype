@@ -1,0 +1,24 @@
+<footer class="sticky bottom-0 border-t border-primary/10 bg-background-light/80 py-2 backdrop-blur-sm dark:border-primary/20 dark:bg-background-dark/80">
+  <nav class="flex justify-around">
+    <a class="flex flex-col items-center gap-1 text-primary" href="#">
+      <span class="material-symbols-outlined filled">home</span>
+      <p class="text-xs font-medium">Home</p>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-background-dark/60 dark:text-background-light/60" href="#">
+      <span class="material-symbols-outlined">map</span>
+      <p class="text-xs font-medium">Map</p>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-background-dark/60 dark:text-background-light/60" href="#">
+      <span class="material-symbols-outlined">bookmark</span>
+      <p class="text-xs font-medium">Saved</p>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-background-dark/60 dark:text-background-light/60" href="#">
+      <span class="material-symbols-outlined">mail</span>
+      <p class="text-xs font-medium">Messages</p>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-background-dark/60 dark:text-background-light/60" href="#">
+      <span class="material-symbols-outlined">person</span>
+      <p class="text-xs font-medium">Profile</p>
+    </a>
+  </nav>
+</footer>

@@ -1,47 +1,81 @@
 <!DOCTYPE html>
-<!-- STANDARDIZED HEAD START --><!-- STANDARDIZED HEAD START --><!-- STANDARDIZED HEAD START --><html>
-<head><title>Standard Head</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="True" href="https://fonts.gstatic.com" rel="preconnect"/><link as_="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" onload="this.rel='stylesheet'" rel="preload"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        primary: "#13a4ec",
-        "background-light": "#f6f7f8",
-        "background-dark": "#101c22",
-      },
-      fontFamily: {
-        display: ["Plus Jakarta Sans", "sans-serif"],
-      },
-      borderRadius: {
-        DEFAULT: "0.5rem",
-        lg: "1rem",
-        xl: "1.5rem",
-        full: "9999px",
-      },
-    },
-  },
-};
-</script><style>/* Material Symbols baseline */
-.material-symbols-outlined{
-  font-family:"Material Symbols Outlined";
-  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
-  line-height:1;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-</style></head>
-<body class="bg-background-light dark:bg-background-dark font-display"><header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-800">
-<div class="h-14 flex items-center gap-3 px-4">
-<a aria-label="Back" class="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200" href="javascript:history.back()">
-<span aria-hidden="true" class="material-symbols-outlined text-[24px]">arrow_back</span>
-</a>
-<h1 class="text-base font-bold tracking-wide truncate">Ms. Evelyn</h1>
-</div>
-</header>
+
+<!-- STANDARDIZED HEAD START -->
+
+
+<!-- STANDARDIZED HEAD START -->
+
+
+<!-- STANDARDIZED HEAD START -->
+<html>   
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Standard Head</title>
+
+  <!-- Fonts: Plus Jakarta Sans (consistent) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" crossorigin href="https://fonts.gstatic.com/"/>
+  <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800"
+        onload="this.rel='stylesheet'"/>
+  <!-- Material Symbols (single consistent variant) -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet"/>
+
+  <!-- Tailwind (single config used everywhere) -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#13a4ec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22"
+          },
+          fontFamily: {
+            display: ["Plus Jakarta Sans", "sans-serif"]
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "1rem",
+            xl: "1.5rem",
+            full: "9999px"
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Standard base styles (apply same material symbol variable settings everywhere) -->
+  <style>
+    body { min-height: max(884px, 100dvh); }
+    /* Material Symbols consistent baseline */
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24;
+      font-family: 'Material Symbols Outlined';
+      speak: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Use this to switch to filled look where needed */
+    .material-symbols-outlined.filled {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
 <div class="relative flex h-screen w-full flex-col">
 <header class="sticky top-0 z-10 flex h-16 shrink-0 items-center justify-between border-b border-b-primary/20 bg-background-light px-4 dark:bg-background-dark">
 <button class="text-slate-900 dark:text-white">
-<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path></svg>
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path></svg>
 </button>
 <h1 class="text-lg font-bold text-slate-900 dark:text-white">Ms. Evelyn</h1>
 <div class="w-6"></div>
@@ -79,14 +113,15 @@
 </main>
 <footer class="sticky bottom-0 flex items-center gap-2 border-t border-t-primary/20 bg-background-light p-3 dark:bg-background-dark">
 <button class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-slate-500 hover:bg-primary/10 hover:text-primary dark:text-slate-400 dark:hover:bg-primary/20">
-<svg fill="currentColor" height="24px" viewbox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"></path></svg>
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"></path></svg>
 </button>
 <div class="relative flex-1">
 <input class="w-full rounded-full border-primary/20 bg-background-light py-2 pl-4 pr-12 text-slate-900 placeholder:text-slate-500 focus:border-primary focus:ring-primary dark:border-primary/30 dark:bg-background-dark dark:text-white dark:placeholder:text-slate-400 dark:focus:border-primary" placeholder="Type a message..." type="text"/>
 </div>
 <button class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white">
-<svg fill="currentColor" height="24" viewbox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M221.66,133.66l-40,40a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L170.34,93.66a8,8,0,0,1,11.32-11.32l40,40A8,8,0,0,1,221.66,133.66Z"></path></svg>
+<svg fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M221.66,133.66l-40,40a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L170.34,93.66a8,8,0,0,1,11.32-11.32l40,40A8,8,0,0,1,221.66,133.66Z"></path></svg>
 </button>
 </footer>
 </div>
+
 </body></html>

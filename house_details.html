@@ -1,256 +1,593 @@
-<!DOCTYPE html>
+<!doctype html>
+<!-- STANDARDIZED HEAD START --><!-- STANDARDIZED HEAD START --><!-- STANDARDIZED HEAD START -->
+<html>
+	<head>
+		<title>Standard Head</title>
+		<link href="https://fonts.googleapis.com" rel="preconnect" />
+		<link
+			crossorigin="True"
+			href="https://fonts.gstatic.com"
+			rel="preconnect"
+		/>
+		<link
+			as_="style"
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap"
+			onload="this.rel='stylesheet'"
+			rel="preload"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+			rel="stylesheet"
+		/>
+		<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+		<script id="tailwind-config">
+			tailwind.config = {
+				darkMode: 'class',
+				theme: {
+					extend: {
+						colors: {
+							primary: '#13a4ec',
+							'background-light': '#f6f7f8',
+							'background-dark': '#101c22'
+						},
+						fontFamily: {
+							display: ['Plus Jakarta Sans', 'sans-serif']
+						},
+						borderRadius: {
+							DEFAULT: '0.5rem',
+							lg: '1rem',
+							xl: '1.5rem',
+							full: '9999px'
+						}
+					}
+				}
+			};
+		</script>
+		<style>
+			/* Material Symbols baseline */
+			.material-symbols-outlined {
+				font-family: 'Material Symbols Outlined';
+				font-variation-settings:
+					'FILL' 0,
+					'wght' 400,
+					'GRAD' 0,
+					'opsz' 24;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+		</style>
+	</head>
+	<body
+		class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200"
+	>
+		<div
+			class="relative flex h-auto min-h-screen w-full flex-col justify-between overflow-x-hidden"
+		>
+			<div>
+				<header
+					class="sticky top-0 z-10 flex items-center justify-between bg-background-light/80 p-4 pb-2 backdrop-blur-sm dark:bg-background-dark/80"
+				>
+					<button
+						class="flex size-10 items-center justify-center rounded-full text-gray-800 dark:text-gray-200"
+					>
+					  <a class="" href="home.html">						<span class="material-symbols-outlined">
+							arrow_back
+						</span></a>
 
-<!-- STANDARDIZED HEAD START -->
-
-
-<!-- STANDARDIZED HEAD START -->
-
-
-<!-- STANDARDIZED HEAD START -->
-<html>   
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Standard Head</title>
-
-  <!-- Fonts: Plus Jakarta Sans (consistent) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" crossorigin href="https://fonts.gstatic.com/"/>
-  <link as="style"
-        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800"
-        onload="this.rel='stylesheet'"/>
-  <!-- Material Symbols (single consistent variant) -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        rel="stylesheet"/>
-
-  <!-- Tailwind (single config used everywhere) -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#13a4ec",
-            "background-light": "#f6f7f8",
-            "background-dark": "#101c22"
-          },
-          fontFamily: {
-            display: ["Plus Jakarta Sans", "sans-serif"]
-          },
-          borderRadius: {
-            DEFAULT: "0.5rem",
-            lg: "1rem",
-            xl: "1.5rem",
-            full: "9999px"
-          }
-        }
-      }
-    };
-  </script>
-
-  <!-- Standard base styles (apply same material symbol variable settings everywhere) -->
-  <style>
-    body { min-height: max(884px, 100dvh); }
-    /* Material Symbols consistent baseline */
-    .material-symbols-outlined {
-      font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
-      font-family: 'Material Symbols Outlined';
-      speak: none;
-      line-height: 1;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    /* Use this to switch to filled look where needed */
-    .material-symbols-outlined.filled {
-      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-  </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
-<div class="relative flex h-auto min-h-screen w-full flex-col justify-between overflow-x-hidden">
-<div>
-<header class="sticky top-0 z-10 flex items-center justify-between bg-background-light/80 p-4 pb-2 backdrop-blur-sm dark:bg-background-dark/80">
-<button class="flex size-10 items-center justify-center rounded-full text-gray-800 dark:text-gray-200">
-<span class="material-symbols-outlined"> arrow_back </span>
-</button>
-<div class="flex items-center gap-2">
-<button class="flex size-10 items-center justify-center rounded-full text-gray-800 dark:text-gray-200">
-<span class="material-symbols-outlined"> bookmark </span>
-</button>
-<button class="flex size-10 items-center justify-center rounded-full text-gray-800 dark:text-gray-200">
-<span class="material-symbols-outlined"> share </span>
-</button>
-</div>
-</header>
-<main class="pb-40">
-<div class="p-4">
-<div class="relative flex min-h-[250px] flex-col justify-end overflow-hidden rounded-xl bg-cover bg-center" style='background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 40%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBWA4q0Zk3BUWG2wpp5fjeXOnFUfAmTdNCOs2iFi6rWqu9lWxl6FmoT3rPEvZiyq_fb3yy-8omoK1Ocx1FCmhksuJeJTVQaLJI6rh1Vs9IDm-aSkeZRnTIxPpL_VQX5VF6cgPXyPCBNEDQsNSrP8xwv7gSP4DpdShkdNjM61Xy-VJXvgr6D8zNwPTCG2Tkruj_prV56GsPuUtag1aBDC4ur6LXnqOpKJzMAxGtC9MSFCJwl-jJqPsWPUmYSQp_BFvW8ittOudNlFQ");'>
-<div class="flex justify-center gap-2 p-4">
-<div class="h-2 w-6 rounded-full bg-white"></div>
-<div class="h-2 w-2 rounded-full bg-white/50"></div>
-<div class="h-2 w-2 rounded-full bg-white/50"></div>
-<div class="h-2 w-2 rounded-full bg-white/50"></div>
-<div class="h-2 w-2 rounded-full bg-white/50"></div>
-</div>
-</div>
-</div>
-<div class="px-4">
-<h1 class="text-2xl font-bold text-gray-900 dark:text-white">Cozy Student Boarding House</h1>
-<div class="mt-2 flex items-center gap-2 text-gray-600 dark:text-gray-400">
-<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;"> star </span>
-<span class="font-medium">4.5</span>
-<span class="text-gray-400 dark:text-gray-600">·</span>
-<span class="font-medium">23 reviews</span>
-<span class="text-gray-400 dark:text-gray-600">·</span>
-<span class="font-medium">Odiongan</span>
-</div>
-<p class="mt-4 text-gray-600 dark:text-gray-300"> This boarding house offers a safe and comfortable living environment for students, with easy access to the university and local amenities. It's known for its friendly atmosphere and well-maintained facilities. </p>
-</div>
-<div class="mt-6 border-t border-gray-200 dark:border-gray-800"></div>
-<div class="px-4 pt-6">
-<h3 class="text-xl font-bold text-gray-900 dark:text-white">Amenities</h3>
-<div class="mt-4 grid grid-cols-2 gap-4">
-<div class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark">
-<span class="material-symbols-outlined text-primary"> wifi </span>
-<h2 class="font-medium text-gray-700 dark:text-gray-300">High-Speed Internet</h2>
-</div>
-<div class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark">
-<span class="material-symbols-outlined text-primary"> bed </span>
-<h2 class="font-medium text-gray-700 dark:text-gray-300">Comfortable Bed</h2>
-</div>
-<div class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark">
-<span class="material-symbols-outlined text-primary"> desktop_windows </span>
-<h2 class="font-medium text-gray-700 dark:text-gray-300">Study Desk</h2>
-</div>
-<div class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark">
-<span class="material-symbols-outlined text-primary"> chair </span>
-<h2 class="font-medium text-gray-700 dark:text-gray-300">Ergonomic Chair</h2>
-</div>
-<div class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark">
-<span class="material-symbols-outlined text-primary"> light </span>
-<h2 class="font-medium text-gray-700 dark:text-gray-300">Study Lamp</h2>
-</div>
-<div class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark">
-<span class="material-symbols-outlined text-primary"> lock </span>
-<h2 class="font-medium text-gray-700 dark:text-gray-300">Secure Lock</h2>
-</div>
-</div>
-</div>
-<div class="mt-6 border-t border-gray-200 dark:border-gray-800"></div>
-<div class="px-4 pt-6">
-<h3 class="text-xl font-bold text-gray-900 dark:text-white">Safety &amp; Verification</h3>
-<div class="mt-4 grid grid-cols-2 gap-4">
-<div class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark">
-<span class="material-symbols-outlined text-primary"> verified_user </span>
-<h2 class="font-medium text-gray-700 dark:text-gray-300">Verified Safe</h2>
-</div>
-<div class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark">
-<span class="material-symbols-outlined text-primary"> photo_camera </span>
-<h2 class="font-medium text-gray-700 dark:text-gray-300">CCTV Surveillance</h2>
-</div>
-<div class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark">
-<span class="material-symbols-outlined text-primary"> local_fire_department </span>
-<h2 class="font-medium text-gray-700 dark:text-gray-300">Fire Safety</h2>
-</div>
-<div class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark">
-<span class="material-symbols-outlined text-primary"> key </span>
-<h2 class="font-medium text-gray-700 dark:text-gray-300">Secure Access</h2>
-</div>
-</div>
-</div>
-<div class="mt-6 border-t border-gray-200 dark:border-gray-800"></div>
-<div class="px-4 pt-6">
-<h3 class="text-xl font-bold text-gray-900 dark:text-white">Reviews</h3>
-<div class="mt-4 space-y-6">
-<div class="flex flex-col gap-3">
-<div class="flex items-center gap-3">
-<div class="size-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAzrcCDxKs9-XOW1qZDTKkY4n9bEjcQRkkO067f-7Hjjv1FvmkYM3OniPiYRpCI621NADY25dTGsc2M23wIQbJqiC5ldFXPfDV0y7kr8C5_tdd1b0VkN_HneYXgvWbWb6Q5zP6LtBCuD59MXnwGZ1QQtz8-1qDsPsO6pjskZGQaKHGxwFu5fai93ZS8_SGcnUM1ww7U6OlVFJAmclOG7m9YDxtC4uYivXJH4qc6sM9UpWEejzsaGcaZXwAg2a4rROjfOAWBDmWH5g");'></div>
-<div class="flex-1">
-<p class="font-semibold text-gray-800 dark:text-gray-200">Sophia Reyes</p>
-<p class="text-sm text-gray-500 dark:text-gray-400">2 weeks ago</p>
-</div>
-</div>
-<div class="flex">
-<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;"> star </span>
-<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;"> star </span>
-<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;"> star </span>
-<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;"> star </span>
-<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;"> star </span>
-</div>
-<p class="text-gray-600 dark:text-gray-300">"I've had a great experience living here. The house is clean, safe, and the landlord is very responsive to any issues."</p>
-</div>
-<div class="flex flex-col gap-3">
-<div class="flex items-center gap-3">
-<div class="size-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDk9oLFc4lM5n9QCeK3c-j2gSD-cSWeZdaZi9hU9aVBWDtEYGcUQux7qIAAq3kxvIxFhEiNkec7INl1LieS4xnZiSeCL4iSJU2VkOglXI6nXE9GMF7nPUgVo6sRqxSS5S1exZSwlDeIv6Yaz4Gf-gaAxivGQuWRIMaxDoavKFk7NUIyBa5n45-T-IRV1IVwJHnNoEUJn9TwqUEqs6YexiB-6xZ9cxiD02cH6NxniJmYHfaaOglXwGpw6sq-FoltDC1CbDb7OiMBtw");'></div>
-<div class="flex-1">
-<p class="font-semibold text-gray-800 dark:text-gray-200">Ethan Cruz</p>
-<p class="text-sm text-gray-500 dark:text-gray-400">1 month ago</p>
-</div>
-</div>
-<div class="flex">
-<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;"> star </span>
-<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;"> star </span>
-<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;"> star </span>
-<span class="material-symbols-outlined text-primary" style="font-size: 20px; font-variation-settings: 'FILL' 1;"> star </span>
-<span class="material-symbols-outlined text-gray-300 dark:text-gray-600" style="font-size: 20px;"> star </span>
-</div>
-<p class="text-gray-600 dark:text-gray-300">"The location is perfect for students, and the amenities are well-maintained. I feel very secure here."</p>
-</div>
-</div>
-</div>
-<div class="mt-6 border-t border-gray-200 dark:border-gray-800"></div>
-<div class="px-4 pt-6">
-<h3 class="text-xl font-bold text-gray-900 dark:text-white">Contact</h3>
-<div class="mt-4 flex items-center gap-4">
-<div class="size-14 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCDcxszWzl0fRuPhGUV3Q_Ax4Zqqtz0mQGP2A1LwaJPgU_qgPK6sa4HEr3auUxLMLySrhEUqk778arCIX_iqR4R3DorhjpKoXKR_H3qFMjIXTVd36dwffUci1RZsdNi58-OoIRoTyJW19BtISpfMfYoMC3CmAbHtGhg4O9HX6DL9c3hDOsmi60h6wH4LlcUkHldqFFWZMMjN2nRbowpxGoUzaCjwtCxvBTYyoXUcuV03LC3KuinXWgmvmRXbkPecdV1uPj8iiUBDA");'></div>
-<div class="flex-1">
-<p class="font-semibold text-gray-800 dark:text-gray-200">Ms. Isabella Santos</p>
-<p class="text-gray-500 dark:text-gray-400">Landlord</p>
-</div>
-<button class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary dark:text-primary">
-<span class="material-symbols-outlined"> call </span>
-</button>
-</div>
-</div>
-</main>
-</div>
-<div class="fixed bottom-0 left-0 right-0 border-t border-gray-200 bg-background-light/95 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-background-dark/95">
-<div class="flex items-center justify-between">
-<div class="flex flex-col">
-<span class="text-xl font-bold text-gray-900 dark:text-white">₱3,500 <span class="text-base font-normal text-gray-500 dark:text-gray-400">/ month</span></span>
-</div>
-<button class="rounded-lg bg-primary px-6 py-3 text-white">Book a Visit</button>
-</div>
-<footer class="mt-4">
-<div class="flex items-center justify-around">
-<a class="flex flex-col items-center gap-1 p-2 text-primary" href="#">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1"> home </span>
-<span class="text-xs font-bold">Home</span>
-</a>
-<a class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400" href="#">
-<span class="material-symbols-outlined"> map </span>
-<span class="text-xs">Map</span>
-</a>
-<a class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400" href="#">
-<span class="material-symbols-outlined"> bookmark </span>
-<span class="text-xs">Saved</span>
-</a>
-<a class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400" href="#">
-<span class="material-symbols-outlined"> chat_bubble </span>
-<span class="text-xs">Messages</span>
-</a>
-<a class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400" href="#">
-<span class="material-symbols-outlined"> person </span>
-<span class="text-xs">Profile</span>
-</a>
-</div>
-</footer>
-</div>
-</div>
-
-</body></html>
+					</button>
+					<div class="flex items-center gap-2">
+						<button
+							class="flex size-10 items-center justify-center rounded-full text-gray-800 dark:text-gray-200"
+						>
+							<span class="material-symbols-outlined">
+								bookmark
+							</span>
+						</button>
+						<button
+							class="flex size-10 items-center justify-center rounded-full text-gray-800 dark:text-gray-200"
+						>
+							<span class="material-symbols-outlined">
+								share
+							</span>
+						</button>
+					</div>
+				</header>
+				<main class="pb-40">
+					<div class="p-4">
+						<div
+							class="relative flex min-h-[250px] flex-col justify-end overflow-hidden rounded-xl bg-cover bg-center"
+							style="
+								background-image: linear-gradient(
+										0deg,
+										rgba(0, 0, 0, 0.4) 0%,
+										rgba(0, 0, 0, 0) 40%
+									),
+									url('https://lh3.googleusercontent.com/aida-public/AB6AXuBWA4q0Zk3BUWG2wpp5fjeXOnFUfAmTdNCOs2iFi6rWqu9lWxl6FmoT3rPEvZiyq_fb3yy-8omoK1Ocx1FCmhksuJeJTVQaLJI6rh1Vs9IDm-aSkeZRnTIxPpL_VQX5VF6cgPXyPCBNEDQsNSrP8xwv7gSP4DpdShkdNjM61Xy-VJXvgr6D8zNwPTCG2Tkruj_prV56GsPuUtag1aBDC4ur6LXnqOpKJzMAxGtC9MSFCJwl-jJqPsWPUmYSQp_BFvW8ittOudNlFQ');
+							"
+						>
+							<div class="flex justify-center gap-2 p-4">
+								<div
+									class="h-2 w-6 rounded-full bg-white"
+								></div>
+								<div
+									class="h-2 w-2 rounded-full bg-white/50"
+								></div>
+								<div
+									class="h-2 w-2 rounded-full bg-white/50"
+								></div>
+								<div
+									class="h-2 w-2 rounded-full bg-white/50"
+								></div>
+								<div
+									class="h-2 w-2 rounded-full bg-white/50"
+								></div>
+							</div>
+						</div>
+					</div>
+					<div class="px-4">
+						<h1
+							class="text-2xl font-bold text-gray-900 dark:text-white"
+						>
+							Cozy Student Boarding House
+						</h1>
+						<div
+							class="mt-2 flex items-center gap-2 text-gray-600 dark:text-gray-400"
+						>
+							<span
+								class="material-symbols-outlined text-primary"
+								style="
+									font-size: 20px;
+									font-variation-settings: 'FILL' 1;
+								"
+							>
+								star
+							</span>
+							<span class="font-medium">4.5</span>
+							<span class="text-gray-400 dark:text-gray-600"
+								>·</span
+							>
+							<span class="font-medium">23 reviews</span>
+							<span class="text-gray-400 dark:text-gray-600"
+								>·</span
+							>
+							<span class="font-medium">Odiongan</span>
+						</div>
+						<p class="mt-4 text-gray-600 dark:text-gray-300">
+							This boarding house offers a safe and comfortable
+							living environment for students, with easy access to
+							the university and local amenities. It's known for
+							its friendly atmosphere and well-maintained
+							facilities.
+						</p>
+					</div>
+					<div
+						class="mt-6 border-t border-gray-200 dark:border-gray-800"
+					></div>
+					<div class="px-4 pt-6">
+						<h3
+							class="text-xl font-bold text-gray-900 dark:text-white"
+						>
+							Amenities
+						</h3>
+						<div class="mt-4 grid grid-cols-2 gap-4">
+							<div
+								class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark"
+							>
+								<span
+									class="material-symbols-outlined text-primary"
+								>
+									wifi
+								</span>
+								<h2
+									class="font-medium text-gray-700 dark:text-gray-300"
+								>
+									High-Speed Internet
+								</h2>
+							</div>
+							<div
+								class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark"
+							>
+								<span
+									class="material-symbols-outlined text-primary"
+								>
+									bed
+								</span>
+								<h2
+									class="font-medium text-gray-700 dark:text-gray-300"
+								>
+									Comfortable Bed
+								</h2>
+							</div>
+							<div
+								class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark"
+							>
+								<span
+									class="material-symbols-outlined text-primary"
+								>
+									desktop_windows
+								</span>
+								<h2
+									class="font-medium text-gray-700 dark:text-gray-300"
+								>
+									Study Desk
+								</h2>
+							</div>
+							<div
+								class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark"
+							>
+								<span
+									class="material-symbols-outlined text-primary"
+								>
+									chair
+								</span>
+								<h2
+									class="font-medium text-gray-700 dark:text-gray-300"
+								>
+									Ergonomic Chair
+								</h2>
+							</div>
+							<div
+								class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark"
+							>
+								<span
+									class="material-symbols-outlined text-primary"
+								>
+									light
+								</span>
+								<h2
+									class="font-medium text-gray-700 dark:text-gray-300"
+								>
+									Study Lamp
+								</h2>
+							</div>
+							<div
+								class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark"
+							>
+								<span
+									class="material-symbols-outlined text-primary"
+								>
+									lock
+								</span>
+								<h2
+									class="font-medium text-gray-700 dark:text-gray-300"
+								>
+									Secure Lock
+								</h2>
+							</div>
+						</div>
+					</div>
+					<div
+						class="mt-6 border-t border-gray-200 dark:border-gray-800"
+					></div>
+					<div class="px-4 pt-6">
+						<h3
+							class="text-xl font-bold text-gray-900 dark:text-white"
+						>
+							Safety &amp; Verification
+						</h3>
+						<div class="mt-4 grid grid-cols-2 gap-4">
+							<div
+								class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark"
+							>
+								<span
+									class="material-symbols-outlined text-primary"
+								>
+									verified_user
+								</span>
+								<h2
+									class="font-medium text-gray-700 dark:text-gray-300"
+								>
+									Verified Safe
+								</h2>
+							</div>
+							<div
+								class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark"
+							>
+								<span
+									class="material-symbols-outlined text-primary"
+								>
+									photo_camera
+								</span>
+								<h2
+									class="font-medium text-gray-700 dark:text-gray-300"
+								>
+									CCTV Surveillance
+								</h2>
+							</div>
+							<div
+								class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark"
+							>
+								<span
+									class="material-symbols-outlined text-primary"
+								>
+									local_fire_department
+								</span>
+								<h2
+									class="font-medium text-gray-700 dark:text-gray-300"
+								>
+									Fire Safety
+								</h2>
+							</div>
+							<div
+								class="flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-background-dark"
+							>
+								<span
+									class="material-symbols-outlined text-primary"
+								>
+									key
+								</span>
+								<h2
+									class="font-medium text-gray-700 dark:text-gray-300"
+								>
+									Secure Access
+								</h2>
+							</div>
+						</div>
+					</div>
+					<div
+						class="mt-6 border-t border-gray-200 dark:border-gray-800"
+					></div>
+					<div class="px-4 pt-6">
+						<h3
+							class="text-xl font-bold text-gray-900 dark:text-white"
+						>
+							Reviews
+						</h3>
+						<div class="mt-4 space-y-6">
+							<div class="flex flex-col gap-3">
+								<div class="flex items-center gap-3">
+									<div
+										class="size-10 rounded-full bg-cover bg-center"
+										style="
+											background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAzrcCDxKs9-XOW1qZDTKkY4n9bEjcQRkkO067f-7Hjjv1FvmkYM3OniPiYRpCI621NADY25dTGsc2M23wIQbJqiC5ldFXPfDV0y7kr8C5_tdd1b0VkN_HneYXgvWbWb6Q5zP6LtBCuD59MXnwGZ1QQtz8-1qDsPsO6pjskZGQaKHGxwFu5fai93ZS8_SGcnUM1ww7U6OlVFJAmclOG7m9YDxtC4uYivXJH4qc6sM9UpWEejzsaGcaZXwAg2a4rROjfOAWBDmWH5g');
+										"
+									></div>
+									<div class="flex-1">
+										<p
+											class="font-semibold text-gray-800 dark:text-gray-200"
+										>
+											Sophia Reyes
+										</p>
+										<p
+											class="text-sm text-gray-500 dark:text-gray-400"
+										>
+											2 weeks ago
+										</p>
+									</div>
+								</div>
+								<div class="flex">
+									<span
+										class="material-symbols-outlined text-primary"
+										style="
+											font-size: 20px;
+											font-variation-settings: 'FILL' 1;
+										"
+									>
+										star
+									</span>
+									<span
+										class="material-symbols-outlined text-primary"
+										style="
+											font-size: 20px;
+											font-variation-settings: 'FILL' 1;
+										"
+									>
+										star
+									</span>
+									<span
+										class="material-symbols-outlined text-primary"
+										style="
+											font-size: 20px;
+											font-variation-settings: 'FILL' 1;
+										"
+									>
+										star
+									</span>
+									<span
+										class="material-symbols-outlined text-primary"
+										style="
+											font-size: 20px;
+											font-variation-settings: 'FILL' 1;
+										"
+									>
+										star
+									</span>
+									<span
+										class="material-symbols-outlined text-primary"
+										style="
+											font-size: 20px;
+											font-variation-settings: 'FILL' 1;
+										"
+									>
+										star
+									</span>
+								</div>
+								<p class="text-gray-600 dark:text-gray-300">
+									"I've had a great experience living here.
+									The house is clean, safe, and the landlord
+									is very responsive to any issues."
+								</p>
+							</div>
+							<div class="flex flex-col gap-3">
+								<div class="flex items-center gap-3">
+									<div
+										class="size-10 rounded-full bg-cover bg-center"
+										style="
+											background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDk9oLFc4lM5n9QCeK3c-j2gSD-cSWeZdaZi9hU9aVBWDtEYGcUQux7qIAAq3kxvIxFhEiNkec7INl1LieS4xnZiSeCL4iSJU2VkOglXI6nXE9GMF7nPUgVo6sRqxSS5S1exZSwlDeIv6Yaz4Gf-gaAxivGQuWRIMaxDoavKFk7NUIyBa5n45-T-IRV1IVwJHnNoEUJn9TwqUEqs6YexiB-6xZ9cxiD02cH6NxniJmYHfaaOglXwGpw6sq-FoltDC1CbDb7OiMBtw');
+										"
+									></div>
+									<div class="flex-1">
+										<p
+											class="font-semibold text-gray-800 dark:text-gray-200"
+										>
+											Ethan Cruz
+										</p>
+										<p
+											class="text-sm text-gray-500 dark:text-gray-400"
+										>
+											1 month ago
+										</p>
+									</div>
+								</div>
+								<div class="flex">
+									<span
+										class="material-symbols-outlined text-primary"
+										style="
+											font-size: 20px;
+											font-variation-settings: 'FILL' 1;
+										"
+									>
+										star
+									</span>
+									<span
+										class="material-symbols-outlined text-primary"
+										style="
+											font-size: 20px;
+											font-variation-settings: 'FILL' 1;
+										"
+									>
+										star
+									</span>
+									<span
+										class="material-symbols-outlined text-primary"
+										style="
+											font-size: 20px;
+											font-variation-settings: 'FILL' 1;
+										"
+									>
+										star
+									</span>
+									<span
+										class="material-symbols-outlined text-primary"
+										style="
+											font-size: 20px;
+											font-variation-settings: 'FILL' 1;
+										"
+									>
+										star
+									</span>
+									<span
+										class="material-symbols-outlined text-gray-300 dark:text-gray-600"
+										style="font-size: 20px"
+									>
+										star
+									</span>
+								</div>
+								<p class="text-gray-600 dark:text-gray-300">
+									"The location is perfect for students, and
+									the amenities are well-maintained. I feel
+									very secure here."
+								</p>
+							</div>
+						</div>
+					</div>
+					<div
+						class="mt-6 border-t border-gray-200 dark:border-gray-800"
+					></div>
+					<div class="px-4 pt-6">
+						<h3
+							class="text-xl font-bold text-gray-900 dark:text-white"
+						>
+							Contact
+						</h3>
+						<div class="mt-4 flex items-center gap-4">
+							<div
+								class="size-14 rounded-full bg-cover bg-center"
+								style="
+									background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCDcxszWzl0fRuPhGUV3Q_Ax4Zqqtz0mQGP2A1LwaJPgU_qgPK6sa4HEr3auUxLMLySrhEUqk778arCIX_iqR4R3DorhjpKoXKR_H3qFMjIXTVd36dwffUci1RZsdNi58-OoIRoTyJW19BtISpfMfYoMC3CmAbHtGhg4O9HX6DL9c3hDOsmi60h6wH4LlcUkHldqFFWZMMjN2nRbowpxGoUzaCjwtCxvBTYyoXUcuV03LC3KuinXWgmvmRXbkPecdV1uPj8iiUBDA');
+								"
+							></div>
+							<div class="flex-1">
+								<p
+									class="font-semibold text-gray-800 dark:text-gray-200"
+								>
+									Ms. Isabella Santos
+								</p>
+								<p class="text-gray-500 dark:text-gray-400">
+									Landlord
+								</p>
+							</div>
+							<button
+								class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary dark:text-primary"
+							>
+								<span class="material-symbols-outlined">
+									call
+								</span>
+							</button>
+						</div>
+					</div>
+				</main>
+			</div>
+			<div
+				class="fixed bottom-0 left-0 right-0 border-t border-gray-200 bg-background-light/95 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-background-dark/95"
+			>
+				<div class="flex items-center justify-between">
+					<div class="flex flex-col">
+						<span
+							class="text-xl font-bold text-gray-900 dark:text-white"
+							>₱3,500
+							<span
+								class="text-base font-normal text-gray-500 dark:text-gray-400"
+								>/ month</span
+							></span
+						>
+					</div>
+					<button class="rounded-lg bg-primary px-6 py-3 text-white">
+						Book a Visit
+					</button>
+				</div>
+				<footer class="mt-4">
+					<div class="flex items-center justify-around">
+						<a
+							class="flex flex-col items-center gap-1 p-2 text-primary"
+							href="#"
+						>
+							<span
+								class="material-symbols-outlined"
+								style="font-variation-settings: 'FILL' 1"
+							>
+								home
+							</span>
+							<span class="text-xs font-bold">Home</span>
+						</a>
+						<a
+							class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400"
+							href="#"
+						>
+							<span class="material-symbols-outlined"> map </span>
+							<span class="text-xs">Map</span>
+						</a>
+						<a
+							class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400"
+							href="#"
+						>
+							<span class="material-symbols-outlined">
+								bookmark
+							</span>
+							<span class="text-xs">Saved</span>
+						</a>
+						<a
+							class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400"
+							href="#"
+						>
+							<span class="material-symbols-outlined">
+								chat_bubble
+							</span>
+							<span class="text-xs">Messages</span>
+						</a>
+						<a
+							class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400"
+							href="#"
+						>
+							<span class="material-symbols-outlined">
+								person
+							</span>
+							<span class="text-xs">Profile</span>
+						</a>
+					</div>
+				</footer>
+			</div>
+		</div>
+	</body>
+</html>
