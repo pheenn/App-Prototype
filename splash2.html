@@ -1,132 +1,154 @@
+<!-- splash2.html -->
 <!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Splash 2</title>
 
-<!-- STANDARDIZED HEAD START -->
-
-
-<!-- STANDARDIZED HEAD START -->
-
-
-<!-- STANDARDIZED HEAD START -->
- 
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Standard Head</title>
-
-  <!-- Fonts: Plus Jakarta Sans (consistent) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" crossorigin href="https://fonts.gstatic.com/"/>
+		<!-- Plus Jakarta Sans -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" crossorigin href="https://fonts.gstatic.com" />
   <link as="style"
         href="https://fonts.googleapis.com/css2?display=swap&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800"
         onload="this.rel='stylesheet'"/>
-  <!-- Material Symbols (single consistent variant) -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        rel="stylesheet"/>
 
-  <!-- Tailwind (single config used everywhere) -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            primary: "#13a4ec",
-            "background-light": "#f6f7f8",
-            "background-dark": "#101c22"
-          },
-          fontFamily: {
-            display: ["Plus Jakarta Sans", "sans-serif"]
-          },
-          borderRadius: {
-            DEFAULT: "0.5rem",
-            lg: "1rem",
-            xl: "1.5rem",
-            full: "9999px"
-          }
-        }
-      }
-    };
-  </script>
+		<!-- Material Symbols Outlined -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+			rel="stylesheet"
+		/>
 
-  <!-- Standard base styles (apply same material symbol variable settings everywhere) -->
-  <style>
-    body { min-height: max(884px, 100dvh); }
-    /* Material Symbols consistent baseline */
-    .material-symbols-outlined {
-      font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24;
-      font-family: 'Material Symbols Outlined';
-      speak: none;
-      line-height: 1;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    /* Use this to switch to filled look where needed */
-    .material-symbols-outlined.filled {
-      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-  </style>
-</head>
-	<body class="bg-background-light dark:bg-background-dark font-display">
+		<!-- Tailwind -->
+		<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+		<script id="tailwind-config">
+			tailwind.config = {
+				darkMode: 'class',
+				theme: {
+					extend: {
+						colors: {
+							primary: '#13a4ec',
+							'background-light': '#f6f7f8',
+							'background-dark': '#101c22'
+						},
+						fontFamily: {
+							display: ['Plus Jakarta Sans', 'sans-serif']
+						},
+						borderRadius: {
+							DEFAULT: '0.5rem',
+							lg: '1rem',
+							xl: '1.5rem',
+							full: '9999px'
+						}
+					}
+				}
+			};
+		</script>
+
+		<style>
+			.material-symbols-outlined {
+				font-variation-settings:
+					'FILL' 0,
+					'wght' 400,
+					'GRAD' 0,
+					'opsz' 24;
+				font-family: 'Material Symbols Outlined';
+				speak: none;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			.icon-hero.material-symbols-outlined {
+				font-variation-settings:
+					'FILL' 0,
+					'wght' 400,
+					'GRAD' 0,
+					'opsz' 48;
+			}
+			body {
+				min-height: max(884px, 100dvh);
+			}
+		</style>
+	</head>
+	<body
+		class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200"
+	>
 		<div
-			class="relative flex flex-col min-h-screen w-full justify-between overflow-x-hidden"
+			class="relative flex flex-col min-h-screen w-full overflow-x-hidden"
 		>
-			<main class="flex-grow px-6 pt-12 flex flex-col">
-				<div
-					class="flex-grow flex flex-col items-center justify-center"
-				>
+			<!-- Header -->
+			<header class="absolute inset-x-0 top-0 p-6 z-10">
+				<div class="flex justify-end">
+					<a
+						class="rounded-full px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-primary/10 transition-colors text-sm font-semibold"
+						href="#"
+						aria-label="Skip"
+						>Skip</a
+					>
+				</div>
+			</header>
+
+			<!-- Main -->
+			<main
+				class="flex-1 px-6 pt-16 pb-6 flex flex-col items-center justify-center text-center"
+			>
+				<div class="relative w-64 h-64 mb-10">
 					<div
-						class="w-full h-80 rounded-xl bg-cover bg-center bg-no-repeat"
-						style="
-							background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBp5JNGiNAkXhQnO020PClEeVIjxtq9BqSztqIkbc1wGgtmppjRTghQKfErf-tpghLdDK3oaNrH0pRs1VLy2FiQ0r2mpEWkxTBH8hzBEeV2jMqM3VMJWlS6b9bw_hrl391SAJAowijfZIweJncfvOi_08z-aGD3bFEOpQn8kM5Kqbp0gINPv5smmvgRC-Rtb47JIP890AMANwwuo8gMyTs9djY2jNviYo7X859gQ9vrSM_VJ2q-PtoiG0yZ695id0vZP9dlvjwDhQ');
-						"
+						class="absolute inset-0 bg-primary/10 rounded-full blur-2xl"
 					></div>
-					<div class="text-center pt-10">
-						<h1
-							class="text-2xl font-bold text-background-dark dark:text-background-light"
+					<div
+						class="relative w-full h-full rounded-full bg-white/60 dark:bg-white/5 backdrop-blur flex items-center justify-center shadow"
+					>
+						<span
+							class="material-symbols-outlined icon-hero text-primary text-[120px]"
+							aria-hidden="true"
+							>tune</span
 						>
-							Search with Smart Filters
-						</h1>
-						<p
-							class="mt-2 text-base font-normal text-slate-600 dark:text-slate-400"
-						>
-							Easily narrow down your options. Filter your search
-							by budget, location, and essential amenities like
-							Wi-Fi or air conditioning to find exactly what you
-							need.
-						</p>
 					</div>
 				</div>
+
+				<h1
+					class="text-3xl font-extrabold text-slate-900 dark:text-white mb-3"
+				>
+					Search with Smart Filters
+				</h1>
+				<p class="max-w-md text-slate-600 dark:text-slate-300">
+					Narrow options by budget, location, and amenities like Wi‑Fi
+					or air conditioning to find the right fit.
+				</p>
 			</main>
+
+			<!-- Footer -->
 			<footer class="px-6 pb-8 pt-4">
-				<div class="flex items-center justify-center gap-2 mb-8">
+				<div class="flex items-center justify-between">
+					<!-- Progress 2/3 -->
 					<div
-						class="h-1.5 w-6 rounded-full bg-primary/20 dark:bg-primary/30"
-					></div>
-					<div class="h-1.5 w-6 rounded-full bg-primary"></div>
-					<div
-						class="h-1.5 w-6 rounded-full bg-primary/20 dark:bg-primary/30"
-					></div>
-				</div>
-				<div class="flex items-center justify-between gap-4">
-					<button
-						class="flex-1 py-3 px-4 rounded-lg text-center text-sm font-bold bg-transparent text-slate-600 dark:text-slate-400"
+						class="flex items-center gap-2"
+						aria-label="Progress 2 of 3"
 					>
-						Skip
-					</button>
-					<button
-						class="flex-1 py-3 px-4 rounded-lg text-center text-sm font-bold bg-primary text-white flex items-center justify-center gap-2"
-					>
-						Next
-						<span class="material-symbols-outlined">
-							arrow_forward
-						</span>
-					</button>
+						<div
+							class="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-600"
+						></div>
+						<div class="h-2 w-6 rounded-full bg-primary"></div>
+						<div
+							class="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-600"
+						></div>
+					</div>
+
+					<div class="flex items-center gap-3">
+			
+						<a
+							href="splash3.html"
+							class="inline-flex items-center gap-2 bg-primary text-white px-5 py-3 rounded-lg text-sm font-bold hover:opacity-90 transition"
+						>
+							Next
+							<span
+								class="material-symbols-outlined"
+								aria-hidden="true"
+								>arrow_forward</span
+							>
+						</a>
+					</div>
 				</div>
 			</footer>
 		</div>
