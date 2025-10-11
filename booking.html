@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- STANDARDIZED HEAD START -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Booking - SafeStay</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link
+      crossorigin="True"
+      href="https://fonts.gstatic.com"
+      rel="preconnect"
+    />
+    <link
+      as_="style"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap"
+      onload="this.rel='stylesheet'"
+      rel="preload"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Material Symbols baseline */
+      .material-symbols-outlined {
+        font-family: "Material Symbols Outlined";
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .material-symbols-outlined.filled {
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .step-hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="bg-background-light dark:bg-background-dark font-display">
+    <header
+      class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-800"
+    >
+      <div class="h-14 flex items-center gap-3 px-4">
+        <a
+          aria-label="Back"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200"
+          href="javascript:history.back()"
+        >
+          <span aria-hidden="true" class="material-symbols-outlined text-[24px]"
+            >arrow_back</span
+          >
+        </a>
+        <h1 class="text-base font-bold tracking-wide truncate" id="page-title">Property Inquiry</h1>
+      </div>
+    </header>
+
+    <!-- Progress Indicator -->
+    <div class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 py-3">
+      <div class="flex items-center justify-between max-w-sm mx-auto">
+        <div class="flex items-center">
+          <div class="w-8 h-8 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center" id="step-1-indicator">1</div>
+          <span class="ml-2 text-xs font-medium text-slate-600 dark:text-slate-400">Type</span>
+        </div>
+        <div class="flex-1 h-0.5 bg-slate-200 dark:bg-slate-700 mx-3" id="progress-1"></div>
+        <div class="flex items-center">
+          <div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400 text-sm font-bold flex items-center justify-center" id="step-2-indicator">2</div>
+          <span class="ml-2 text-xs font-medium text-slate-600 dark:text-slate-400">Details</span>
+        </div>
+        <div class="flex-1 h-0.5 bg-slate-200 dark:bg-slate-700 mx-3" id="progress-2"></div>
+        <div class="flex items-center">
+          <div class="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400 text-sm font-bold flex items-center justify-center" id="step-3-indicator">3</div>
+          <span class="ml-2 text-xs font-medium text-slate-600 dark:text-slate-400">Confirm</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col min-h-screen">
+      <main class="flex-grow px-4 pt-4 pb-20">
+        
+        <!-- Step 1: Choose Inquiry Type -->
+        <div id="step-1" class="step">
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+            How would you like to inquire?
+          </h2>
+          <div class="space-y-4">
+            <button
+              onclick="selectInquiryType('message')"
+              class="w-full bg-white dark:bg-slate-800/50 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700/50 text-left hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors inquiry-option"
+              data-type="message"
+            >
+              <div class="flex items-start gap-4">
+                <div class="flex-grow">
+                  <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                    Message Landlord Directly
+                  </h3>
+                  <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                    Ask questions or request more information about the property.
+                  </p>
+                </div>
+                <div
+                  class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-lg"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDrQVb5AsXenJ24Oy_Y1kd9F6HTBMSVPllafoa5pAahxPGChT8f_ex1pF7nHXKioK22MhQb29n7IqTuFAuJSmH8GzRdsVMIMizAG5ZzNARdWx_bOm_7hCZcY-ClTl2zjryiaFOK8rdnRg7s68rH0EBGqGqRnk5Zm4HvM_tCZc6XgD-fYmw56G1FN3jwHVCo36ZrwHHbMytb0bQsAIUjripeKhJ980jle6c1rNEf2Yexn6f3jfef0pQJFQow6TNPQCU3coVtOQK9mQ');
+                  "
+                ></div>
+              </div>
+            </button>
+            
+            <button
+              onclick="selectInquiryType('visit')"
+              class="w-full bg-white dark:bg-slate-800/50 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700/50 text-left hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors inquiry-option"
+              data-type="visit"
+            >
+              <div class="flex items-start gap-4">
+                <div class="flex-grow">
+                  <h3 class="text-base font-bold text-slate-900 dark:text-white">
+                    Schedule a Visit
+                  </h3>
+                  <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                    Arrange a time to see the property in person.
+                  </p>
+                </div>
+                <div
+                  class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-lg"
+                  style="
+                    background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD1ZfcR0BIpzK5m7iCgQr6KwP5qznbdq0STbcP_rr3wk_GczzNDUGQKABOUxNWXG0aRihdkl8pol4Cb2t-4VR6OirNyozEtd_OwajNZDD78OguAIBgpgL3U1O6gonPvR3boZCtSLhwKzV021VRWQ27Lx3pwh_IxRrHUjUwRPgOG7FVH-C1nmGENAftmsffEKHR6od5Sv9QOd36xZ7xxXxejaWFSth57PUrizo1MEKN4NnNkrmdk9wNbliakRuagPhDYyTFXYj4UJQ');
+                  "
+                ></div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2a: Message Details -->
+        <div id="step-2-message" class="step step-hidden">
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+            Write Your Message
+          </h2>
+          <div class="bg-white dark:bg-slate-800/50 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700/50">
+            <div class="mb-4">
+              <label
+                class="text-sm font-medium text-slate-700 dark:text-slate-300"
+                for="message-text"
+              >Your Message</label>
+              <textarea
+                class="mt-1 block w-full rounded-lg border-slate-300 dark:border-slate-600 bg-background-light dark:bg-background-dark text-slate-900 dark:text-white focus:border-primary focus:ring-primary"
+                id="message-text"
+                name="message"
+                rows="4"
+                placeholder="Hello, I'm interested in renting your property. Could you provide more details about the amenities and lease terms?"
+              ></textarea>
+            </div>
+            <button
+              onclick="nextStep()"
+              class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            >
+              Continue to Review
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2b: Visit Date Selection -->
+        <div id="step-2-visit" class="step step-hidden">
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+            Select Date & Time
+          </h2>
+          
+          <!-- Date Selection -->
+          <div class="mb-6">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+              Select a date
+            </h3>
+            <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm">
+              <div class="flex items-center justify-between p-4 border-b border-primary/10 dark:border-primary/20">
+                <button class="text-slate-900 dark:text-white flex size-10 items-center justify-center rounded-full hover:bg-primary/10 dark:hover:bg-primary/20">
+                  <span class="material-symbols-outlined text-lg">chevron_left</span>
+                </button>
+                <p class="text-slate-900 dark:text-white text-base font-bold leading-tight">
+                  May 2024
+                </p>
+                <button class="text-slate-900 dark:text-white flex size-10 items-center justify-center rounded-full hover:bg-primary/10 dark:hover:bg-primary/20">
+                  <span class="material-symbols-outlined text-lg">chevron_right</span>
+                </button>
+              </div>
+              <div class="grid grid-cols-7 gap-1 p-2">
+                <p class="text-slate-500 dark:text-slate-400 text-xs font-bold flex h-10 w-full items-center justify-center">S</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs font-bold flex h-10 w-full items-center justify-center">M</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs font-bold flex h-10 w-full items-center justify-center">T</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs font-bold flex h-10 w-full items-center justify-center">W</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs font-bold flex h-10 w-full items-center justify-center">T</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs font-bold flex h-10 w-full items-center justify-center">F</p>
+                <p class="text-slate-500 dark:text-slate-400 text-xs font-bold flex h-10 w-full items-center justify-center">S</p>
+                
+                <button class="h-10 w-full text-slate-400 dark:text-slate-600 col-start-4 text-sm font-medium rounded-full cursor-not-allowed">1</button>
+                <button class="h-10 w-full text-slate-400 dark:text-slate-600 text-sm font-medium rounded-full cursor-not-allowed">2</button>
+                <button class="h-10 w-full text-slate-400 dark:text-slate-600 text-sm font-medium rounded-full cursor-not-allowed">3</button>
+                <button class="h-10 w-full text-slate-400 dark:text-slate-600 text-sm font-medium rounded-full cursor-not-allowed">4</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">5</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">6</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">7</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">8</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">9</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">10</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">11</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">12</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">13</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">14</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn selected bg-primary text-white">15</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">16</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">17</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">18</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">19</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">20</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">21</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">22</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">23</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">24</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">25</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">26</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">27</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">28</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">29</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">30</button>
+                <button onclick="selectDate(this)" class="h-10 w-full text-slate-900 dark:text-white text-sm font-medium rounded-full hover:bg-primary/10 dark:hover:bg-primary/20 date-btn">31</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time Selection -->
+          <div class="mb-6">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+              Select a time
+            </h3>
+            <div class="grid grid-cols-3 gap-3">
+              <label class="relative flex items-center justify-center rounded-lg border border-primary/20 bg-white dark:bg-transparent dark:border-primary/30 h-12 text-slate-900 dark:text-white text-sm font-medium cursor-pointer has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:border-primary">
+                10:00 AM
+                <input class="absolute invisible" name="time-slot" type="radio" value="10:00 AM" />
+              </label>
+              <label class="relative flex items-center justify-center rounded-lg border border-primary/20 bg-white dark:bg-transparent dark:border-primary/30 h-12 text-slate-900 dark:text-white text-sm font-medium cursor-pointer has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:border-primary">
+                11:00 AM
+                <input class="absolute invisible" name="time-slot" type="radio" value="11:00 AM" />
+              </label>
+              <label class="relative flex items-center justify-center rounded-lg border border-primary bg-primary h-12 text-white text-sm font-medium cursor-pointer has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:border-primary">
+                12:00 PM
+                <input checked class="absolute invisible" name="time-slot" type="radio" value="12:00 PM" />
+              </label>
+              <label class="relative flex items-center justify-center rounded-lg border border-primary/20 bg-white dark:bg-transparent dark:border-primary/30 h-12 text-slate-900 dark:text-white text-sm font-medium cursor-pointer has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:border-primary">
+                1:00 PM
+                <input class="absolute invisible" name="time-slot" type="radio" value="1:00 PM" />
+              </label>
+              <label class="relative flex items-center justify-center rounded-lg border border-primary/20 bg-primary/20 dark:border-primary/30 h-12 text-slate-400 dark:text-slate-600 text-sm font-medium cursor-not-allowed">
+                2:00 PM
+                <input class="absolute invisible" disabled name="time-slot" type="radio" value="2:00 PM" />
+              </label>
+              <label class="relative flex items-center justify-center rounded-lg border border-primary/20 bg-white dark:bg-transparent dark:border-primary/30 h-12 text-slate-900 dark:text-white text-sm font-medium cursor-pointer has-[:checked]:bg-primary has-[:checked]:text-white has-[:checked]:border-primary">
+                3:00 PM
+                <input class="absolute invisible" name="time-slot" type="radio" value="3:00 PM" />
+              </label>
+            </div>
+          </div>
+
+          <button
+            onclick="nextStep()"
+            class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+          >
+            Continue to Review
+          </button>
+        </div>
+
+        <!-- Step 3: Confirmation -->
+        <div id="step-3" class="step step-hidden">
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+            Review Your Inquiry
+          </h2>
+          
+          <div class="space-y-6">
+            <div class="flex items-start gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <span class="material-symbols-outlined" id="inquiry-icon">chat_bubble</span>
+              </div>
+              <div class="flex flex-col">
+                <p class="font-semibold text-slate-900 dark:text-white">Contact Method</p>
+                <p class="text-sm text-slate-500 dark:text-slate-400" id="inquiry-method">Message to Landlord</p>
+              </div>
+            </div>
+            
+            <!-- Message Summary -->
+            <div id="message-summary" class="flex items-start gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <span class="material-symbols-outlined">description</span>
+              </div>
+              <div class="flex flex-1 flex-col">
+                <p class="font-semibold text-slate-900 dark:text-white">Your Message</p>
+                <p class="text-sm text-slate-500 dark:text-slate-400" id="message-preview"></p>
+              </div>
+            </div>
+            
+            <!-- Visit Summary -->
+            <div id="visit-summary" class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <span class="material-symbols-outlined">calendar_today</span>
+                </div>
+                <div class="flex flex-col">
+                  <p class="font-semibold text-slate-900 dark:text-white">Visit Date</p>
+                  <p class="text-sm text-slate-500 dark:text-slate-400" id="visit-date">May 15, 2024</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4">
+                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <span class="material-symbols-outlined">schedule</span>
+                </div>
+                <div class="flex flex-col">
+                  <p class="font-semibold text-slate-900 dark:text-white">Visit Time</p>
+                  <p class="text-sm text-slate-500 dark:text-slate-400" id="visit-time">12:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8">
+            <button
+              onclick="submitInquiry()"
+              class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 px-4 rounded-lg transition-colors"
+            >
+              <span id="submit-text">Send Inquiry</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Success Message -->
+        <div id="success-message" class="step step-hidden text-center py-8">
+          <div class="w-16 h-16 bg-green-100 dark:bg-green-900/20 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span class="material-symbols-outlined text-green-600 dark:text-green-400 text-2xl">check_circle</span>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Inquiry Sent!</h2>
+          <p class="text-slate-600 dark:text-slate-400 mb-6">Your inquiry has been sent to the landlord. You'll hear back soon.</p>
+          <a
+            href="message_threads.html"
+            class="inline-block bg-primary hover:bg-primary/90 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+          >
+            View Messages
+          </a>
+        </div>
+
+      </main>
+
+      <!-- Navigation -->
+      <nav class="fixed bottom-0 inset-x-0 z-50 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur">
+        <ul class="grid grid-cols-5 text-xs">
+          <li>
+            <a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="home" href="home.html">
+              <span class="material-symbols-outlined text-[22px]">home</span>
+              <span class="text-[10px] leading-none mt-1">Home</span>
+            </a>
+          </li>
+          <li>
+            <a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="map" href="map.html">
+              <span class="material-symbols-outlined text-[22px]">map</span>
+              <span class="text-[10px] leading-none mt-1">Map</span>
+            </a>
+          </li>
+          <li>
+            <a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="saved" href="saved.html">
+              <span class="material-symbols-outlined text-[22px]">bookmark</span>
+              <span class="text-[10px] leading-none mt-1">Saved</span>
+            </a>
+          </li>
+          <li>
+            <a class="flex flex-col items-center justify-center py-2 text-primary" data-tab="messages" href="message_threads.html">
+              <span class="material-symbols-outlined text-[22px] filled">chat</span>
+              <span class="text-[10px] leading-none mt-1">Messages</span>
+            </a>
+          </li>
+          <li>
+            <a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="profile" href="profile.html">
+              <span class="material-symbols-outlined text-[22px]">person</span>
+              <span class="text-[10px] leading-none mt-1">Profile</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <script>
+      let currentStep = 1;
+      let inquiryType = '';
+      let selectedDate = 'May 15, 2024';
+      let selectedTime = '12:00 PM';
+
+      function selectInquiryType(type) {
+        inquiryType = type;
+        
+        // Update UI
+        document.querySelectorAll('.inquiry-option').forEach(btn => {
+          btn.classList.remove('ring-2', 'ring-primary', 'bg-primary/5');
+        });
+        document.querySelector(`[data-type="${type}"]`).classList.add('ring-2', 'ring-primary', 'bg-primary/5');
+        
+        // Auto-advance after selection
+        setTimeout(() => {
+          nextStep();
+        }, 500);
+      }
+
+      function selectDate(btn) {
+        // Remove selection from other dates
+        document.querySelectorAll('.date-btn').forEach(dateBtn => {
+          dateBtn.classList.remove('selected', 'bg-primary', 'text-white');
+          dateBtn.classList.add('hover:bg-primary/10', 'dark:hover:bg-primary/20');
+        });
+        
+        // Select this date
+        btn.classList.add('selected', 'bg-primary', 'text-white');
+        btn.classList.remove('hover:bg-primary/10', 'dark:hover:bg-primary/20');
+        
+        selectedDate = `May ${btn.textContent}, 2024`;
+      }
+
+      function nextStep() {
+        currentStep++;
+        updateProgress();
+        showCurrentStep();
+        updatePageTitle();
+      }
+
+      function showCurrentStep() {
+        // Hide all steps
+        document.querySelectorAll('.step').forEach(step => {
+          step.classList.add('step-hidden');
+        });
+
+        // Show current step
+        if (currentStep === 1) {
+          document.getElementById('step-1').classList.remove('step-hidden');
+        } else if (currentStep === 2) {
+          if (inquiryType === 'message') {
+            document.getElementById('step-2-message').classList.remove('step-hidden');
+          } else {
+            document.getElementById('step-2-visit').classList.remove('step-hidden');
+          }
+        } else if (currentStep === 3) {
+          updateConfirmationStep();
+          document.getElementById('step-3').classList.remove('step-hidden');
+        } else if (currentStep === 4) {
+          document.getElementById('success-message').classList.remove('step-hidden');
+        }
+      }
+
+      function updateProgress() {
+        // Update step indicators
+        for (let i = 1; i <= 3; i++) {
+          const indicator = document.getElementById(`step-${i}-indicator`);
+          const progress = document.getElementById(`progress-${i}`);
+          
+          if (i < currentStep) {
+            indicator.classList.remove('bg-slate-200', 'dark:bg-slate-700', 'text-slate-600', 'dark:text-slate-400');
+            indicator.classList.add('bg-primary', 'text-white');
+            if (progress) {
+              progress.classList.remove('bg-slate-200', 'dark:bg-slate-700');
+              progress.classList.add('bg-primary');
+            }
+          } else if (i === currentStep) {
+            indicator.classList.remove('bg-slate-200', 'dark:bg-slate-700', 'text-slate-600', 'dark:text-slate-400');
+            indicator.classList.add('bg-primary', 'text-white');
+          }
+        }
+      }
+
+      function updatePageTitle() {
+        const titles = {
+          1: 'Property Inquiry',
+          2: inquiryType === 'message' ? 'Write Message' : 'Select Date & Time',
+          3: 'Review Inquiry',
+          4: 'Inquiry Sent'
+        };
+        document.getElementById('page-title').textContent = titles[currentStep] || 'Property Inquiry';
+      }
+
+      function updateConfirmationStep() {
+        if (inquiryType === 'message') {
+          document.getElementById('inquiry-icon').textContent = 'chat_bubble';
+          document.getElementById('inquiry-method').textContent = 'Message to Landlord';
+          document.getElementById('submit-text').textContent = 'Send Message';
+          
+          // Show message summary, hide visit summary
+          document.getElementById('message-summary').style.display = 'flex';
+          document.getElementById('visit-summary').style.display = 'none';
+          
+          const messageText = document.getElementById('message-text').value || "Hello, I'm interested in renting your property. Could you provide more details about the amenities and lease terms?";
+          document.getElementById('message-preview').textContent = messageText;
+        } else {
+          document.getElementById('inquiry-icon').textContent = 'calendar_today';
+          document.getElementById('inquiry-method').textContent = 'Property Visit';
+          document.getElementById('submit-text').textContent = 'Schedule Visit';
+          
+          // Show visit summary, hide message summary
+          document.getElementById('message-summary').style.display = 'none';
+          document.getElementById('visit-summary').style.display = 'block';
+          
+          document.getElementById('visit-date').textContent = selectedDate;
+          
+          const selectedTimeInput = document.querySelector('input[name="time-slot"]:checked');
+          selectedTime = selectedTimeInput ? selectedTimeInput.value : '12:00 PM';
+          document.getElementById('visit-time').textContent = selectedTime;
+        }
+      }
+
+      function submitInquiry() {
+        // Simulate submission
+        currentStep = 4;
+        showCurrentStep();
+        updatePageTitle();
+        updateProgress();
+      }
+
+      // Initialize
+      updateProgress();
+      showCurrentStep();
+    </script>
+  </body>
+</html>

@@ -1,8 +1,9 @@
-<!doctype html>
-<!-- STANDARDIZED HEAD START --><!-- STANDARDIZED HEAD START --><!-- STANDARDIZED HEAD START -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<title>Standard Head</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>House Details - SafeStay</title>
 		<link href="https://fonts.googleapis.com" rel="preconnect" />
 		<link
 			crossorigin="True"
@@ -78,12 +79,23 @@
 					</button>
 					<div class="flex items-center gap-2">
 						<button
+							id="bookmarkBtn"
 							class="flex size-10 items-center justify-center rounded-full text-gray-800 dark:text-gray-200"
+							type="button"
 						>
-							<span class="material-symbols-outlined">
+							<span id="bookmarkIcon" class="material-symbols-outlined">
 								bookmark
 							</span>
 						</button>
+						<script>
+							document.addEventListener('DOMContentLoaded', function () {
+								const bookmarkBtn = document.getElementById('bookmarkBtn');
+								const bookmarkIcon = document.getElementById('bookmarkIcon');
+								bookmarkBtn.addEventListener('click', function () {
+									bookmarkIcon.classList.toggle('text-primary');
+								});
+							});
+						</script>
 						<button
 							class="flex size-10 items-center justify-center rounded-full text-gray-800 dark:text-gray-200"
 						>
@@ -93,35 +105,43 @@
 						</button>
 					</div>
 				</header>
-				<main class="pb-40">
+				<main class="pb-44">
 					<div class="p-4">
-						<div
-							class="relative flex min-h-[250px] flex-col justify-end overflow-hidden rounded-xl bg-cover bg-center"
-							style="
-								background-image: linear-gradient(
-										0deg,
-										rgba(0, 0, 0, 0.4) 0%,
-										rgba(0, 0, 0, 0) 40%
-									),
-									url('https://lh3.googleusercontent.com/aida-public/AB6AXuBWA4q0Zk3BUWG2wpp5fjeXOnFUfAmTdNCOs2iFi6rWqu9lWxl6FmoT3rPEvZiyq_fb3yy-8omoK1Ocx1FCmhksuJeJTVQaLJI6rh1Vs9IDm-aSkeZRnTIxPpL_VQX5VF6cgPXyPCBNEDQsNSrP8xwv7gSP4DpdShkdNjM61Xy-VJXvgr6D8zNwPTCG2Tkruj_prV56GsPuUtag1aBDC4ur6LXnqOpKJzMAxGtC9MSFCJwl-jJqPsWPUmYSQp_BFvW8ittOudNlFQ');
-							"
-						>
-							<div class="flex justify-center gap-2 p-4">
-								<div
-									class="h-2 w-6 rounded-full bg-white"
-								></div>
-								<div
-									class="h-2 w-2 rounded-full bg-white/50"
-								></div>
-								<div
-									class="h-2 w-2 rounded-full bg-white/50"
-								></div>
-								<div
-									class="h-2 w-2 rounded-full bg-white/50"
-								></div>
-								<div
-									class="h-2 w-2 rounded-full bg-white/50"
-								></div>
+						<div class="relative overflow-hidden rounded-xl">
+							<!-- Image Container -->
+							<div id="imageCarousel" class="relative flex min-h-[250px] overflow-hidden">
+								<div class="carousel-slide flex-shrink-0 w-full bg-cover bg-center flex flex-col justify-end" 
+									 style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 40%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBWA4q0Zk3BUWG2wpp5fjeXOnFUfAmTdNCOs2iFi6rWqu9lWxl6FmoT3rPEvZiyq_fb3yy-8omoK1Ocx1FCmhksuJeJTVQaLJI6rh1Vs9IDm-aSkeZRnTIxPpL_VQX5VF6cgPXyPCBNEDQsNSrP8xwv7gSP4DpdShkdNjM61Xy-VJXvgr6D8zNwPTCG2Tkruj_prV56GsPuUtag1aBDC4ur6LXnqOpKJzMAxGtC9MSFCJwl-jJqPsWPUmYSQp_BFvW8ittOudNlFQ');">
+								</div>
+								<div class="carousel-slide flex-shrink-0 w-full bg-cover bg-center flex flex-col justify-end" 
+									 style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 40%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuC8QwJvYzMRsIYonKzVYiSAFzQ9xQqxjB6ksV8egNKJ2TPpLnKyGaLQj0QrYwDxdKLgF4Q0eXkVEGz7Y9N2Tz3dKb8FzGnQMLaXqRzUeL-GdVnQWrEzOyVA2qKZhgW3V4B8JcLfPwNnMx7YgD5R2WzTzR8VnGsL4QeK3mZdKx9YgN7VzR2W4B8JcL5QnMx7YgD2RzT8VnGsL4QeK3m');">
+								</div>
+								<div class="carousel-slide flex-shrink-0 w-full bg-cover bg-center flex flex-col justify-end" 
+									 style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 40%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqRz3QxKLmN9YpGvC2WdF5TsE8LnHjI4VbXcOaP7MzK8JgRz3QxKLmN9YpGvC2WdF5TsE8LnHjI4VbXcOaP7MzK8JgRz3QxKLmN9YpGvC2WdF5TsE8LnHjI4VbXcOaP7MzK8JgRz3QxKLmN9YpGvC2WdF5TsE8LnHj');">
+								</div>
+								<div class="carousel-slide flex-shrink-0 w-full bg-cover bg-center flex flex-col justify-end" 
+									 style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 40%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7TzK5WgN8YqP2RvF3XeL6UsJ9MoIkL5VcYdPbQ8NzM9JhSz4RyLnO0ZqQwE3YdL7UsJ9MoIkL5VcYdPbQ8NzM9JhSz4RyLnO0ZqQwE3YdL7UsJ9MoIkL5VcYdPbQ8NzM9JhSz4RyLnO0ZqQwE3Yd');">
+								</div>
+								<div class="carousel-slide flex-shrink-0 w-full bg-cover bg-center flex flex-col justify-end" 
+									 style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 40%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuA9WzT6XnK4YsP3SvG2ZeN5VtM8LoJlM6WdZeQcR9OzN0KiTz5SyNoP1ZsRxF4ZeN8VtM8LoJlM6WdZeQcR9OzN0KiTz5SyNoP1ZsRxF4ZeN8VtM8LoJlM6WdZeQcR9OzN0KiTz5SyNoP1ZsRxF4Ze');">
+								</div>
+							</div>
+							
+							<!-- Navigation Arrows -->
+							<button id="prevBtn" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-2 text-white hover:bg-white/30 transition-colors">
+								<span class="material-symbols-outlined">chevron_left</span>
+							</button>
+							<button id="nextBtn" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm rounded-full p-2 text-white hover:bg-white/30 transition-colors">
+								<span class="material-symbols-outlined">chevron_right</span>
+							</button>
+							
+							<!-- Pagination Dots -->
+							<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex justify-center gap-2">
+								<button class="pagination-dot h-2 w-6 rounded-full bg-white transition-all" data-slide="0"></button>
+								<button class="pagination-dot h-2 w-2 rounded-full bg-white/50 transition-all hover:bg-white/70" data-slide="1"></button>
+								<button class="pagination-dot h-2 w-2 rounded-full bg-white/50 transition-all hover:bg-white/70" data-slide="2"></button>
+								<button class="pagination-dot h-2 w-2 rounded-full bg-white/50 transition-all hover:bg-white/70" data-slide="3"></button>
+								<button class="pagination-dot h-2 w-2 rounded-full bg-white/50 transition-all hover:bg-white/70" data-slide="4"></button>
 							</div>
 						</div>
 					</div>
@@ -509,7 +529,7 @@
 								</p>
 							</div>
 							<button
-								class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-primary dark:text-primary"
+								class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-green-400 dark:text-green-400"
 							>
 								<span class="material-symbols-outlined">
 									call
@@ -520,74 +540,210 @@
 				</main>
 			</div>
 			<div
-				class="fixed bottom-0 left-0 right-0 border-t border-gray-200 bg-background-light/95 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-background-dark/95"
+				class="fixed bottom-16 left-0 right-0 border-t border-gray-200 bg-background-light/95 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-background-dark/95 z-40"
 			>
 				<div class="flex items-center justify-between">
 					<div class="flex flex-col">
 						<span
 							class="text-xl font-bold text-gray-900 dark:text-white"
-							>₱3,500
+							>₱1,500
 							<span
 								class="text-base font-normal text-gray-500 dark:text-gray-400"
 								>/ month</span
 							></span
 						>
 					</div>
-					<button class="rounded-lg bg-primary px-6 py-3 text-white">
+					<a href="booking.html" class="rounded-lg bg-primary px-6 py-3 text-white">
 						Book a Visit
-					</button>
+					</a>
 				</div>
-				<footer class="mt-4">
-					<div class="flex items-center justify-around">
-						<a
-							class="flex flex-col items-center gap-1 p-2 text-primary"
-							href="#"
+			</div>
+			<nav
+				class="fixed bottom-0 inset-x-0 z-50 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur"
+			>
+			<ul class="grid grid-cols-5 text-xs">
+				<li>
+					<a
+						aria-current="page"
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary text-primary"
+						data-tab="home"
+						href="home.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>home</span
 						>
-							<span
-								class="material-symbols-outlined"
-								style="font-variation-settings: 'FILL' 1"
-							>
-								home
-							</span>
-							<span class="text-xs font-bold">Home</span>
-						</a>
-						<a
-							class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400"
-							href="#"
+						<span class="text-[10px] leading-none mt-1">Home</span>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="search"
+						href="search_results.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>search</span
 						>
-							<span class="material-symbols-outlined"> map </span>
-							<span class="text-xs">Map</span>
-						</a>
-						<a
-							class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400"
-							href="#"
+						<span class="text-[10px] leading-none mt-1"
+							>Search</span
 						>
-							<span class="material-symbols-outlined">
-								bookmark
-							</span>
-							<span class="text-xs">Saved</span>
-						</a>
-						<a
-							class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400"
-							href="#"
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="saved"
+						href="saved.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>bookmark</span
 						>
-							<span class="material-symbols-outlined">
-								chat_bubble
-							</span>
-							<span class="text-xs">Messages</span>
-						</a>
-						<a
-							class="flex flex-col items-center gap-1 p-2 text-gray-500 dark:text-gray-400"
-							href="#"
+						<span class="text-[10px] leading-none mt-1">Saved</span>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="messages"
+						href="message_threads.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>chat</span
 						>
-							<span class="material-symbols-outlined">
-								person
-							</span>
-							<span class="text-xs">Profile</span>
-						</a>
-					</div>
-				</footer>
+						<span class="text-[10px] leading-none mt-1"
+							>Messages</span
+						>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="profile"
+						href="profile.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>person</span
+						>
+						<span class="text-[10px] leading-none mt-1"
+							>Profile</span
+						>
+					</a>
+				</li>
+			</ul>
+		</nav>
 			</div>
 		</div>
+
+		<script>
+			// Image Carousel Functionality
+			class ImageCarousel {
+				constructor() {
+					this.currentSlide = 0;
+					this.slides = document.querySelectorAll('.carousel-slide');
+					this.dots = document.querySelectorAll('.pagination-dot');
+					this.prevBtn = document.getElementById('prevBtn');
+					this.nextBtn = document.getElementById('nextBtn');
+					this.carousel = document.getElementById('imageCarousel');
+					
+					this.init();
+				}
+				
+				init() {
+					// Set initial position
+					this.updateCarousel();
+					
+					// Add event listeners
+					this.prevBtn.addEventListener('click', () => this.prevSlide());
+					this.nextBtn.addEventListener('click', () => this.nextSlide());
+					
+					// Dot navigation
+					this.dots.forEach((dot, index) => {
+						dot.addEventListener('click', () => this.goToSlide(index));
+					});
+					
+					// Touch/swipe support
+					let startX = 0;
+					let currentX = 0;
+					let isDragging = false;
+					
+					this.carousel.addEventListener('touchstart', (e) => {
+						startX = e.touches[0].clientX;
+						isDragging = true;
+					});
+					
+					this.carousel.addEventListener('touchmove', (e) => {
+						if (!isDragging) return;
+						currentX = e.touches[0].clientX;
+					});
+					
+					this.carousel.addEventListener('touchend', () => {
+						if (!isDragging) return;
+						isDragging = false;
+						
+						const diff = startX - currentX;
+						if (Math.abs(diff) > 50) {
+							if (diff > 0) {
+								this.nextSlide();
+							} else {
+								this.prevSlide();
+							}
+						}
+					});
+				}
+				
+				updateCarousel() {
+					// Move carousel
+					this.carousel.style.transform = `translateX(-${this.currentSlide * 100}%)`;
+					
+					// Update dots
+					this.dots.forEach((dot, index) => {
+						if (index === this.currentSlide) {
+							dot.classList.remove('h-2', 'w-2', 'bg-white/50');
+							dot.classList.add('h-2', 'w-6', 'bg-white');
+						} else {
+							dot.classList.remove('h-2', 'w-6', 'bg-white');
+							dot.classList.add('h-2', 'w-2', 'bg-white/50');
+						}
+					});
+				}
+				
+				nextSlide() {
+					this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+					this.updateCarousel();
+				}
+				
+				prevSlide() {
+					this.currentSlide = this.currentSlide === 0 ? this.slides.length - 1 : this.currentSlide - 1;
+					this.updateCarousel();
+				}
+				
+				goToSlide(slideIndex) {
+					this.currentSlide = slideIndex;
+					this.updateCarousel();
+				}
+			}
+			
+			// Initialize carousel when DOM is loaded
+			document.addEventListener('DOMContentLoaded', () => {
+				new ImageCarousel();
+			});
+		</script>
+
+		<style>
+			/* Carousel transition */
+			#imageCarousel {
+				display: flex;
+				transition: transform 0.3s ease-in-out;
+			}
+			
+			.carousel-slide {
+				min-height: 250px;
+			}
+			
+			/* Smooth dot transitions */
+			.pagination-dot {
+				cursor: pointer;
+			}
+		</style>
 	</body>
 </html>

@@ -1,81 +1,148 @@
 <!DOCTYPE html>
-<!-- STANDARDIZED HEAD START --><!-- STANDARDIZED HEAD START --><!-- STANDARDIZED HEAD START --><html>
-<head><title>Standard Head</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="True" href="https://fonts.gstatic.com" rel="preconnect"/><link as_="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" onload="this.rel='stylesheet'" rel="preload"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        primary: "#13a4ec",
-        "background-light": "#f6f7f8",
-        "background-dark": "#101c22",
-      },
-      fontFamily: {
-        display: ["Plus Jakarta Sans", "sans-serif"],
-      },
-      borderRadius: {
-        DEFAULT: "0.5rem",
-        lg: "1rem",
-        xl: "1.5rem",
-        full: "9999px",
-      },
-    },
-  },
-};
-</script><style>/* Material Symbols baseline */
-.material-symbols-outlined{
-  font-family:"Material Symbols Outlined";
-  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
-  line-height:1;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-</style></head>
-<body class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark"><header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-800">
-<div class="h-14 flex items-center gap-3 px-4">
-<a aria-label="Back" class="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200" href="javascript:history.back()">
-<span aria-hidden="true" class="material-symbols-outlined text-[24px]">arrow_back</span>
-</a>
-<h1 class="text-base font-bold tracking-wide truncate">Edit Personal Information</h1>
-</div>
-</header>
-<div class="flex flex-col h-screen">
-<header class="flex items-center p-4 border-b border-subtle-light dark:border-subtle-dark">
-<button class="p-2">
-<span class="material-symbols-outlined">arrow_back_ios_new</span>
-</button>
-<h1 class="flex-1 text-lg font-bold text-center -ml-10">Edit Personal Information</h1>
-</header>
-<main class="flex-1 overflow-y-auto p-6 space-y-6">
-<div class="space-y-2">
-<label class="text-sm font-medium" for="full-name">Full Name</label>
-<input class="w-full h-12 px-4 rounded-lg bg-subtle-light dark:bg-subtle-dark border-none focus:ring-2 focus:ring-primary" id="full-name" type="text" value="Juan dela Cruz"/>
-</div>
-<div class="space-y-2">
-<label class="text-sm font-medium" for="email">Email Address</label>
-<input class="w-full h-12 px-4 rounded-lg bg-subtle-light dark:bg-subtle-dark border-none focus:ring-2 focus:ring-primary" id="email" type="email" value="juan.delacruz@example.com"/>
-</div>
-<div class="space-y-2">
-<label class="text-sm font-medium" for="phone">Phone Number</label>
-<input class="w-full h-12 px-4 rounded-lg bg-subtle-light dark:bg-subtle-dark border-none focus:ring-2 focus:ring-primary" id="phone" type="tel" value="+63 912 345 6789"/>
-</div>
-<div class="space-y-2">
-<label class="text-sm font-medium" for="student-id">Student ID</label>
-<input class="w-full h-12 px-4 rounded-lg bg-subtle-light dark:bg-subtle-dark border-none focus:ring-2 focus:ring-primary" id="student-id" type="text" value="2023-12345"/>
-</div>
-<div class="space-y-2">
-<label class="text-sm font-medium" for="university">University Affiliation</label>
-<input class="w-full h-12 px-4 rounded-lg bg-subtle-light dark:bg-subtle-dark border-none focus:ring-2 focus:ring-primary" id="university" type="text" value="Romblon State University"/>
-</div>
-</main>
-<footer class="p-4 border-t border-subtle-light dark:border-subtle-dark">
-<div class="flex gap-4">
-<button class="flex-1 h-12 rounded-lg bg-subtle-light dark:bg-subtle-dark font-bold text-foreground-light dark:text-foreground-dark">
-                    Cancel
-                </button>
-<button class="flex-1 h-12 rounded-lg bg-primary text-white font-bold">
-                    Save Changes
-                </button>
-</div>
-</footer>
-</div>
-</body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Personal Info - SafeStay</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" crossorigin href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Material Symbols baseline */
+      .material-symbols-outlined {
+        font-family: "Material Symbols Outlined";
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .material-symbols-outlined.filled {
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark"
+  >
+    <header
+      class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/80 backdrop-blur border-b border-slate-200 dark:border-slate-800"
+    >
+      <div class="h-14 flex items-center gap-3 px-4">
+        <a
+          aria-label="Back"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200"
+          href="javascript:history.back()"
+        >
+          <span aria-hidden="true" class="material-symbols-outlined text-[24px]"
+            >arrow_back</span
+          >
+        </a>
+        <h1 class="text-base font-bold tracking-wide truncate">
+          Edit Personal Information
+        </h1>
+      </div>
+    </header>
+    <div class="flex flex-col h-screen">
+   
+      <main class="flex-1 overflow-y-auto p-6 space-y-6">
+        <div class="space-y-2">
+          <label class="text-sm font-medium" for="full-name">Full Name</label>
+          <input
+            class="w-full h-12 px-4 rounded-lg bg-subtle-light dark:bg-subtle-dark border-none focus:ring-2 focus:ring-primary"
+            id="full-name"
+            type="text"
+            value="Juan dela Cruz"
+          />
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-medium" for="email">Email Address</label>
+          <input
+            class="w-full h-12 px-4 rounded-lg bg-subtle-light dark:bg-subtle-dark border-none focus:ring-2 focus:ring-primary"
+            id="email"
+            type="email"
+            value="juan.delacruz@example.com"
+          />
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-medium" for="phone">Phone Number</label>
+          <input
+            class="w-full h-12 px-4 rounded-lg bg-subtle-light dark:bg-subtle-dark border-none focus:ring-2 focus:ring-primary"
+            id="phone"
+            type="tel"
+            value="+63 912 345 6789"
+          />
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-medium" for="student-id">Student ID</label>
+          <input
+            class="w-full h-12 px-4 rounded-lg bg-subtle-light dark:bg-subtle-dark border-none focus:ring-2 focus:ring-primary"
+            id="student-id"
+            type="text"
+            value="2023-12345"
+          />
+        </div>
+        <div class="space-y-2">
+          <label class="text-sm font-medium" for="university"
+            >University Affiliation</label
+          >
+          <input
+            class="w-full h-12 px-4 rounded-lg bg-subtle-light dark:bg-subtle-dark border-none focus:ring-2 focus:ring-primary"
+            id="university"
+            type="text"
+            value="Romblon State University"
+          />
+        </div>
+      </main>
+      <footer class="p-4 border-t border-subtle-light dark:border-subtle-dark">
+        <div class="flex gap-4">
+          <button
+            class="flex-1 h-12 rounded-lg bg-subtle-light dark:bg-subtle-dark font-bold text-foreground-light dark:text-foreground-dark"
+          >
+            Cancel
+          </button>
+          <button
+            class="flex-1 h-12 rounded-lg bg-primary text-white font-bold"
+          >
+            Save Changes
+          </button>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

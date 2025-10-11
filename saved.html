@@ -1,136 +1,255 @@
 <!DOCTYPE html>
-<!-- STANDARDIZED HEAD START --><!-- STANDARDIZED HEAD START --><!-- STANDARDIZED HEAD START --><html>
-<head><title>Standard Head</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="True" href="https://fonts.gstatic.com" rel="preconnect"/><link as_="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" onload="this.rel='stylesheet'" rel="preload"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
-  darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        primary: "#13a4ec",
-        "background-light": "#f6f7f8",
-        "background-dark": "#101c22",
-      },
-      fontFamily: {
-        display: ["Plus Jakarta Sans", "sans-serif"],
-      },
-      borderRadius: {
-        DEFAULT: "0.5rem",
-        lg: "1rem",
-        xl: "1.5rem",
-        full: "9999px",
-      },
-    },
-  },
-};
-</script><style>/* Material Symbols baseline */
-.material-symbols-outlined{
-  font-family:"Material Symbols Outlined";
-  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
-  line-height:1;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-}
-</style></head>
-<body class="bg-background-light dark:bg-background-dark font-display">
-<div class="relative flex h-auto min-h-screen w-full flex-col justify-between overflow-x-hidden">
-<div class="flex-grow">
-<header class="bg-background-light dark:bg-background-dark sticky top-0 z-10 px-4 py-3 border-b border-white/10 dark:border-white/5">
-<div class="flex items-center">
-<button class="text-neutral-900 dark:text-white">
-<span class="material-symbols-outlined">arrow_back</span>
-</button>
-<h1 class="flex-1 text-center text-lg font-bold text-neutral-900 dark:text-white pr-6">Saved Listings</h1>
-</div>
-</header>
-<main class="p-4 space-y-4">
-<div class="flex items-center gap-4 rounded-lg bg-white dark:bg-background-dark p-3 shadow-sm">
-<div class="h-24 w-24 flex-shrink-0">
-<img alt="Cozy Student Housing" class="h-full w-full rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBzaoxuiERCp5OEzqvXH3yoCMwFdMkpFzjtAwUVTjWWiD-mrzZQrJymEl-Vzg6Wd4uuiNplR-hdCYEFTtt12CwzjXV8s6YraykvnNUDkgxrSm7NIcMGxtLxebl4x1SaieA_qUFGASiJXJeiVjQdS0w1Eqbv16AV0c6xe2bzqn2aeCb5lBknslmw5QihUshmSHEcFPdOrgLlBgYDWY1w1sRn8U48WIsshQtky7woso4Tl44fAITIlBSI9cDjpaEh53rNqaYpLkCNw"/>
-</div>
-<div class="flex-1 overflow-hidden">
-<h2 class="truncate font-bold text-neutral-900 dark:text-white">Cozy Student Housing</h2>
-<div class="mt-1 flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400">
-<span class="material-symbols-outlined !text-base text-yellow-400">star</span>
-<span>4.8</span>
-<span class="text-neutral-300 dark:text-neutral-600">·</span>
-<span>1.2 km</span>
-</div>
-<p class="mt-2 text-base font-bold text-neutral-900 dark:text-white">₱4,500<span class="text-sm font-normal text-neutral-500 dark:text-neutral-400">/month</span></p>
-</div>
-<button class="self-start text-primary">
-<span class="material-symbols-outlined">favorite</span>
-</button>
-</div>
-<div class="flex items-center gap-4 rounded-lg bg-white dark:bg-background-dark p-3 shadow-sm">
-<div class="h-24 w-24 flex-shrink-0">
-<img alt="Student Haven Apartments" class="h-full w-full rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhzAIVPLPTZL7IZKCb2HzUMuoK1ewcZOASDAHM55LW-oB1JHveBP6R-HOHGieLxFVd90LSDN9Cs2gyyMjsQajqNs2V8KPWrFSfWUlxjbPYF59PQDZI1Cn8pr4alx7vwOb_C6DShbivPWJDXBBh5rrzLJj-1e1TWw4XbgRX3ueK7FASr_9C99CfVkHgpX_g6czgXUaYqbscRGIZmBXKEO7fNnBXZJ3I-TBn8q5y96qss3qTW0aLh3NDWPZmfbGPiypg8K0HUu7BIA"/>
-</div>
-<div class="flex-1 overflow-hidden">
-<h2 class="truncate font-bold text-neutral-900 dark:text-white">Student Haven Apartments</h2>
-<div class="mt-1 flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400">
-<span class="material-symbols-outlined !text-base text-yellow-400">star</span>
-<span>4.5</span>
-<span class="text-neutral-300 dark:text-neutral-600">·</span>
-<span>800 m</span>
-</div>
-<p class="mt-2 text-base font-bold text-neutral-900 dark:text-white">₱5,000<span class="text-sm font-normal text-neutral-500 dark:text-neutral-400">/month</span></p>
-</div>
-<button class="self-start text-primary">
-<span class="material-symbols-outlined">favorite</span>
-</button>
-</div>
-<div class="flex items-center gap-4 rounded-lg bg-white dark:bg-background-dark p-3 shadow-sm">
-<div class="h-24 w-24 flex-shrink-0">
-<img alt="The Student Lodge" class="h-full w-full rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa4RaFZ1y5DTR5wTvtYEWnI9Nox2tYU88aP4A5FrKhVvoCmOnWrk9Log2_KlQDFFi0RvUEoEZW6Z7CI-Xq17TgjAchqNoHeyTP8vM3w-F-MmxTsCJ-IBF5SFDu5akiAtc5Z4qdxuBqae7zRObP7Fkmb2XLOivrmZY0R1iS1VJm4En23w-y65f_FUNh6qB8442vIdeZPvKJNfBYjOHH68TOQlnzgUeXiEhiSD4h5QmIZubGIQatilm1EjpAOab0s-buFydmNpPdYg"/>
-</div>
-<div class="flex-1 overflow-hidden">
-<h2 class="truncate font-bold text-neutral-900 dark:text-white">The Student Lodge</h2>
-<div class="mt-1 flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400">
-<span class="material-symbols-outlined !text-base text-yellow-400">star</span>
-<span>4.9</span>
-<span class="text-neutral-300 dark:text-neutral-600">·</span>
-<span>500 m</span>
-</div>
-<p class="mt-2 text-base font-bold text-neutral-900 dark:text-white">₱4,800<span class="text-sm font-normal text-neutral-500 dark:text-neutral-400">/month</span></p>
-</div>
-<button class="self-start text-primary">
-<span class="material-symbols-outlined">favorite</span>
-</button>
-</div>
-</main>
-</div>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saved Properties - SafeStay</title>
 
-</div>
-<nav class="fixed bottom-0 inset-x-0 z-50 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur">
-<ul class="grid grid-cols-5 text-xs">
-<li>
-<a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="home" href="home.html">
-<span class="material-symbols-outlined text-[22px]">home</span>
-<span class="text-[10px] leading-none mt-1">Home</span>
-</a>
-</li>
-<li>
-<a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="search" href="search_results.html">
-<span class="material-symbols-outlined text-[22px]">search</span>
-<span class="text-[10px] leading-none mt-1">Search</span>
-</a>
-</li>
-<li>
-<a aria-current="page" class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary text-primary" data-tab="saved" href="saved.html">
-<span class="material-symbols-outlined text-[22px]">bookmark</span>
-<span class="text-[10px] leading-none mt-1">Saved</span>
-</a>
-</li>
-<li>
-<a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="messages" href="message_threads.html">
-<span class="material-symbols-outlined text-[22px]">chat</span>
-<span class="text-[10px] leading-none mt-1">Messages</span>
-</a>
-</li>
-<li>
-<a class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary" data-tab="profile" href="profile.html">
-<span class="material-symbols-outlined text-[22px]">person</span>
-<span class="text-[10px] leading-none mt-1">Profile</span>
-</a>
-</li>
-</ul>
-</nav></body></html>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" crossorigin href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Material Symbols baseline */
+      .material-symbols-outlined {
+        font-family: "Material Symbols Outlined";
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .material-symbols-outlined.filled {
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="bg-background-light dark:bg-background-dark font-display">
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col justify-between overflow-x-hidden"
+    >
+      <div class="flex-grow">
+        <header
+          class="bg-background-light dark:bg-background-dark sticky top-0 z-10 px-4 py-3 border-b border-white/10 dark:border-white/5"
+        >
+          <div class="flex items-center">
+            <button aria-label="Back" class="text-neutral-900 dark:text-white">
+              <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <h1
+              class="flex-1 text-center text-lg font-bold text-neutral-900 dark:text-white pr-6"
+            >
+              Saved Listings
+            </h1>
+          </div>
+        </header>
+        <main class="p-4 space-y-4">
+          <div
+            class="flex items-center gap-4 rounded-lg bg-white dark:bg-background-dark p-3 shadow-sm"
+          >
+            <div class="h-24 w-24 flex-shrink-0">
+              <img
+                alt="Cozy Student Housing"
+                class="h-full w-full rounded-lg object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBzaoxuiERCp5OEzqvXH3yoCMwFdMkpFzjtAwUVTjWWiD-mrzZQrJymEl-Vzg6Wd4uuiNplR-hdCYEFTtt12CwzjXV8s6YraykvnNUDkgxrSm7NIcMGxtLxebl4x1SaieA_qUFGASiJXJeiVjQdS0w1Eqbv16AV0c6xe2bzqn2aeCb5lBknslmw5QihUshmSHEcFPdOrgLlBgYDWY1w1sRn8U48WIsshQtky7woso4Tl44fAITIlBSI9cDjpaEh53rNqaYpLkCNw"
+              />
+            </div>
+            <div class="flex-1 overflow-hidden">
+              <h2 class="truncate font-bold text-neutral-900 dark:text-white">
+                Cozy Student Housing
+              </h2>
+              <div
+                class="mt-1 flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400"
+              >
+                <span
+                  class="material-symbols-outlined !text-base text-yellow-400"
+                  >star</span
+                >
+                <span>4.8</span>
+                <span class="text-neutral-300 dark:text-neutral-600">·</span>
+                <span>1.2 km</span>
+              </div>
+              <p
+                class="mt-2 text-base font-bold text-neutral-900 dark:text-white"
+              >
+                ₱4,500<span
+                  class="text-sm font-normal text-neutral-500 dark:text-neutral-400"
+                  >/month</span
+                >
+              </p>
+            </div>
+            <button class="self-start text-primary">
+              <span class="material-symbols-outlined">favorite</span>
+            </button>
+          </div>
+          <div
+            class="flex items-center gap-4 rounded-lg bg-white dark:bg-background-dark p-3 shadow-sm"
+          >
+            <div class="h-24 w-24 flex-shrink-0">
+              <img
+                alt="Student Haven Apartments"
+                class="h-full w-full rounded-lg object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhzAIVPLPTZL7IZKCb2HzUMuoK1ewcZOASDAHM55LW-oB1JHveBP6R-HOHGieLxFVd90LSDN9Cs2gyyMjsQajqNs2V8KPWrFSfWUlxjbPYF59PQDZI1Cn8pr4alx7vwOb_C6DShbivPWJDXBBh5rrzLJj-1e1TWw4XbgRX3ueK7FASr_9C99CfVkHgpX_g6czgXUaYqbscRGIZmBXKEO7fNnBXZJ3I-TBn8q5y96qss3qTW0aLh3NDWPZmfbGPiypg8K0HUu7BIA"
+              />
+            </div>
+            <div class="flex-1 overflow-hidden">
+              <h2 class="truncate font-bold text-neutral-900 dark:text-white">
+                Student Haven Apartments
+              </h2>
+              <div
+                class="mt-1 flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400"
+              >
+                <span
+                  class="material-symbols-outlined !text-base text-yellow-400"
+                  >star</span
+                >
+                <span>4.5</span>
+                <span class="text-neutral-300 dark:text-neutral-600">·</span>
+                <span>800 m</span>
+              </div>
+              <p
+                class="mt-2 text-base font-bold text-neutral-900 dark:text-white"
+              >
+                ₱5,000<span
+                  class="text-sm font-normal text-neutral-500 dark:text-neutral-400"
+                  >/month</span
+                >
+              </p>
+            </div>
+            <button class="self-start text-primary">
+              <span class="material-symbols-outlined">favorite</span>
+            </button>
+          </div>
+          <div
+            class="flex items-center gap-4 rounded-lg bg-white dark:bg-background-dark p-3 shadow-sm"
+          >
+            <div class="h-24 w-24 flex-shrink-0">
+              <img
+                alt="The Student Lodge"
+                class="h-full w-full rounded-lg object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa4RaFZ1y5DTR5wTvtYEWnI9Nox2tYU88aP4A5FrKhVvoCmOnWrk9Log2_KlQDFFi0RvUEoEZW6Z7CI-Xq17TgjAchqNoHeyTP8vM3w-F-MmxTsCJ-IBF5SFDu5akiAtc5Z4qdxuBqae7zRObP7Fkmb2XLOivrmZY0R1iS1VJm4En23w-y65f_FUNh6qB8442vIdeZPvKJNfBYjOHH68TOQlnzgUeXiEhiSD4h5QmIZubGIQatilm1EjpAOab0s-buFydmNpPdYg"
+              />
+            </div>
+            <div class="flex-1 overflow-hidden">
+              <h2 class="truncate font-bold text-neutral-900 dark:text-white">
+                The Student Lodge
+              </h2>
+              <div
+                class="mt-1 flex items-center gap-1 text-sm text-neutral-600 dark:text-neutral-400"
+              >
+                <span
+                  class="material-symbols-outlined !text-base text-yellow-400"
+                  >star</span
+                >
+                <span>4.9</span>
+                <span class="text-neutral-300 dark:text-neutral-600">·</span>
+                <span>500 m</span>
+              </div>
+              <p
+                class="mt-2 text-base font-bold text-neutral-900 dark:text-white"
+              >
+                ₱4,800<span
+                  class="text-sm font-normal text-neutral-500 dark:text-neutral-400"
+                  >/month</span
+                >
+              </p>
+            </div>
+            <button class="self-start text-primary">
+              <span class="material-symbols-outlined">favorite</span>
+            </button>
+          </div>
+        </main>
+      </div>
+    </div>
+    <nav
+      class="fixed bottom-0 inset-x-0 z-50 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur"
+    >
+      <ul class="grid grid-cols-5 text-xs">
+        <li>
+          <a
+            class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+            data-tab="home"
+            href="home.html"
+          >
+            <span class="material-symbols-outlined text-[22px]">home</span>
+            <span class="text-[10px] leading-none mt-1">Home</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+            data-tab="search"
+            href="search_results.html"
+          >
+            <span class="material-symbols-outlined text-[22px]">search</span>
+            <span class="text-[10px] leading-none mt-1">Search</span>
+          </a>
+        </li>
+        <li>
+          <a
+            aria-current="page"
+            class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary text-primary"
+            data-tab="saved"
+            href="saved.html"
+          >
+            <span class="material-symbols-outlined text-[22px]">bookmark</span>
+            <span class="text-[10px] leading-none mt-1">Saved</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+            data-tab="messages"
+            href="message_threads.html"
+          >
+            <span class="material-symbols-outlined text-[22px]">chat</span>
+            <span class="text-[10px] leading-none mt-1">Messages</span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+            data-tab="profile"
+            href="profile.html"
+          >
+            <span class="material-symbols-outlined text-[22px]">person</span>
+            <span class="text-[10px] leading-none mt-1">Profile</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>
