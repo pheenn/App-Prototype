@@ -5,20 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Notification Settings - SafeStay</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" crossorigin href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-      rel="stylesheet"
-    />
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="assets/css/plus-jakarta-sans.css" rel="stylesheet" />
+    <link href="assets/css/material-symbols.css" rel="stylesheet" />
+    <script src="assets/js/tailwindcdn.js"></script>
     <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -43,19 +32,6 @@
       };
     </script>
 
-    <style>
-      /* Material Symbols baseline */
-      .material-symbols-outlined {
-        font-family: "Material Symbols Outlined";
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-        line-height: 1;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      .material-symbols-outlined.filled {
-        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-      }
-    </style>
   </head>
   <body class="font-display bg-background-light dark:bg-background-dark">
     <header
@@ -295,7 +271,7 @@
 						data-tab="profile"
 						href="profile.html"
 					>
-						<span class="material-symbols-outlined text-[22px]"
+						<span class="material-symbols-outlined text-[22px] text-primary"
 							>person</span
 						>
 						<span class="text-[10px] leading-none mt-1"

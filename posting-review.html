@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SafeStay - Post a Review</title>
+    <link href="assets/css/plus-jakarta-sans.css" rel="stylesheet" />
+    <link href="assets/css/material-symbols.css" rel="stylesheet" />
+    <script src="assets/js/tailwindcdn.js"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#13a4ec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+              "text-light": "#0f172a",
+              "text-dark": "#f6f7f8",
+              "verified-green": "#10b981",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.75rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+            boxShadow: {
+              card: "0 20px 45px -30px rgba(15, 23, 42, 0.6)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+      /* Keeps the star rating interaction feeling consistent across pages */
+      .rating-trigger {
+        appearance: none;
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark"
+  >
+    <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden bg-gradient-to-b from-background-light via-background-light/40 to-background-light dark:from-background-dark dark:via-background-dark/60 dark:to-background-dark">
+      <div class="flex flex-1 flex-col">
+        <header class="sticky top-0 z-20 border-b border-slate-200 bg-background-light/90 backdrop-blur dark:border-slate-800 dark:bg-background-dark/90">
+          <div class="flex h-14 items-center gap-3 px-4">
+            <a
+              aria-label="Back"
+              class="inline-flex size-10 items-center justify-center rounded-full text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+              href="javascript:history.back()"
+            >
+              <span aria-hidden="true" class="material-symbols-outlined text-[24px]">arrow_back</span>
+            </a>
+            <div class="flex-1 text-center pr-10">
+              <h1 class="text-base font-bold tracking-wide text-slate-900 dark:text-slate-100">
+                Write a Review
+              </h1>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Share your experience to help others choose safely.
+              </p>
+            </div>
+          </div>
+        </header>
+        <main class="flex-1 space-y-6 px-4 pb-24 pt-6">
+          <section class="flex items-center gap-4 rounded-2xl border border-slate-200/60 bg-white p-4 shadow-card dark:border-slate-800/60 dark:bg-slate-900/60">
+            <img
+              alt="Boarding House Thumbnail"
+              class="w-20 h-20 rounded-md object-cover"
+              src="Images/cozy bh.png"
+            />
+            <div class="flex-1 pl-4">
+              <h2 class="font-bold text-slate-900 dark:text-slate-100">
+               Cozy Student Boarding House
+              </h2>
+              <p class="text-sm text-slate-600 dark:text-slate-400">
+                123 Main St, Odiongan, Romblon
+              </p>
+              <div
+                class="mt-1 inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full text-xs font-semibold bg-green-100 text-verified-green dark:bg-green-900/50"
+              >
+                <span class="material-symbols-outlined text-sm">verified</span>
+                Verified
+              </div>
+            </div>
+          </section>
+          <section class="space-y-4 rounded-2xl border border-slate-200/60 bg-white p-4 shadow-card dark:border-slate-800/60 dark:bg-slate-900/60">
+            <label
+              class="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2 block"
+              >Rate your stay</label
+            >
+            <div class="flex items-center justify-between gap-3">
+              <div class="flex items-center gap-2" id="ratingStars"></div>
+              <p class="text-sm font-medium text-slate-500 dark:text-slate-400" id="ratingLabel">
+                Tap a star
+              </p>
+            </div>
+          </section>
+          <section class="space-y-3 rounded-2xl border border-slate-200/60 bg-white p-4 shadow-card dark:border-slate-800/60 dark:bg-slate-900/60">
+            <label
+              class="text-base font-semibold text-slate-900 dark:text-slate-100 mb-2 block"
+              for="review-text"
+              >Your Review</label
+            >
+            <div class="relative">
+              <textarea
+                class="form-textarea w-full resize-none rounded-lg text-slate-900 dark:text-slate-100 bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:border-primary focus:ring-primary min-h-40 p-4 text-base placeholder:text-slate-500 dark:placeholder:text-slate-400"
+                id="review-text"
+                placeholder="Write about your stay…"
+              ></textarea>
+              <div class="pointer-events-none absolute inset-x-0 bottom-3 flex justify-between px-4 text-xs text-slate-400 dark:text-slate-500">
+                <span id="charHelper">0 / 400</span>
+                <span>Optional photo</span>
+              </div>
+              <button
+                class="absolute bottom-7 right-3 flex size-10 items-center justify-center rounded-full bg-slate-200 text-slate-600 transition-colors hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-300 dark:hover:bg-slate-600"
+                id="addPhotoButton"
+                type="button"
+              >
+                <span
+                  class="material-symbols-outlined text-slate-600 dark:text-slate-300"
+                  >add_a_photo</span
+                >
+              </button>
+            </div>
+            <div class="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-3 text-xs text-slate-500 dark:border-slate-700 dark:bg-slate-800/60 dark:text-slate-400">
+              Share highlights like safety, cleanliness, or host responsiveness. Keep it kind and constructive—your words help fellow residents.
+            </div>
+          </section>
+        </main>
+      </div>
+      <footer
+        class="sticky bottom-20 bg-background-light dark:bg-background-dark pb-safe-area-bottom z-20"
+      >
+        <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+          <button
+            class="flex h-14 w-full items-center justify-center rounded-xl bg-primary text-base font-bold uppercase tracking-wide text-white shadow-lg shadow-sky-500/30 transition-colors hover:bg-sky-500"
+            id="postReviewButton"
+            type="button"
+          >
+            Post Review
+          </button>
+        </div>
+      </footer>
+      <nav
+			class="fixed bottom-0 inset-x-0 z-50 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur"
+		>
+			<ul class="grid grid-cols-5 text-xs">
+				<li>
+					<a
+						aria-current="page"
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 text-primary hover:text-primary  active:text-primary"
+						data-tab="home"
+						href="home.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>home</span
+						>
+						<span class="text-[10px] leading-none mt-1">Home</span>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="search"
+						href="map.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>search</span
+						>
+						<span class="text-[10px] leading-none mt-1"
+							>Search</span
+						>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="saved"
+						href="saved.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>bookmark</span
+						>
+						<span class="text-[10px] leading-none mt-1">Saved</span>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="messages"
+						href="message_threads.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>chat</span
+						>
+						<span class="text-[10px] leading-none mt-1"
+							>Messages</span
+						>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="profile"
+						href="profile.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>person</span
+						>
+						<span class="text-[10px] leading-none mt-1"
+							>Profile</span
+						>
+					</a>
+				</li>
+			</ul>
+		</nav>
+    </div>
+    <div
+      aria-hidden="true"
+      class="fixed inset-0 z-30 hidden items-center justify-center bg-slate-900/60 px-6"
+      id="confirmationDialog"
+      role="dialog"
+    >
+      <div class="w-full max-w-sm rounded-2xl border border-slate-200 bg-white p-6 text-center shadow-xl dark:border-slate-700 dark:bg-slate-900">
+        <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/40">
+          <span class="material-symbols-outlined text-4xl text-green-600 dark:text-green-300">check</span>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Thank you!</h3>
+        <p class="mt-2 mb-6 text-sm text-slate-600 dark:text-slate-400">
+          Your feedback helps our community stay safe.
+        </p>
+        <button 
+          class="flex h-12 w-full items-center justify-center rounded-xl bg-primary text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-sky-500"
+          id="dismissDialogButton"
+          type="button"
+        >
+          Done
+        </button>
+      </div>
+    </div>
+    <script>
+      const ratingStars = document.getElementById('ratingStars');
+      const ratingLabel = document.getElementById('ratingLabel');
+      const charHelper = document.getElementById('charHelper');
+      const reviewField = document.getElementById('review-text');
+      const dialog = document.getElementById('confirmationDialog');
+      const postButton = document.getElementById('postReviewButton');
+      const dismissButton = document.getElementById('dismissDialogButton');
+      const ratingCopy = ['Tap a star', 'Could be better', 'It was okay', 'Loved it', 'Amazing stay!', 'The best!'];
+
+      let currentRating = 0;
+
+      const renderStars = (active = 0) => {
+        ratingStars.innerHTML = '';
+        for (let index = 1; index <= 5; index += 1) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = `rating-trigger flex size-12 items-center justify-center rounded-full transition-colors ${
+            index <= active ? 'bg-primary/10 text-amber-400' : 'bg-slate-100 text-slate-400 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700'
+          }`;
+          button.dataset.value = index;
+          button.innerHTML = '<span class="material-symbols-outlined text-3xl">star</span>';
+          ratingStars.appendChild(button);
+        }
+      };
+
+      renderStars();
+
+      ratingStars.addEventListener('click', (event) => {
+        const target = event.target.closest('button');
+        if (!target) return;
+
+        currentRating = Number(target.dataset.value);
+        renderStars(currentRating);
+        ratingLabel.textContent = ratingCopy[currentRating] || ratingCopy[0];
+      });
+
+      ratingStars.addEventListener('mouseover', (event) => {
+        const target = event.target.closest('button');
+        if (!target) return;
+
+        const previewValue = Number(target.dataset.value);
+        renderStars(previewValue);
+        ratingLabel.textContent = ratingCopy[previewValue] || ratingCopy[0];
+      });
+
+      ratingStars.addEventListener('mouseleave', () => {
+        renderStars(currentRating);
+        ratingLabel.textContent = ratingCopy[currentRating] || ratingCopy[0];
+      });
+
+      reviewField.addEventListener('input', () => {
+        const currentLength = reviewField.value.trim().length;
+        charHelper.textContent = `${currentLength} / 400`;
+        if (currentLength > 400) {
+          charHelper.classList.add('text-rose-500');
+        } else {
+          charHelper.classList.remove('text-rose-500');
+        }
+      });
+
+      postButton.addEventListener('click', () => {
+        if (!dialog.classList.contains('flex')) {
+          dialog.classList.remove('hidden');
+          dialog.classList.add('flex');
+        }
+      });
+
+      dismissButton.addEventListener('click', () => {
+        dialog.classList.remove('flex');
+        setTimeout(() => {
+          window.location.href = 'house_details.html';
+        }, 300);
+        dialog.classList.add('hidden');
+      });
+
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) {
+          dialog.classList.remove('flex');
+          dialog.classList.add('hidden');
+        }
+      });
+    </script>
+  </body>
+</html>

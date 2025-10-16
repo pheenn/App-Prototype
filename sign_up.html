@@ -6,9 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Sign Up - SafeStay</title>
 
-		<!-- Plus Jakarta Sans -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" crossorigin href="https://fonts.gstatic.com" />
 		<link rel="stylesheet" href="assets/css/plus-jakarta-sans.css" />
 
 		<!-- Material Symbols Outlined -->
@@ -41,17 +38,6 @@
 		</script>
 
 		<style>
-			.material-symbols-outlined {
-				font-family: 'Material Symbols Outlined';
-				font-variation-settings:
-					'FILL' 0,
-					'wght' 400,
-					'GRAD' 0,
-					'opsz' 24;
-				line-height: 1;
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-			}
 			body {
 				min-height: 100dvh;
 			}
@@ -82,7 +68,7 @@
 					</p>
 				</div>
 
-				<form class="space-y-4" action="#" method="post" novalidate>
+				<form id="sign-up-form" class="space-y-4" action="profile.html" method="post" novalidate>
 					<div>
 						<label
 							class="block text-sm font-medium mb-1"
@@ -190,6 +176,7 @@
 					</div>
 
 					<button
+						id="create-account-button"
 						type="submit"
 						class="w-full bg-primary text-white font-bold rounded-lg py-3 hover:opacity-90 transition"
 					>
@@ -209,5 +196,89 @@
 				</p>
 			</div>
 		</main>
+		<nav
+			class="fixed bottom-0 inset-x-0 z-50 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur"
+		>
+			<ul class="grid grid-cols-5 text-xs">
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 hover:text-primary dark:text-slate-300"
+						data-tab="home"
+						href="home.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>home</span
+						>
+						<span class="text-[10px] leading-none mt-1">Home</span>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 hover:text-primary dark:text-slate-300"
+						data-tab="search"
+						href="map.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>search</span
+						>
+						<span class="text-[10px] leading-none mt-1"
+							>Search</span
+						>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 hover:text-primary dark:text-slate-300"
+						data-tab="saved"
+						href="saved.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>bookmark</span
+						>
+						<span class="text-[10px] leading-none mt-1">Saved</span>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 hover:text-primary dark:text-slate-300"
+						data-tab="messages"
+						href="message_threads.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>chat</span
+						>
+						<span class="text-[10px] leading-none mt-1"
+							>Messages</span
+						>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 hover:text-primary dark:text-slate-300"
+						data-tab="profile"
+						href="profile.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>person</span
+						>
+						<span class="text-[10px] leading-none mt-1"
+							>Profile</span
+						>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				const signUpForm = document.getElementById('sign-up-form');
+				if (!signUpForm) return;
+
+				signUpForm.addEventListener('submit', (event) => {
+					event.preventDefault();
+					localStorage.setItem('safestay-auth-status', 'authenticated');
+					window.location.href = 'profile.html';
+				});
+			});
+		</script>
 	</body>
 </html>

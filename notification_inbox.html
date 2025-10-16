@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+		<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Notifications - SafeStay</title>
-		<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
-		<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+		<title>Home - SafeStay</title>
 		<link rel="stylesheet" href="assets/css/plus-jakarta-sans.css" />
 		<link rel="stylesheet" href="assets/css/material-symbols.css" />
 		<script src="assets/js/tailwindcdn.js"></script>
+		<script id="tailwind-config">
+			tailwind.config = {
+				darkMode: 'class',
 				theme: {
 					extend: {
 						colors: {
@@ -17,7 +18,7 @@
 							'background-dark': '#101c22'
 						},
 						fontFamily: {
-							display: ['Plus Jakarta Sans']
+							display: ['Plus Jakarta Sans', 'sans-serif']
 						},
 						borderRadius: {
 							DEFAULT: '0.5rem',
@@ -30,8 +31,17 @@
 			};
 		</script>
 		<style>
-			body {
-				min-height: max(884px, 100dvh);
+			/* Material Symbols baseline */
+			.material-symbols-outlined {
+				font-family: 'Material Symbols Outlined';
+				font-variation-settings:
+					'FILL' 0,
+					'wght' 400,
+					'GRAD' 0,
+					'opsz' 24;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
 			}
 		</style>
 	</head>
@@ -44,7 +54,7 @@
 				<a
 					aria-label="Back"
 					class="inline-flex h-10 w-10 items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200"
-					href="javascript:history.back()"
+					href="home.html"
 				>
 					<span
 						aria-hidden="true"

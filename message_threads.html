@@ -4,23 +4,9 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Home - SafeStay</title>
-		<link href="https://fonts.googleapis.com" rel="preconnect" />
-		<link
-			crossorigin="True"
-			href="https://fonts.gstatic.com"
-			rel="preconnect"
-		/>
-		<link
-			as_="style"
-			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap"
-			onload="this.rel='stylesheet'"
-			rel="preload"
-		/>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-			rel="stylesheet"
-		/>
-		<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="assets/css/plus-jakarta-sans.css" rel="stylesheet" />
+    <link href="assets/css/material-symbols.css" rel="stylesheet" />
+    <script src="assets/js/tailwindcdn.js"></script>
 		<script id="tailwind-config">
 			tailwind.config = {
 				darkMode: 'class',
@@ -44,32 +30,13 @@
 				}
 			};
 		</script>
-		<style>
-			/* Material Symbols baseline */
-			.material-symbols-outlined {
-				font-family: 'Material Symbols Outlined';
-				font-variation-settings:
-					'FILL' 0,
-					'wght' 400,
-					'GRAD' 0,
-					'opsz' 24;
-				line-height: 1;
-				-webkit-font-smoothing: antialiased;
-				-moz-osx-font-smoothing: grayscale;
-			}
-		</style>
 	</head>
   <body class="bg-background-light dark:bg-background-dark font-display">
   <div class="flex min-h-screen min-h-[100dvh] flex-col">
       <header
         class="sticky top-0 z-10 flex items-center justify-between border-b border-black/10 bg-background-light px-4 py-3 dark:border-white/10 dark:bg-background-dark"
       >
-		<button
-			aria-label="Back"
-		  class="flex items-center justify-center text-black dark:text-white"
-		>
-		  <span class="material-symbols-outlined">arrow_back</span>
-		</button>
+
         <h1
           class="flex-1 text-center text-lg font-bold text-black dark:text-white"
         >
@@ -195,7 +162,7 @@
             data-tab="messages"
             href="message_threads.html"
           >
-            <span class="material-symbols-outlined text-[22px]">chat</span>
+            <span class="material-symbols-outlined text-[22px] text-primary">chat</span>
             <span class="text-[10px] leading-none mt-1">Messages</span>
           </a>
         </li>

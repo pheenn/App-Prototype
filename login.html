@@ -57,7 +57,7 @@
         <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Log in to continue</p>
       </div>
 
-      <form class="space-y-4" action="#" method="post" novalidate>
+  <form id="login-form" class="space-y-4" action="profile.html" method="post" novalidate>
         <div>
           <label class="block text-sm font-medium mb-1" for="email">Email</label>
           <div class="relative">
@@ -89,7 +89,7 @@
           <a href="#" class="text-sm font-semibold text-primary hover:opacity-90">Forgot password?</a>
         </div>
 
-        <button type="submit" class="w-full bg-primary text-white font-bold rounded-lg py-3 hover:opacity-90 transition">
+        <button id="login-submit" type="submit" class="w-full bg-primary text-white font-bold rounded-lg py-3 hover:opacity-90 transition">
           Log in
         </button>
       </form>
@@ -98,7 +98,92 @@
         Don’t have an account?
         <a class="font-semibold text-primary hover:opacity-90" href="sign_up.html">Sign up</a>
       </p>
-    </div>
+  </div><nav
+			class="fixed bottom-0 inset-x-0 z-50 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur"
+		>
+			<ul class="grid grid-cols-5 text-xs">
+				<li>
+					<a
+						aria-current="page"
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 text-primary hover:text-primary  active:text-primary"
+						data-tab="home"
+						href="home.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>home</span
+						>
+						<span class="text-[10px] leading-none mt-1">Home</span>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="search"
+						href="map.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>search</span
+						>
+						<span class="text-[10px] leading-none mt-1"
+							>Search</span
+						>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="saved"
+						href="saved.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>bookmark</span
+						>
+						<span class="text-[10px] leading-none mt-1">Saved</span>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="messages"
+						href="message_threads.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>chat</span
+						>
+						<span class="text-[10px] leading-none mt-1"
+							>Messages</span
+						>
+					</a>
+				</li>
+				<li>
+					<a
+						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						data-tab="profile"
+						href="profile.html"
+					>
+						<span class="material-symbols-outlined text-[22px]"
+							>person</span
+						>
+						<span class="text-[10px] leading-none mt-1"
+							>Profile</span
+						>
+					</a>
+				</li>
+			</ul>
+		</nav>
+
   </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const loginForm = document.getElementById('login-form');
+      if (!loginForm) return;
+
+      loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        localStorage.setItem('safestay-auth-status', 'authenticated');
+        window.location.href = 'profile.html';
+      });
+    });
+  </script>
 </body>
 </html>

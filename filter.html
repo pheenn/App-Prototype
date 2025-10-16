@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Property Filters - SafeStay</title>
-  <link href="assets/css/plus-jakarta-sans.css" rel="stylesheet" />
-  <link href="assets/css/material-symbols.css" rel="stylesheet" />
-  <script src="assets/js/tailwindcdn.js"></script>
+    <link href="assets/css/plus-jakarta-sans.css" rel="stylesheet" />
+    <link href="assets/css/material-symbols.css" rel="stylesheet" />
+    <script src="assets/js/tailwindcdn.js"></script>
     <script id="tailwind-config">
       tailwind.config = {
         darkMode: "class",
@@ -34,6 +34,9 @@
       };
     </script>
     <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
       .range-slider {
         appearance: none;
         -webkit-appearance: none;
@@ -41,55 +44,44 @@
         height: 6px;
         background: transparent;
         outline: none;
-        opacity: 1;
-        transition: opacity 0.2s;
-        border-radius: 9999px;
+        pointer-events: none;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        pointer-events: none;
       }
       .range-slider::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 24px;
-        height: 24px;
-        background-color: white;
+        width: 22px;
+        height: 22px;
+        background-color: #ffffff;
         border: 3px solid #13a4ec;
-        cursor: pointer;
         border-radius: 50%;
+        cursor: pointer;
         position: relative;
         z-index: 10;
         pointer-events: all;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 18px -8px rgba(19, 164, 236, 0.6);
       }
       .range-slider::-moz-range-thumb {
-        width: 24px;
-        height: 24px;
-        background: white;
+        width: 22px;
+        height: 22px;
+        background: #ffffff;
         border: 3px solid #13a4ec;
-        cursor: pointer;
         border-radius: 50%;
-      }
-      .glassmorphism {
-        background: rgba(255, 255, 255, 0.6);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-      }
-      .dark .glassmorphism {
-        background: rgba(16, 28, 34, 0.7);
+        cursor: pointer;
       }
       .custom-checkbox {
         appearance: none;
         -webkit-appearance: none;
-        height: 24px;
-        width: 24px;
+        height: 22px;
+        width: 22px;
         border-radius: 8px;
         border: 1.5px solid #cbd5e1;
         transition: all 0.2s ease-in-out;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         cursor: pointer;
         position: relative;
+        background: rgba(255, 255, 255, 0.8);
       }
       .custom-checkbox:checked {
         background-color: #13a4ec;
@@ -98,600 +90,525 @@
         background-size: 100% 100%;
         background-position: center;
         background-repeat: no-repeat;
+        box-shadow: 0 10px 22px -12px rgba(19, 164, 236, 0.6);
       }
       .dark .custom-checkbox {
-        border-color: #4a5568;
+        border-color: #475569;
+        background: rgba(15, 23, 42, 0.7);
       }
       .dark .custom-checkbox:checked {
         background-color: #13a4ec;
         border-color: #13a4ec;
       }
-    </style>
-    <style>
-      body {
-        min-height: max(884px, 100dvh);
+      .sort-btn.active {
+        background-color: #13a4ec;
+        color: #ffffff;
+        border-color: transparent;
+        box-shadow: 0 18px 36px -20px rgba(19, 164, 236, 0.85);
+      }
+      .dark .sort-btn.active {
+        background-color: rgba(19, 164, 236, 0.95);
+      }
+      .room-type-btn.selected {
+        background-color: rgba(19, 164, 236, 0.1);
+        border-color: transparent;
+        color: #0b5fa8;
+        box-shadow: inset 0 0 0 1px rgba(19, 164, 236, 0.3);
+      }
+      .dark .room-type-btn.selected {
+        color: #bee3f8;
+        background-color: rgba(19, 164, 236, 0.2);
       }
     </style>
   </head>
-  <body class="font-display bg-background-light dark:bg-background-dark">
-    <div
-      class="relative flex min-h-screen w-full flex-col bg-cover bg-center bg-no-repeat group/design-root"
-      style="
-        background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAS2kyhAq43aIU9NMGkFAGEx-OmDgmHaOxIBOfQOBZRwOkt7PzSgh1byu7_46Lda4vjCLIC2bMGgvu7b-N9BeAQuD-g2qzaX1oW7ummGHhz2ZnVqq0XPTOlGQ7F-W5tQQ17G51WVz9eBykwTaj6HXwjTOo_QCXCr_OaUWswS1JlNoxejyJqLW-BvVPAYxOFtqJ3o9oTLLsR8egXJbDJWFX5xRTJ89KZo99fwD6GP6eHnU7WXshcdO8u_V7CzxMQ9ePK4Ui98GA3Dg');
-      "
-    >
-      <div class="absolute inset-0 bg-black/20 dark:bg-black/40"></div>
-      <div
-        class="absolute bottom-0 left-0 right-0 mt-auto flex h-full max-h-[95vh] flex-col"
-      >
-        <div class="flex-grow"></div>
-        <div class="glassmorphism rounded-t-xl shadow-2xl">
-          <div class="flex flex-col items-center p-3">
-            <div
-              class="h-1.5 w-10 rounded-full bg-gray-300 dark:bg-gray-600"
-            ></div>
-          </div>
-          <div
-            class="flex items-center border-b border-gray-200/50 dark:border-gray-700/50 px-5 pb-4 pt-2"
+  <body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+    <div class="relative flex min-h-screen flex-col bg-gradient-to-b from-background-light via-background-light/70 to-background-light dark:from-background-dark dark:via-background-dark/70 dark:to-background-dark">
+      <header class="sticky top-0 z-20 border-b border-slate-200/70 bg-background-light/80 backdrop-blur-lg dark:border-slate-800/60 dark:bg-background-dark/80">
+        <div class="mx-auto flex h-14 w-full max-w-3xl items-center gap-3 px-4">
+          <a
+            aria-label="Back"
+            class="inline-flex size-10 items-center justify-center rounded-full text-slate-600 transition-colors hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+            href="javascript:history.back()"
           >
-            <button 
-              onclick="closeFilters()"
-              class="text-gray-700 dark:text-gray-200 hover:text-gray-900 dark:hover:text-white transition-colors"
-              aria-label="Close filters"
-            >
-              <span class="material-symbols-outlined text-3xl">close</span>
-            </button>
-            <h2
-              class="flex-1 text-center text-xl font-bold text-gray-900 dark:text-white"
-            >
-              Filters
-            </h2>
-            <button 
+            <span aria-hidden="true" class="material-symbols-outlined text-[24px]">arrow_back</span>
+          </a>
+          <div class="flex flex-1 items-center justify-between">
+            <div>
+              <h1 class="text-base font-bold leading-tight tracking-wide">Refine Your Stay</h1>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Tune your filters to find the safest fit.</p>
+            </div>
+            <button
+              class="text-sm font-semibold uppercase tracking-wide text-primary transition-colors hover:text-primary/80"
               onclick="resetFilters()"
-              class="w-16 text-base font-semibold text-primary hover:text-primary/80 transition-colors"
+              type="button"
             >
               Reset
             </button>
           </div>
-          <div class="flex-1 overflow-y-auto px-5 pb-4 pt-6">
-            <div class="space-y-8">
+        </div>
+      </header>
+      <main class="flex-1 pb-28">
+        <div class="mx-auto w-full max-w-3xl space-y-6 px-4 pt-6">
+          <section class="rounded-2xl border border-slate-200 bg-white/90 p-4 shadow-xl shadow-slate-200/40 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/70 dark:shadow-black/10">
+            <div class="flex items-start justify-between gap-4">
               <div>
-                <div class="flex items-baseline justify-between mb-4">
-                  <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-                    Price Range
-                  </h3>
-                  <p class="text-base font-semibold text-primary" id="price-display">
-                    ₱1,500 - ₱8,500
-                  </p>
-                </div>
-                <div class="relative h-12">
-                  <div class="absolute top-1/2 left-0 w-full -translate-y-1/2">
-                    <div
-                      class="h-1.5 w-full rounded-full bg-gray-300 dark:bg-gray-700/50"
-                    >
-                      <div
-                        id="price-range-fill"
-                        class="h-1.5 rounded-full bg-primary"
-                        style="margin-left: 15%; width: 70%"
-                      ></div>
-                    </div>
-                    <div
-                      class="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between"
-                    >
-                      <span
-                        class="text-xs font-medium text-gray-500 dark:text-gray-400"
-                        >₱500</span
-                      >
-                      <span
-                        class="text-xs font-medium text-gray-500 dark:text-gray-400"
-                        >₱12,000</span
-                      >
-                    </div>
-                    <input
-                      id="min-price"
-                      class="range-slider"
-                      max="100"
-                      min="0"
-                      type="range"
-                      value="15"
-                      oninput="updatePriceRange()"
-                      aria-label="Minimum price"
-                    />
-                    <input
-                      id="max-price"
-                      class="range-slider"
-                      max="100"
-                      min="0"
-                      type="range"
-                      value="85"
-                      oninput="updatePriceRange()"
-                      aria-label="Maximum price"
-                    />
-                  </div>
-                </div>
+                <p class="text-sm font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">Active Filters</p>
+                <h2 class="mt-1 text-lg font-bold">Your current preferences</h2>
               </div>
-              <div class="space-y-4">
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-                  Sort By
-                </h3>
-                <div class="grid grid-cols-1 gap-3">
-                  <button
-                    onclick="selectSort(this, 'distance')"
-                    class="sort-btn active rounded-full px-4 py-2.5 text-sm font-medium transition-colors duration-300 bg-primary text-white shadow-sm"
-                    data-sort="distance"
-                  >
-                    Distance: Nearest First
-                  </button>
-                  <button
-                    onclick="selectSort(this, 'rating')"
-                    class="sort-btn rounded-full px-4 py-2.5 text-sm font-medium transition-colors duration-300 bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
-                    data-sort="rating"
-                  >
-                    Rating: Highest First
-                  </button>
-                  <button
-                    onclick="selectSort(this, 'price-low')"
-                    class="sort-btn rounded-full px-4 py-2.5 text-sm font-medium transition-colors duration-300 bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
-                    data-sort="price-low"
-                  >
-                    Price: Low to High
-                  </button>
-                  <button
-                    onclick="selectSort(this, 'price-high')"
-                    class="sort-btn rounded-full px-4 py-2.5 text-sm font-medium transition-colors duration-300 bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600"
-                    data-sort="price-high"
-                  >
-                    Price: High to Low
-                  </button>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-                  Amenities
-                </h3>
-                <div class="space-y-4 pt-2">
-                  <label class="flex items-center justify-between cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded-lg transition-colors">
-                    <span class="text-base text-gray-800 dark:text-gray-200"
-                      >Wi-Fi Included</span
-                    >
-                    <input 
-                      checked 
-                      class="custom-checkbox amenity-checkbox" 
-                      type="checkbox" 
-                      value="wifi"
-                      name="amenities"
-                    />
-                  </label>
-                  <label class="flex items-center justify-between cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded-lg transition-colors">
-                    <span class="text-base text-gray-800 dark:text-gray-200"
-                      >Private Bathroom</span
-                    >
-                    <input 
-                      class="custom-checkbox amenity-checkbox" 
-                      type="checkbox" 
-                      value="private-bathroom"
-                      name="amenities"
-                    />
-                  </label>
-                  <label class="flex items-center justify-between cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded-lg transition-colors">
-                    <span class="text-base text-gray-800 dark:text-gray-200"
-                      >Air Conditioning</span
-                    >
-                    <input 
-                      class="custom-checkbox amenity-checkbox" 
-                      type="checkbox" 
-                      value="ac"
-                      name="amenities"
-                    />
-                  </label>
-                  <label class="flex items-center justify-between cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded-lg transition-colors">
-                    <span class="text-base text-gray-800 dark:text-gray-200"
-                      >24/7 Security</span
-                    >
-                    <input 
-                      checked 
-                      class="custom-checkbox amenity-checkbox" 
-                      type="checkbox" 
-                      value="security"
-                      name="amenities"
-                    />
-                  </label>
-                  <label class="flex items-center justify-between cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded-lg transition-colors">
-                    <span class="text-base text-gray-800 dark:text-gray-200"
-                      >Kitchen Access</span
-                    >
-                    <input 
-                      class="custom-checkbox amenity-checkbox" 
-                      type="checkbox" 
-                      value="kitchen"
-                      name="amenities"
-                    />
-                  </label>
-                  <label class="flex items-center justify-between cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded-lg transition-colors">
-                    <span class="text-base text-gray-800 dark:text-gray-200"
-                      >Laundry Service</span
-                    >
-                    <input 
-                      class="custom-checkbox amenity-checkbox" 
-                      type="checkbox" 
-                      value="laundry"
-                      name="amenities"
-                    />
-                  </label>
-                  <label class="flex items-center justify-between cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded-lg transition-colors">
-                    <span class="text-base text-gray-800 dark:text-gray-200"
-                      >Parking Space</span
-                    >
-                    <input 
-                      class="custom-checkbox amenity-checkbox" 
-                      type="checkbox" 
-                      value="parking"
-                      name="amenities"
-                    />
-                  </label>
-                </div>
-              </div>
-              
-              <!-- Room Configuration -->
-              <div class="space-y-4">
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-                  Room Configuration
-                </h3>
-                <div class="grid grid-cols-2 gap-3">
-                  <button
-                    onclick="selectRoomType(this, 'single')"
-                    class="room-type-btn rounded-lg border-2 border-gray-200 dark:border-gray-700 px-4 py-3 text-sm font-medium transition-all duration-200 hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    data-type="single"
-                  >
-                    Single Room
-                  </button>
-                  <button
-                    onclick="selectRoomType(this, 'shared')"
-                    class="room-type-btn rounded-lg border-2 border-gray-200 dark:border-gray-700 px-4 py-3 text-sm font-medium transition-all duration-200 hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    data-type="shared"
-                  >
-                    Shared Room
-                  </button>
-                  <button
-                    onclick="selectRoomType(this, 'studio')"
-                    class="room-type-btn rounded-lg border-2 border-gray-200 dark:border-gray-700 px-4 py-3 text-sm font-medium transition-all duration-200 hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    data-type="studio"
-                  >
-                    Studio Type
-                  </button>
-                  <button
-                    onclick="selectRoomType(this, 'apartment')"
-                    class="room-type-btn rounded-lg border-2 border-gray-200 dark:border-gray-700 px-4 py-3 text-sm font-medium transition-all duration-200 hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/20"
-                    data-type="apartment"
-                  >
-                    Apartment
-                  </button>
-                </div>
-              </div>
-
-              <!-- Distance from University -->
-              <div class="space-y-4">
-                <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-                  Distance from University
-                </h3>
-                <div class="space-y-3">
-                  <label class="flex items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded-lg transition-colors">
-                    <input 
-                      type="radio" 
-                      name="distance" 
-                      value="walking"
-                      class="w-5 h-5 text-primary bg-gray-100 border-gray-300 focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <span class="ml-3 text-sm text-gray-800 dark:text-gray-200">Walking distance (0-1km)</span>
-                  </label>
-                  <label class="flex items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded-lg transition-colors">
-                    <input 
-                      type="radio" 
-                      name="distance" 
-                      value="bike"
-                      checked
-                      class="w-5 h-5 text-primary bg-gray-100 border-gray-300 focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <span class="ml-3 text-sm text-gray-800 dark:text-gray-200">Biking distance (1-3km)</span>
-                  </label>
-                  <label class="flex items-center cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 p-2 rounded-lg transition-colors">
-                    <input 
-                      type="radio" 
-                      name="distance" 
-                      value="transport"
-                      class="w-5 h-5 text-primary bg-gray-100 border-gray-300 focus:ring-primary dark:focus:ring-primary dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600"
-                    />
-                    <span class="ml-3 text-sm text-gray-800 dark:text-gray-200">Transport needed (3km+)</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="border-t border-gray-200/50 dark:border-gray-700/50 p-5">
-            <div class="flex gap-3">
               <button
-                onclick="clearAllFilters()"
-                class="flex-1 rounded-xl border-2 border-gray-200 dark:border-gray-700 py-3 text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                class="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-slate-500 transition-colors hover:border-primary hover:text-primary dark:border-slate-700 dark:text-slate-300"
+                onclick="clearAllFilters(event)"
+                type="button"
               >
+                <span class="material-symbols-outlined text-sm">close</span>
                 Clear All
               </button>
-              <button
-                onclick="applyFilters()"
-                class="flex-[2] rounded-xl bg-primary py-3 text-base font-bold text-white shadow-primary-glow transition-transform duration-200 ease-in-out active:scale-95 hover:bg-primary/90"
-                id="apply-btn"
-              >
-                Apply Filters
+            </div>
+            <div class="mt-4 flex flex-wrap gap-2" id="filter-summary">
+              <span class="text-sm text-slate-500 dark:text-slate-400">No filters applied yet.</span>
+            </div>
+          </section>
+
+          <section class="rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-lg shadow-slate-200/50 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-black/20">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-bold">Budget Range</h3>
+              <p class="text-sm font-semibold text-primary" id="price-display">₱500 - ₱12,000</p>
+            </div>
+            <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Set a comfortable monthly rate to narrow the options.</p>
+            <div class="relative mt-6 h-12">
+              <div class="absolute inset-x-0 top-1/2 -translate-y-1/2">
+                <div class="h-1.5 w-full rounded-full bg-slate-200 dark:bg-slate-700/60">
+                  <div id="price-range-fill" class="h-1.5 rounded-full bg-primary transition-all" style="margin-left: 15%; width: 70%"></div>
+                </div>
+                <div class="pointer-events-none absolute inset-x-0 -top-6 flex justify-between text-xs font-medium text-slate-500 dark:text-slate-400">
+                  <span>₱500</span>
+                  <span>₱12,000</span>
+                </div>
+                <input aria-label="Minimum price" class="range-slider" id="min-price" max="100" min="0" oninput="updatePriceRange()" type="range" value="0" />
+                <input aria-label="Maximum price" class="range-slider" id="max-price" max="100" min="0" oninput="updatePriceRange()" type="range" value="100" />
+              </div>
+            </div>
+          </section>
+
+          <section class="rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-lg shadow-slate-200/50 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-black/20">
+            <h3 class="text-lg font-bold">Sort Options</h3>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Pick how listings show up first.</p>
+            <div class="mt-4 grid gap-3">
+              <button class="sort-btn active flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-600 transition-all hover:border-primary dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200" data-sort="distance" onclick="selectSort(this, 'distance')" type="button">
+                <span>Distance: Nearest First</span>
+                <span class="material-symbols-outlined text-lg">near_me</span>
+              </button>
+              <button class="sort-btn flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-600 transition-all hover:border-primary dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200" data-sort="rating" onclick="selectSort(this, 'rating')" type="button">
+                <span>Rating: Highest First</span>
+                <span class="material-symbols-outlined text-lg">stars</span>
+              </button>
+              <button class="sort-btn flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-600 transition-all hover:border-primary dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200" data-sort="price-low" onclick="selectSort(this, 'price-low')" type="button">
+                <span>Price: Low to High</span>
+                <span class="material-symbols-outlined text-lg">trending_up</span>
+              </button>
+              <button class="sort-btn flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-600 transition-all hover:border-primary dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200" data-sort="price-high" onclick="selectSort(this, 'price-high')" type="button">
+                <span>Price: High to Low</span>
+                <span class="material-symbols-outlined text-lg">trending_down</span>
               </button>
             </div>
-          </div>
+          </section>
+
+          <section class="rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-lg shadow-slate-200/50 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-black/20">
+            <h3 class="text-lg font-bold">Essential Amenities</h3>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Select the comforts you can’t live without.</p>
+            <div class="mt-4 grid gap-3 sm:grid-cols-2">
+              <label class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+                <span>Wi-Fi Included</span>
+                <input class="custom-checkbox amenity-checkbox" name="amenities" type="checkbox" value="wifi" />
+              </label>
+              <label class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+                <span>Private Bathroom</span>
+                <input class="custom-checkbox amenity-checkbox" name="amenities" type="checkbox" value="private-bathroom" />
+              </label>
+              <label class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+                <span>Air Conditioning</span>
+                <input class="custom-checkbox amenity-checkbox" name="amenities" type="checkbox" value="ac" />
+              </label>
+              <label class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+                <span>24/7 Security</span>
+                <input class="custom-checkbox amenity-checkbox" name="amenities" type="checkbox" value="security" />
+              </label>
+              <label class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+                <span>Kitchen Access</span>
+                <input class="custom-checkbox amenity-checkbox" name="amenities" type="checkbox" value="kitchen" />
+              </label>
+              <label class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+                <span>Laundry Service</span>
+                <input class="custom-checkbox amenity-checkbox" name="amenities" type="checkbox" value="laundry" />
+              </label>
+              <label class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 sm:col-span-2">
+                <span>Parking Space</span>
+                <input class="custom-checkbox amenity-checkbox" name="amenities" type="checkbox" value="parking" />
+              </label>
+            </div>
+          </section>
+
+          <section class="rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-lg shadow-slate-200/50 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-black/20">
+            <h3 class="text-lg font-bold">Room Configuration</h3>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Choose layouts that fit your routine.</p>
+            <div class="mt-4 grid gap-3 sm:grid-cols-2">
+              <button class="room-type-btn rounded-xl border border-slate-200 bg-white px-4 py-3 text-left text-sm font-medium text-slate-600 transition-all hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200" data-type="single" onclick="selectRoomType(this, 'single')" type="button">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-2xl text-primary/70">bed</span>
+                  <div>
+                    <p class="font-semibold">Single Room</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Personal space with essentials.</p>
+                  </div>
+                </div>
+              </button>
+              <button class="room-type-btn rounded-xl border border-slate-200 bg-white px-4 py-3 text-left text-sm font-medium text-slate-600 transition-all hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200" data-type="shared" onclick="selectRoomType(this, 'shared')" type="button">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-2xl text-primary/70">group</span>
+                  <div>
+                    <p class="font-semibold">Shared Room</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Budget friendly with roommates.</p>
+                  </div>
+                </div>
+              </button>
+              <button class="room-type-btn rounded-xl border border-slate-200 bg-white px-4 py-3 text-left text-sm font-medium text-slate-600 transition-all hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200" data-type="studio" onclick="selectRoomType(this, 'studio')" type="button">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-2xl text-primary/70">night_shelter</span>
+                  <div>
+                    <p class="font-semibold">Studio Type</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">All-in-one compact living.</p>
+                  </div>
+                </div>
+              </button>
+              <button class="room-type-btn rounded-xl border border-slate-200 bg-white px-4 py-3 text-left text-sm font-medium text-slate-600 transition-all hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200" data-type="apartment" onclick="selectRoomType(this, 'apartment')" type="button">
+                <div class="flex items-center gap-3">
+                  <span class="material-symbols-outlined text-2xl text-primary/70">apartment</span>
+                  <div>
+                    <p class="font-semibold">Apartment</p>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Flexible layout for groups.</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </section>
+
+          <section class="rounded-2xl border border-slate-200 bg-white/95 p-5 shadow-lg shadow-slate-200/50 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900/80 dark:shadow-black/20">
+            <h3 class="text-lg font-bold">Distance from University</h3>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Stay close enough for your lifestyle.</p>
+            <div class="mt-4 space-y-3">
+              <label class="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+                <input class="h-5 w-5 accent-primary" name="distance" type="radio" value="walking" />
+                <span>Walking distance (0-1 km)</span>
+              </label>
+              <label class="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+                <input checked class="h-5 w-5 accent-primary" name="distance" type="radio" value="bike" />
+                <span>Biking distance (1-3 km)</span>
+              </label>
+              <label class="flex items-center gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:border-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+                <input class="h-5 w-5 accent-primary" name="distance" type="radio" value="transport" />
+                <span>Transport needed (3 km+)</span>
+              </label>
+            </div>
+          </section>
         </div>
-      </div>
+      </main>
+      <footer class="sticky bottom-0 z-20 border-t border-slate-200/70 bg-background-light/90 px-4 py-4 backdrop-blur-lg dark:border-slate-800/70 dark:bg-background-dark/90">
+        <div class="mx-auto flex w-full max-w-3xl flex-col gap-3 sm:flex-row">
+          <button class="flex-1 rounded-xl border border-slate-300 bg-white/90 py-3 text-base font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary hover:shadow-md dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-300" onclick="clearAllFilters(event)" type="button">
+            Clear Selection
+          </button>
+          <button class="flex-[1.6] rounded-xl bg-primary py-3 text-base font-bold uppercase tracking-wide text-white shadow-lg shadow-sky-500/30 transition-transform hover:-translate-y-0.5 hover:bg-primary/90" id="apply-btn" onclick="applyFilters()" type="button">
+            Apply Filters
+          </button>
+        </div>
+      </footer>
     </div>
 
     <script>
-      // Filter state management
+      const DEFAULT_PRICE_MIN = 500;
+      const DEFAULT_PRICE_MAX = 12000;
+      const PRICE_STEP = 50;
+
+      const amenityLabels = {
+        wifi: 'Wi-Fi',
+        'private-bathroom': 'Private Bathroom',
+        ac: 'Air Conditioning',
+        security: '24/7 Security',
+        kitchen: 'Kitchen Access',
+        laundry: 'Laundry Service',
+        parking: 'Parking'
+      };
+
+      const roomTypeLabels = {
+        single: 'Single Room',
+        shared: 'Shared Room',
+        studio: 'Studio Type',
+        apartment: 'Apartment'
+      };
+
+      const distanceLabels = {
+        walking: '0-1 km (Walkable)',
+        bike: '1-3 km (Bike Friendly)',
+        transport: '3 km+ (Ride Recommended)'
+      };
+
+      const sortLabels = {
+        distance: 'Nearest First',
+        rating: 'Highest Rating',
+        'price-low': 'Price: Low to High',
+        'price-high': 'Price: High to Low'
+      };
+
       let filterState = {
-        minPrice: 1500,
-        maxPrice: 8500,
+        minPrice: DEFAULT_PRICE_MIN,
+        maxPrice: DEFAULT_PRICE_MAX,
         sortBy: 'distance',
-        amenities: ['wifi', 'security'],
+        amenities: [],
         roomTypes: [],
         distance: 'bike'
       };
 
-      // Initialize filters
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', () => {
         updatePriceRange();
-        updateApplyButton();
       });
 
-      // Price range functionality
+      function roundToStep(value, step = PRICE_STEP) {
+        return Math.round(value / step) * step;
+      }
+
       function updatePriceRange() {
         const minSlider = document.getElementById('min-price');
         const maxSlider = document.getElementById('max-price');
         const priceDisplay = document.getElementById('price-display');
         const rangeFill = document.getElementById('price-range-fill');
-        
-        let minVal = parseInt(minSlider.value);
-        let maxVal = parseInt(maxSlider.value);
-        
-        // Ensure min is always less than max
+
+        if (!minSlider || !maxSlider || !priceDisplay || !rangeFill) {
+          return;
+        }
+
+        let minVal = Number(minSlider.value);
+        let maxVal = Number(maxSlider.value);
+
         if (minVal >= maxVal) {
           if (minSlider === document.activeElement) {
-            maxVal = minVal + 1;
+            maxVal = Math.min(minVal + 1, 100);
             maxSlider.value = maxVal;
           } else {
-            minVal = maxVal - 1;
+            minVal = Math.max(maxVal - 1, 0);
             minSlider.value = minVal;
           }
         }
-        
-        // Calculate actual price values (₱500 to ₱12,000)
-        const minPrice = 500 + (minVal / 100) * (12000 - 500);
-        const maxPrice = 500 + (maxVal / 100) * (12000 - 500);
-        
-        filterState.minPrice = Math.round(minPrice);
-        filterState.maxPrice = Math.round(maxPrice);
-        
-        // Update display
+
+        const priceRange = DEFAULT_PRICE_MAX - DEFAULT_PRICE_MIN;
+        const minPrice = DEFAULT_PRICE_MIN + (minVal / 100) * priceRange;
+        const maxPrice = DEFAULT_PRICE_MIN + (maxVal / 100) * priceRange;
+
+        filterState.minPrice = roundToStep(minPrice);
+        filterState.maxPrice = roundToStep(maxPrice);
+
         priceDisplay.textContent = `₱${filterState.minPrice.toLocaleString()} - ₱${filterState.maxPrice.toLocaleString()}`;
-        
-        // Update range fill
-        const leftPercent = minVal;
-        const rightPercent = 100 - maxVal;
-        rangeFill.style.marginLeft = leftPercent + '%';
-        rangeFill.style.width = (maxVal - minVal) + '%';
-        
+
+        rangeFill.style.marginLeft = `${minVal}%`;
+        rangeFill.style.width = `${Math.max(maxVal - minVal, 1)}%`;
+
         updateApplyButton();
       }
 
-      // Sort selection
       function selectSort(button, sortType) {
-        // Update UI
-        document.querySelectorAll('.sort-btn').forEach(btn => {
-          btn.classList.remove('bg-primary', 'text-white', 'active');
-          btn.classList.add('bg-gray-200', 'text-gray-700', 'dark:bg-gray-700', 'dark:text-gray-200');
-        });
-        
-        button.classList.remove('bg-gray-200', 'text-gray-700', 'dark:bg-gray-700', 'dark:text-gray-200');
-        button.classList.add('bg-primary', 'text-white', 'active');
-        
-        // Update state
+        document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
         filterState.sortBy = sortType;
         updateApplyButton();
       }
 
-      // Room type selection (multiple selection)
       function selectRoomType(button, roomType) {
         const isSelected = button.classList.contains('selected');
-        
+
         if (isSelected) {
-          // Deselect
-          button.classList.remove('selected', 'border-primary', 'bg-primary/5', 'text-primary');
-          button.classList.add('border-gray-200', 'dark:border-gray-700');
+          button.classList.remove('selected', 'text-primary', 'dark:text-slate-100');
+          if (!button.classList.contains('text-slate-600')) {
+            button.classList.add('text-slate-600');
+          }
+          if (!button.classList.contains('dark:text-slate-200')) {
+            button.classList.add('dark:text-slate-200');
+          }
           filterState.roomTypes = filterState.roomTypes.filter(type => type !== roomType);
         } else {
-          // Select
-          button.classList.add('selected', 'border-primary', 'bg-primary/5', 'text-primary');
-          button.classList.remove('border-gray-200', 'dark:border-gray-700');
-          filterState.roomTypes.push(roomType);
+          button.classList.add('selected', 'text-primary', 'dark:text-slate-100');
+          button.classList.remove('text-slate-600', 'dark:text-slate-200');
+          if (!filterState.roomTypes.includes(roomType)) {
+            filterState.roomTypes.push(roomType);
+          }
         }
-        
+
         updateApplyButton();
       }
 
-      // Update amenities in filter state
-      document.addEventListener('change', function(e) {
-        if (e.target.classList.contains('amenity-checkbox')) {
-          const amenity = e.target.value;
-          if (e.target.checked) {
+      document.addEventListener('change', event => {
+        const target = event.target;
+
+        if (target.classList && target.classList.contains('amenity-checkbox')) {
+          const amenity = target.value;
+          if (target.checked) {
             if (!filterState.amenities.includes(amenity)) {
               filterState.amenities.push(amenity);
             }
           } else {
-            filterState.amenities = filterState.amenities.filter(a => a !== amenity);
+            filterState.amenities = filterState.amenities.filter(item => item !== amenity);
           }
           updateApplyButton();
         }
-        
-        if (e.target.name === 'distance') {
-          filterState.distance = e.target.value;
+
+        if (target.name === 'distance') {
+          filterState.distance = target.value;
           updateApplyButton();
         }
       });
 
-      // Update apply button with filter count
       function updateApplyButton() {
         const applyBtn = document.getElementById('apply-btn');
+        if (!applyBtn) return;
+
         let filterCount = 0;
-        
-        // Count active filters
-        if (filterState.minPrice > 500 || filterState.maxPrice < 12000) filterCount++;
-        if (filterState.amenities.length > 0) filterCount++;
-        if (filterState.roomTypes.length > 0) filterCount++;
+        if (filterState.minPrice > DEFAULT_PRICE_MIN || filterState.maxPrice < DEFAULT_PRICE_MAX) filterCount++;
+        if (filterState.amenities.length) filterCount++;
+        if (filterState.roomTypes.length) filterCount++;
         if (filterState.sortBy !== 'distance') filterCount++;
         if (filterState.distance !== 'bike') filterCount++;
-        
-        if (filterCount > 0) {
-          applyBtn.textContent = `Apply Filters (${filterCount})`;
-        } else {
-          applyBtn.textContent = 'Apply Filters';
-        }
+
+        applyBtn.disabled = false;
+        applyBtn.classList.remove('opacity-70', 'cursor-not-allowed', 'bg-green-500');
+        applyBtn.textContent = filterCount ? `Apply Filters (${filterCount})` : 'Apply Filters';
+
+        renderSummaryChips();
       }
 
-      // Reset all filters
+      function renderSummaryChips() {
+        const summary = document.getElementById('filter-summary');
+        if (!summary) return;
+
+        const chips = [];
+
+        if (filterState.minPrice > DEFAULT_PRICE_MIN || filterState.maxPrice < DEFAULT_PRICE_MAX) {
+          chips.push(`Budget: ₱${filterState.minPrice.toLocaleString()} - ₱${filterState.maxPrice.toLocaleString()}`);
+        }
+
+        if (filterState.amenities.length) {
+          const formatted = filterState.amenities
+            .map(key => amenityLabels[key] || key)
+            .sort();
+          const display = formatted.slice(0, 3).join(', ');
+          const remainder = formatted.length - 3;
+          chips.push(`Amenities: ${display}${remainder > 0 ? ` +${remainder} more` : ''}`);
+        }
+
+        if (filterState.roomTypes.length) {
+          const formatted = filterState.roomTypes
+            .map(key => roomTypeLabels[key] || key)
+            .join(', ');
+          chips.push(`Room: ${formatted}`);
+        }
+
+        if (filterState.distance !== 'bike') {
+          chips.push(`Distance: ${distanceLabels[filterState.distance] || filterState.distance}`);
+        }
+
+        if (filterState.sortBy !== 'distance') {
+          chips.push(`Sort: ${sortLabels[filterState.sortBy] || filterState.sortBy}`);
+        }
+
+        summary.innerHTML = chips.length
+          ? chips
+              .map(chip => `<span class="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary dark:bg-primary/20">${chip}</span>`)
+              .join('')
+          : '<span class="text-sm text-slate-500 dark:text-slate-400">No filters applied yet.</span>';
+      }
+
       function resetFilters() {
-        // Reset sliders
-        document.getElementById('min-price').value = 0;
-        document.getElementById('max-price').value = 100;
-        
-        // Reset checkboxes
+        const minSlider = document.getElementById('min-price');
+        const maxSlider = document.getElementById('max-price');
+
+        if (minSlider) minSlider.value = 0;
+        if (maxSlider) maxSlider.value = 100;
+
         document.querySelectorAll('.amenity-checkbox').forEach(cb => {
           cb.checked = false;
         });
-        
-        // Reset sort buttons
-        document.querySelectorAll('.sort-btn').forEach(btn => {
-          btn.classList.remove('bg-primary', 'text-white', 'active');
-          btn.classList.add('bg-gray-200', 'text-gray-700', 'dark:bg-gray-700', 'dark:text-gray-200');
-        });
-        
-        // Select first sort option
-        const firstSort = document.querySelector('.sort-btn');
-        firstSort.classList.remove('bg-gray-200', 'text-gray-700', 'dark:bg-gray-700', 'dark:text-gray-200');
-        firstSort.classList.add('bg-primary', 'text-white', 'active');
-        
-        // Reset room type buttons
+
+        document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
+        const defaultSort = document.querySelector('.sort-btn[data-sort="distance"]');
+        if (defaultSort) defaultSort.classList.add('active');
+
         document.querySelectorAll('.room-type-btn').forEach(btn => {
-          btn.classList.remove('selected', 'border-primary', 'bg-primary/5', 'text-primary');
-          btn.classList.add('border-gray-200', 'dark:border-gray-700');
+          btn.classList.remove('selected', 'text-primary', 'dark:text-slate-100');
+          if (!btn.classList.contains('text-slate-600')) {
+            btn.classList.add('text-slate-600');
+          }
+          if (!btn.classList.contains('dark:text-slate-200')) {
+            btn.classList.add('dark:text-slate-200');
+          }
         });
-        
-        // Reset distance radio
-        document.querySelector('input[name="distance"][value="bike"]').checked = true;
-        
-        // Reset state
+
+        const distanceDefault = document.querySelector('input[name="distance"][value="bike"]');
+        if (distanceDefault) distanceDefault.checked = true;
+
         filterState = {
-          minPrice: 500,
-          maxPrice: 12000,
+          minPrice: DEFAULT_PRICE_MIN,
+          maxPrice: DEFAULT_PRICE_MAX,
           sortBy: 'distance',
           amenities: [],
           roomTypes: [],
           distance: 'bike'
         };
-        
+
         updatePriceRange();
-        updateApplyButton();
       }
 
-      // Clear all filters (more aggressive reset)
-      function clearAllFilters() {
+      function clearAllFilters(event) {
+        if (event) {
+          event.preventDefault();
+        }
+
         resetFilters();
-        
-        // Visual feedback
-        const clearBtn = event.target;
-        const originalText = clearBtn.textContent;
-        clearBtn.textContent = 'Cleared!';
-        clearBtn.classList.add('bg-green-500', 'text-white');
-        
-        setTimeout(() => {
-          clearBtn.textContent = originalText;
-          clearBtn.classList.remove('bg-green-500', 'text-white');
-        }, 1000);
+
+        const clearBtn = event && event.currentTarget ? event.currentTarget : null;
+        if (clearBtn) {
+          const originalText = clearBtn.textContent.trim();
+          clearBtn.textContent = 'Cleared!';
+          clearBtn.classList.add('bg-green-500', 'text-white');
+
+          setTimeout(() => {
+            clearBtn.textContent = originalText;
+            clearBtn.classList.remove('bg-green-500', 'text-white');
+          }, 900);
+        }
       }
 
-      // Apply filters
       function applyFilters() {
-        // Simulate applying filters with loading state
         const applyBtn = document.getElementById('apply-btn');
+        if (!applyBtn) return;
+
         const originalText = applyBtn.textContent;
-        
+
         applyBtn.textContent = 'Applying...';
         applyBtn.disabled = true;
-        applyBtn.classList.add('opacity-70');
-        
-        // Log filter state for debugging
+        applyBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
         console.log('Applied filters:', filterState);
-        
-        // Simulate API call delay
+
         setTimeout(() => {
-          // In a real app, you would redirect or update the search results
-          // For demo, just show success state
           applyBtn.textContent = 'Applied!';
-          applyBtn.classList.remove('opacity-70');
+          applyBtn.classList.remove('opacity-70', 'cursor-not-allowed');
           applyBtn.classList.add('bg-green-500');
-          
+
           setTimeout(() => {
-            // Redirect to result.html
-            window.location.href = "search_results.html";
-          }, 500);
-        }, 1000);
-    }
-
-      // Close filters
-      function closeFilters() {
-        // In a real app, this would close the modal or navigate back
-        // For demo, just navigate back to previous page
-        history.back();
+            applyBtn.classList.remove('bg-green-500');
+            applyBtn.disabled = false;
+            applyBtn.textContent = originalText;
+            updateApplyButton();
+            window.location.href = 'search_results.html';
+          }, 600);
+        }, 900);
       }
-
-      // Handle drag interaction for mobile
-      let startY = 0;
-      let currentY = 0;
-      let isDragging = false;
-
-      const filterModal = document.querySelector('.glassmorphism');
-      const dragHandle = document.querySelector('.h-1\\.5');
-
-      dragHandle.addEventListener('touchstart', function(e) {
-        startY = e.touches[0].clientY;
-        isDragging = true;
-      }, { passive: true });
-
-      document.addEventListener('touchmove', function(e) {
-        if (!isDragging) return;
-        
-        currentY = e.touches[0].clientY;
-        const deltaY = currentY - startY;
-        
-        if (deltaY > 0) {
-          filterModal.style.transform = `translateY(${Math.min(deltaY, 300)}px)`;
-        }
-      }, { passive: true });
-
-      document.addEventListener('touchend', function() {
-        if (!isDragging) return;
-        
-        const deltaY = currentY - startY;
-        
-        if (deltaY > 150) {
-          closeFilters();
-        } else {
-          filterModal.style.transform = 'translateY(0)';
-        }
-        
-        isDragging = false;
-      });
     </script>
   </body>
 </html>

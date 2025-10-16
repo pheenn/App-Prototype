@@ -340,6 +340,13 @@
 						>
 							Reviews
 						</h3>
+						<button
+							id="post-review-button"
+							type="button"
+							class="mt-4 w-full rounded-lg border border-primary/30 bg-white py-3 font-semibold text-primary transition hover:bg-primary/5 dark:border-primary/40 dark:bg-background-dark/80 dark:text-primary"
+						>
+							Post Review
+						</button>
 						<div class="mt-4 space-y-6">
 							<div class="flex flex-col gap-3">
 								<div class="flex items-center gap-3">
@@ -539,12 +546,12 @@
 							></span
 						>
 					</div>
-					<a href="booking.html" class="rounded-lg bg-primary px-6 py-3 text-white">
+					<a href="booking.html" class="rounded-lg bg-primary px-6 py-3 text-white hover:text-success">
 						Book a Visit
 					</a>
 				</div>
 			</div>
-			<!-- <nav
+			<nav
 				class="fixed bottom-0 inset-x-0 z-50 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur"
 			>
 			<ul class="grid grid-cols-5 text-xs">
@@ -616,11 +623,93 @@
 					</a>
 				</li>
 			</ul>
-		</nav> -->
+		</nav>
+		<div
+			id="login-required-modal"
+			class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-900/60 px-4 py-6"
+			role="dialog"
+			aria-labelledby="login-required-title"
+			aria-modal="true"
+		>
+			<div
+				class="relative mx-auto flex w-full max-w-md flex-col rounded-2xl border border-slate-200 bg-white/95 p-6 shadow-2xl shadow-slate-900/20 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900"
+			>
+				<button
+					onclick="closeLoginRequired()"
+					type="button"
+					class="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+					aria-label="Dismiss login required message"
+				>
+					<span class="material-symbols-outlined text-xl">close</span>
+				</button>
+				<div class="pt-2 text-center">
+					<div class="mx-auto flex size-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+						<span class="material-symbols-outlined text-3xl">lock</span>
+					</div>
+					<h2
+						id="login-required-title"
+						class="mt-4 text-xl font-bold text-slate-900 dark:text-white"
+					>
+						Login Required
+					</h2>
+					<p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+						Sign in to share your experience and help other students.
+					</p>
+				</div>
+				<div class="mt-6 flex flex-col gap-3">
+					<button
+						onclick="window.location.href='login.html'"
+						type="button"
+						class="w-full rounded-xl bg-primary py-3 text-base font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-primary/90"
+					>
+						Log In
+					</button>
+					<button
+						onclick="window.location.href='sign_up.html'"
+						type="button"
+						class="w-full rounded-xl border border-primary/20 bg-primary/5 py-3 text-base font-semibold text-primary transition-all hover:-translate-y-0.5 hover:bg-primary/10 dark:border-primary/30 dark:bg-primary/15 dark:text-primary/90"
+					>
+						Create Account
+					</button>
+					<button
+						onclick="closeLoginRequired()"
+						type="button"
+						class="w-full rounded-xl border border-slate-200 py-3 text-base font-semibold text-slate-500 transition-colors hover:border-slate-300 hover:text-slate-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-600"
+					>
+						Maybe Later
+					</button>
+				</div>
+			</div>
+		</div>
 			</div>
 		</div>
 
 		<script>
+		const AUTH_STATUS_KEY = 'safestay-auth-status';
+
+		function openLoginRequired() {
+			const modal = document.getElementById('login-required-modal');
+			if (!modal) return;
+			modal.classList.remove('hidden');
+			modal.classList.add('flex');
+		}
+
+		function closeLoginRequired() {
+			const modal = document.getElementById('login-required-modal');
+			if (!modal) return;
+			modal.classList.add('hidden');
+			modal.classList.remove('flex');
+		}
+
+		function handlePostReviewClick() {
+			const isAuthenticated = localStorage.getItem(AUTH_STATUS_KEY) === 'authenticated';
+			if (isAuthenticated) {
+				window.location.href = 'posting-review.html';
+			} else {
+				openLoginRequired();
+			}
+		}
+
 			// Image Carousel Functionality
 			class ImageCarousel {
 				constructor() {
@@ -712,6 +801,10 @@
 			// Initialize carousel when DOM is loaded
 			document.addEventListener('DOMContentLoaded', () => {
 				new ImageCarousel();
+				const postReviewButton = document.getElementById('post-review-button');
+				if (postReviewButton) {
+					postReviewButton.addEventListener('click', handlePostReviewClick);
+				}
 			});
 		</script>
 

@@ -40,13 +40,13 @@
 	<body
 		class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-200"
 	>
-		<div class="flex h-full min-h-screen w-full flex-col">
+		<div id="profile-shell" class="flex h-full min-h-screen w-full flex-col">
 			<header
 				class="sticky top-0 z-10 flex h-16 w-full items-center justify-between bg-background-light/80 px-4 backdrop-blur-sm dark:bg-background-dark/80"
 			>
 				<div class="w-10"></div>
 				<h1 class="text-lg font-bold">Profile</h1>
-				<button
+				<button onclick="location.href = 'notification_setting.html'"
 					class="flex h-10 w-10 items-center justify-center rounded-full text-slate-600 dark:text-slate-400"
 				>
 					<span class="material-symbols-outlined text-2xl">
@@ -249,65 +249,67 @@
 				</div>
 				<div class="mt-8">
 					<button
-						class="w-full rounded-lg bg-white dark:bg-slate-900/50 py-3 text-center font-bold text-red-500 dark:text-red-400"
+						id="logout-button"
+						class="w-full rounded-lg bg-white py-3 text-center font-bold text-red-500 dark:bg-slate-900/50 dark:text-red-400"
+						type="button"
 					>
 						Log Out
 					</button>
 				</div>
 			</main>
-				<nav
-			class="fixed bottom-0 inset-x-0 z-50 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/90 backdrop-blur"
-		>
+			</div>
+			<nav
+				class="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-900/90"
+			>
 			<ul class="grid grid-cols-5 text-xs">
 				<li>
 					<a
-						
-						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary "
+						class="flex flex-col items-center justify-center py-2 text-slate-600 hover:text-primary dark:text-slate-300"
 						data-tab="home"
 						href="home.html"
 					>
 						<span class="material-symbols-outlined text-[22px]"
 							>home</span
 						>
-						<span class="text-[10px] leading-none mt-1">Home</span>
+						<span class="mt-1 text-[10px] leading-none">Home</span>
 					</a>
 				</li>
 				<li>
 					<a
-						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						class="flex flex-col items-center justify-center py-2 text-slate-600 hover:text-primary dark:text-slate-300"
 						data-tab="search"
 						href="map.html"
 					>
 						<span class="material-symbols-outlined text-[22px]"
 							>search</span
 						>
-						<span class="text-[10px] leading-none mt-1"
+						<span class="mt-1 text-[10px] leading-none"
 							>Search</span
 						>
 					</a>
 				</li>
 				<li>
 					<a
-						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						class="flex flex-col items-center justify-center py-2 text-slate-600 hover:text-primary dark:text-slate-300"
 						data-tab="saved"
 						href="saved.html"
 					>
 						<span class="material-symbols-outlined text-[22px]"
 							>bookmark</span
 						>
-						<span class="text-[10px] leading-none mt-1">Saved</span>
+						<span class="mt-1 text-[10px] leading-none">Saved</span>
 					</a>
 				</li>
 				<li>
 					<a
-						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary"
+						class="flex flex-col items-center justify-center py-2 text-slate-600 hover:text-primary dark:text-slate-300"
 						data-tab="messages"
 						href="message_threads.html"
 					>
 						<span class="material-symbols-outlined text-[22px]"
 							>chat</span
 						>
-						<span class="text-[10px] leading-none mt-1"
+						<span class="mt-1 text-[10px] leading-none"
 							>Messages</span
 						>
 					</a>
@@ -315,20 +317,124 @@
 				<li>
 					<a
 						aria-current="page"
-						class="flex flex-col items-center justify-center py-2 text-slate-600 dark:text-slate-300 hover:text-primary text-primary"
+						class="flex flex-col items-center justify-center py-2 text-primary hover:text-primary dark:text-primary dark:hover:text-primary"
 						data-tab="profile"
 						href="profile.html"
 					>
-						<span class="material-symbols-outlined text-[22px]"
+						<span class="material-symbols-outlined text-[22px] text-primary"
 							>person</span
 						>
-						<span class="text-[10px] leading-none mt-1"
+						<span class="mt-1 text-[10px] leading-none"
 							>Profile</span
 						>
 					</a>
 				</li>
 			</ul>
 		</nav>
+		<div
+			id="login-required-modal"
+			class="fixed inset-0 z-[60] hidden items-center justify-center bg-slate-900/60 px-4 py-6"
+			role="dialog"
+			aria-labelledby="login-required-title"
+			aria-modal="true"
+		>
+			<div
+				class="mx-auto flex w-full max-w-md flex-col rounded-2xl border border-slate-200 bg-white/95 p-6 shadow-2xl shadow-slate-900/20 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900"
+			>
+				<button
+					onclick="closeLoginRequired(true)"
+					type="button"
+					class="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+					aria-label="Dismiss login required message"
+				>
+					<span class="material-symbols-outlined text-xl">close</span>
+				</button>
+				<div class="pt-2 text-center">
+					<div class="mx-auto flex size-16 items-center justify-center rounded-full bg-primary/10 text-primary">
+						<span class="material-symbols-outlined text-3xl">lock</span>
+					</div>
+					<h2
+						id="login-required-title"
+						class="mt-4 text-xl font-bold text-slate-900 dark:text-white"
+					>
+						Login Required
+					</h2>
+					<p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+						Sign in to manage your profile, track bookings, and stay informed with SafeStay updates.
+					</p>
+				</div>
+				<div class="mt-6 flex flex-col gap-3">
+					<button
+						onclick="window.location.href='login.html'"
+						type="button"
+						class="w-full rounded-xl bg-primary py-3 text-base font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-primary/90"
+					>
+						Log In
+					</button>
+					<button
+						onclick="window.location.href='sign_up.html'"
+						type="button"
+						class="w-full rounded-xl border border-primary/20 bg-primary/5 py-3 text-base font-semibold text-primary transition-all hover:-translate-y-0.5 hover:bg-primary/10 dark:border-primary/30 dark:bg-primary/15 dark:text-primary/90"
+					>
+						Create Account
+					</button>
+					<button
+						onclick="closeLoginRequired(true)"
+						type="button"
+						class="w-full rounded-xl border border-slate-200 py-3 text-base font-semibold text-slate-500 transition-colors hover:border-slate-300 hover:text-slate-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-600"
+					>
+						Maybe Later
+					</button>
+				</div>
+			</div>
 		</div>
+		<script>
+			const AUTH_STATUS_KEY = 'safestay-auth-status';
+
+			function openLoginRequired() {
+				const modal = document.getElementById('login-required-modal');
+				if (!modal) return;
+				modal.classList.remove('hidden');
+				modal.classList.add('flex', 'items-center', 'justify-center');
+			}
+
+			function closeLoginRequired(shouldRedirect = false) {
+				const modal = document.getElementById('login-required-modal');
+				if (modal) {
+					modal.classList.add('hidden');
+					modal.classList.remove('flex', 'items-center', 'justify-center');
+				}
+				if (shouldRedirect) {
+					window.location.href = 'home.html';
+				}
+			}
+
+			function updateAuthView() {
+				const profileShell = document.getElementById('profile-shell');
+				const isAuthenticated = localStorage.getItem(AUTH_STATUS_KEY) === 'authenticated';
+				if (!profileShell) return;
+
+				if (isAuthenticated) {
+					profileShell.style.display = '';
+					closeLoginRequired(false);
+				} else {
+					profileShell.style.display = 'none';
+					openLoginRequired();
+				}
+			}
+
+			function handleLogout() {
+				localStorage.removeItem(AUTH_STATUS_KEY);
+				updateAuthView();
+			}
+
+			document.addEventListener('DOMContentLoaded', () => {
+				const logoutButton = document.getElementById('logout-button');
+				if (logoutButton) {
+					logoutButton.addEventListener('click', handleLogout);
+				}
+				updateAuthView();
+			});
+		</script>
 	</body>
 </html>
