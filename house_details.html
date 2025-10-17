@@ -632,51 +632,55 @@
 			aria-modal="true"
 		>
 			<div
-				class="relative mx-auto flex w-full max-w-md flex-col rounded-2xl border border-slate-200 bg-white/95 p-6 shadow-2xl shadow-slate-900/20 backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900"
+				class="relative mx-auto flex w-full max-w-sm flex-col items-center rounded-xl border border-slate-200 bg-background-light p-6 text-center shadow-xl shadow-slate-900/15 dark:border-slate-800 dark:bg-background-dark"
 			>
 				<button
 					onclick="closeLoginRequired()"
 					type="button"
-					class="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
-					aria-label="Dismiss login required message"
+					class="absolute right-4 top-4 inline-flex size-10 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-200/70 dark:text-slate-400 dark:hover:bg-slate-700"
+					aria-label="Dismiss review access message"
 				>
 					<span class="material-symbols-outlined text-xl">close</span>
 				</button>
-				<div class="pt-2 text-center">
-					<div class="mx-auto flex size-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-						<span class="material-symbols-outlined text-3xl">lock</span>
-					</div>
-					<h2
-						id="login-required-title"
-						class="mt-4 text-xl font-bold text-slate-900 dark:text-white"
+				<div class="mb-6 flex size-16 items-center justify-center rounded-full bg-primary/20 text-primary">
+					<svg
+						class="h-10 w-10"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
 					>
-						Login Required
-					</h2>
-					<p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
-						Sign in to share your experience and help other students.
-					</p>
+						<path
+							d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						></path>
+					</svg>
 				</div>
-				<div class="mt-6 flex flex-col gap-3">
+				<h2
+					id="login-required-title"
+					class="text-2xl font-bold text-slate-900 dark:text-white"
+				>
+					Verification Required
+				</h2>
+				<p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+					Only verified boarders who have stayed at this property can post a review.
+				</p>
+				<div class="mt-6 flex w-full flex-col gap-3">
 					<button
-						onclick="window.location.href='login.html'"
+						onclick="window.location.href='verified-only.html'"
 						type="button"
-						class="w-full rounded-xl bg-primary py-3 text-base font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-primary/90"
+						class="w-full rounded-lg bg-primary py-3 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
 					>
-						Log In
-					</button>
-					<button
-						onclick="window.location.href='sign_up.html'"
-						type="button"
-						class="w-full rounded-xl border border-primary/20 bg-primary/5 py-3 text-base font-semibold text-primary transition-all hover:-translate-y-0.5 hover:bg-primary/10 dark:border-primary/30 dark:bg-primary/15 dark:text-primary/90"
-					>
-						Create Account
+						Learn More
 					</button>
 					<button
 						onclick="closeLoginRequired()"
 						type="button"
-						class="w-full rounded-xl border border-slate-200 py-3 text-base font-semibold text-slate-500 transition-colors hover:border-slate-300 hover:text-slate-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-slate-600"
+						class="w-full rounded-lg bg-slate-200 py-3 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-200 dark:hover:bg-slate-600"
 					>
-						Maybe Later
+						Dismiss
 					</button>
 				</div>
 			</div>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>My Properties · Boarding House Finder</title>
+    <link href="../assets/css/plus-jakarta-sans.css" rel="stylesheet" />
+    <link href="../assets/css/material-symbols.css" rel="stylesheet" />
+    <script src="../assets/js/tailwindcdn.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137FEC",
+              "primary-dark": "#0E63B9",
+              surface: "#EDF3FB",
+              ink: "#0E1824",
+              "ink-soft": "#5B6C7F",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            boxShadow: {
+              panel: "0 24px 64px -32px rgba(14, 99, 185, 0.45)",
+              card: "0 18px 48px -24px rgba(14, 24, 36, 0.45)",
+            },
+            borderRadius: {
+              xl: "0.85rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: linear-gradient(180deg, #edf3fb 0%, #f9fbff 100%);
+        color: #0e1824;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-surface text-ink">
+    <div class="flex min-h-screen flex-col lg:flex-row">
+      <aside
+        class="order-2 flex w-full flex-col justify-between bg-white/90 px-6 py-8 backdrop-blur lg:order-1 lg:w-72 lg:border-r lg:border-primary/10 lg:px-8"
+      >
+        <div class="space-y-10">
+          <div class="flex items-center gap-4">
+            <img src="../Images/profile.png" alt="Alex Rivera profile" class="h-12 w-12 rounded-2xl border-4 border-white shadow-card" />
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-ink-soft/70">Portfolio manager</p>
+              <p class="text-lg font-semibold">Alex Rivera</p>
+            </div>
+          </div>
+          <nav class="space-y-2">
+            <a
+              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
+              href="dashboard.html"
+            >
+              <span class="material-symbols-outlined">dashboard</span>
+              <span>Dashboard</span>
+            </a>
+            <a
+              class="flex items-center gap-3 rounded-xl bg-primary px-4 py-3 font-medium text-white shadow-card transition hover:bg-primary-dark"
+              href="#"
+            >
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">apartment</span>
+              <span>My Properties</span>
+            </a>
+            <a
+              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
+              href="#"
+            >
+              <span class="material-symbols-outlined">person</span>
+              <span>Profile</span>
+            </a>
+            <a
+              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
+              href="#"
+            >
+              <span class="material-symbols-outlined">chat</span>
+              <span>Messages</span>
+            </a>
+            <a
+              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
+              href="#"
+            >
+              <span class="material-symbols-outlined">settings</span>
+              <span>Settings</span>
+            </a>
+          </nav>
+        </div>
+        <div class="rounded-2xl bg-primary px-5 py-6 text-white shadow-panel">
+          <p class="text-sm text-white/80">Need to post quickly?</p>
+          <p class="mt-1 text-lg font-semibold">Use the bulk uploader to import multiple rooms at once.</p>
+          <button class="mt-4 flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20" type="button">
+            <span class="material-symbols-outlined text-base">upload_file</span>
+            Bulk upload
+          </button>
+        </div>
+      </aside>
+      <main class="order-1 flex-1 px-6 py-10 lg:order-2 lg:px-12">
+        <div class="mx-auto w-full max-w-6xl space-y-10">
+          <header class="flex flex-col gap-6 rounded-3xl bg-white/95 p-8 shadow-panel ring-1 ring-primary/10 backdrop-blur">
+            <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <h1 class="text-3xl font-bold tracking-tight">My Properties</h1>
+                <p class="mt-1 text-sm text-ink-soft">Monitor every listing, check verification status, and keep availability up to date.</p>
+              </div>
+              <div class="flex flex-col gap-3 sm:flex-row">
+                <div class="flex items-center gap-2 rounded-xl border border-primary/20 bg-surface/80 px-4 py-2">
+                  <span class="material-symbols-outlined text-primary">search</span>
+                  <input type="search" placeholder="Search address or property name" class="w-full bg-transparent text-sm text-ink placeholder:text-ink-soft focus:outline-none" />
+                </div>
+                <button class="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-card transition hover:bg-primary-dark" onclick="location.href='add-property.html'" type="button">
+                  <span class="material-symbols-outlined">add</span>
+                  Add property
+                </button>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-3 text-xs font-semibold">
+              <button class="rounded-full bg-primary px-4 py-2 text-white shadow-card transition hover:bg-primary-dark" type="button">All (12)</button>
+              <button class="rounded-full border border-primary/20 px-4 py-2 text-primary transition hover:border-primary" type="button">Verified (9)</button>
+              <button class="rounded-full border border-primary/20 px-4 py-2 text-primary transition hover:border-primary" type="button">Pending (2)</button>
+              <button class="rounded-full border border-primary/20 px-4 py-2 text-primary transition hover:border-primary" type="button">Drafts (1)</button>
+              <button class="rounded-full border border-primary/20 px-4 py-2 text-primary transition hover:border-primary" type="button">Needs attention</button>
+            </div>
+          </header>
+
+          <section class="grid gap-8 lg:grid-cols-[2fr_1fr]">
+            <div class="space-y-6">
+              <article class="overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-primary/10">
+                <div class="grid gap-0 md:grid-cols-[2fr,3fr]">
+                  <img src="../Images/home bh 1.png" alt="Cozy Studio Apartment" class="h-44 w-full object-cover md:h-full" />
+                  <div class="space-y-4 p-6">
+                    <div class="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <h2 class="text-xl font-semibold text-ink">Cozy Studio Apartment</h2>
+                        <p class="text-sm text-ink-soft">123 University Ave · 2 guests · Ensuite bathroom</p>
+                      </div>
+                      <span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-600">
+                        <span class="material-symbols-outlined text-base">verified</span>
+                        Verified
+                      </span>
+                    </div>
+                    <div class="grid gap-4 sm:grid-cols-3">
+                      <div>
+                        <p class="text-xs uppercase tracking-wide text-ink-soft">Monthly rate</p>
+                        <p class="text-sm font-semibold text-primary">₱18,000</p>
+                      </div>
+                      <div>
+                        <p class="text-xs uppercase tracking-wide text-ink-soft">Occupancy</p>
+                        <p class="text-sm font-semibold text-ink">87%</p>
+                      </div>
+                      <div>
+                        <p class="text-xs uppercase tracking-wide text-ink-soft">Next renewal</p>
+                        <p class="text-sm font-semibold text-ink">Nov 12</p>
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3 text-xs text-ink-soft">
+                      <span class="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 font-medium text-primary">Auto reminders on</span>
+                      <span class="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 font-medium text-primary">Payment tracking</span>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3 text-sm font-semibold">
+                      <button class="rounded-xl bg-primary/10 px-4 py-2 text-primary transition hover:bg-primary/20" type="button">Manage bookings</button>
+                      <button class="rounded-xl border border-primary/20 px-4 py-2 text-ink transition hover:border-primary" type="button">Analytics</button>
+                      <button class="rounded-xl border border-primary/20 px-4 py-2 text-ink transition hover:border-primary" type="button">Duplicate</button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <div class="grid gap-6 md:grid-cols-2">
+                <article class="overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-primary/10">
+                  <img src="../Images/home bh 2.png" alt="Two-bedroom home" class="h-40 w-full object-cover" />
+                  <div class="space-y-4 p-6">
+                    <div class="flex items-center justify-between">
+                      <h3 class="text-lg font-semibold text-ink">Spacious 2-Bedroom Home</h3>
+                      <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-600">Pending</span>
+                    </div>
+                    <p class="text-sm text-ink-soft">Awaiting barangay clearance upload. Expected review in 2 business days.</p>
+                    <div class="flex items-center justify-between text-sm">
+                      <span class="font-semibold text-primary">₱28,500 / month</span>
+                      <span class="text-xs text-ink-soft">Verification stage · 80% complete</span>
+                    </div>
+                    <div class="flex gap-2 text-sm font-semibold">
+                      <button class="flex-1 rounded-xl bg-primary/10 py-2 text-primary transition hover:bg-primary/20" type="button">Update docs</button>
+                      <button class="flex-1 rounded-xl border border-primary/20 py-2 text-ink transition hover:border-primary" type="button">Preview</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-primary/10">
+                  <img src="../Images/home bh 3.png" alt="Modern loft" class="h-40 w-full object-cover" />
+                  <div class="space-y-4 p-6">
+                    <div class="flex items-center justify-between">
+                      <h3 class="text-lg font-semibold text-ink">Modern Loft</h3>
+                      <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-600">Fully booked</span>
+                    </div>
+                    <p class="text-sm text-ink-soft">All rooms occupied until December. Tenant satisfaction at 4.8 rating.</p>
+                    <div class="flex items-center justify-between text-sm">
+                      <span class="font-semibold text-primary">₱24,000 / month</span>
+                      <span class="text-xs text-ink-soft">Avg. stay 5.2 months</span>
+                    </div>
+                    <div class="flex gap-2 text-sm font-semibold">
+                      <button class="flex-1 rounded-xl bg-primary/10 py-2 text-primary transition hover:bg-primary/20" type="button">View insights</button>
+                      <button class="flex-1 rounded-xl border border-primary/20 py-2 text-ink transition hover:border-primary" type="button">Share link</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-primary/10 md:col-span-2">
+                  <div class="space-y-4 p-6">
+                    <div class="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+                      <div>
+                        <h3 class="text-lg font-semibold text-ink">Other listings</h3>
+                        <p class="text-sm text-ink-soft">Quick overview of remaining units and status.</p>
+                      </div>
+                      <button class="rounded-xl border border-primary/20 px-4 py-2 text-sm font-semibold text-ink transition hover:border-primary" type="button">View all properties</button>
+                    </div>
+                    <div class="grid gap-3 text-sm">
+                      <div class="flex items-center justify-between rounded-xl bg-surface/80 px-4 py-3">
+                        <span>Charming 3-Bedroom Villa</span>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-rose-100 px-3 py-1 text-xs font-semibold text-rose-600">Needs review</span>
+                      </div>
+                      <div class="flex items-center justify-between rounded-xl bg-surface/80 px-4 py-3">
+                        <span>Private Studio Near Campus</span>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Draft</span>
+                      </div>
+                      <div class="flex items-center justify-between rounded-xl bg-surface/80 px-4 py-3">
+                        <span>Shared Dormitory Wing</span>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-600">Verified</span>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <aside class="space-y-6">
+              <div class="rounded-3xl bg-white p-6 shadow-card ring-1 ring-primary/10">
+                <h3 class="text-lg font-semibold text-ink">Upcoming check-ins</h3>
+                <ul class="mt-4 space-y-4 text-sm">
+                  <li class="flex items-center gap-3">
+                    <img src="../Images/message profile 1.png" alt="Jackie" class="h-10 w-10 rounded-full object-cover" />
+                    <div class="flex-1">
+                      <p class="font-semibold">Jackie Ramos</p>
+                      <p class="text-ink-soft">Arriving Oct 20 · Cozy Studio Apartment</p>
+                    </div>
+                    <button class="rounded-full bg-primary/10 p-2 text-primary transition hover:bg-primary/20" type="button">
+                      <span class="material-symbols-outlined text-base">chat</span>
+                    </button>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <img src="../Images/message profile 2.png" alt="Ken" class="h-10 w-10 rounded-full object-cover" />
+                    <div class="flex-1">
+                      <p class="font-semibold">Ken Matsuda</p>
+                      <p class="text-ink-soft">Arriving Oct 24 · Modern Loft</p>
+                    </div>
+                    <button class="rounded-full bg-primary/10 p-2 text-primary transition hover:bg-primary/20" type="button">
+                      <span class="material-symbols-outlined text-base">chat</span>
+                    </button>
+                  </li>
+                  <li class="flex items-center gap-3">
+                    <img src="../Images/review profile.png" alt="Faith" class="h-10 w-10 rounded-full object-cover" />
+                    <div class="flex-1">
+                      <p class="font-semibold">Faith Santiago</p>
+                      <p class="text-ink-soft">Tour request · Spacious 2-Bedroom Home</p>
+                    </div>
+                    <button class="rounded-full bg-primary/10 p-2 text-primary transition hover:bg-primary/20" type="button">
+                      <span class="material-symbols-outlined text-base">event</span>
+                    </button>
+                  </li>
+                </ul>
+                <button class="mt-6 w-full rounded-xl border border-primary/20 px-4 py-2 text-sm font-semibold text-ink transition hover:border-primary" type="button">Open calendar</button>
+              </div>
+
+              <div class="rounded-3xl bg-gradient-to-br from-primary to-primary-dark px-6 py-7 text-white shadow-panel">
+                <h3 class="text-lg font-semibold">Optimize your listings</h3>
+                <p class="mt-2 text-sm text-white/80">Enable instant booking and receive up to 35% more inquiries from verified renters.</p>
+                <button class="mt-5 w-full rounded-xl bg-white/15 py-2 text-sm font-semibold text-white transition hover:bg-white/25" type="button">Enable instant booking</button>
+              </div>
+            </aside>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

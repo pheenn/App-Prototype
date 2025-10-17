@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Boarding House Finder · Landowner Portal</title>
+    <link href="../assets/css/plus-jakarta-sans.css" rel="stylesheet" />
+    <link href="../assets/css/material-symbols.css" rel="stylesheet" />
+    <script src="../assets/js/tailwindcdn.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137FEC",
+              "primary-dark": "#0E63B9",
+              slate: {
+                950: "#0E1824",
+              },
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            boxShadow: {
+              panel: "0 24px 64px -32px rgba(14, 99, 185, 0.45)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #f4f7fb;
+        color: #0e1824;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[#edf3fb]">
+    <div class="flex min-h-screen flex-col lg:flex-row">
+      <aside
+        class="relative flex h-full w-full flex-col justify-center bg-primary px-6 py-12 text-white lg:w-1/2 lg:px-16"
+      >
+        <div class="mx-auto max-w-lg text-center lg:text-left">
+          <div
+            class="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl border border-white/40 bg-white/10 backdrop-blur-md lg:mx-0"
+          >
+            <svg
+              class="h-12 w-12"
+              fill="none"
+              viewBox="0 0 64 64"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M32 6 10 18v17c0 13.5 9.4 24.3 22 26.7 12.6-2.4 22-13.2 22-26.7V18L32 6Z"
+                opacity="0.2"
+                stroke="currentColor"
+                stroke-width="4"
+              ></path>
+              <path
+                d="M32 6 10 18v17c0 13.5 9.4 24.3 22 26.7 12.6-2.4 22-13.2 22-26.7V18L32 6Z"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.4"
+              ></path>
+              <path
+                d="M18 24.2 32 32l14-7.8"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.4"
+              ></path>
+              <path
+                d="M32 32v21"
+                stroke="white"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.4"
+              ></path>
+            </svg>
+          </div>
+          <h1
+            class="mt-8 text-3xl font-extrabold tracking-tight sm:text-4xl xl:text-5xl"
+          >
+            Boarding House Finder
+          </h1>
+          <p class="mt-4 text-base leading-relaxed text-white/90 sm:text-lg">
+            Your trusted partner in connecting students with quality housing.
+            Manage your listings with ease.
+          </p>
+        </div>
+      </aside>
+
+      <main
+        class="flex w-full items-center justify-center px-6 py-12 sm:px-10 lg:w-1/2 lg:px-16"
+      >
+        <section class="w-full max-w-lg rounded-3xl bg-white p-8 shadow-panel">
+          <div class="space-y-2 text-center">
+            <h2 class="text-2xl font-bold text-slate-950" id="formHeading">
+              Welcome Back
+            </h2>
+            <p class="text-sm text-slate-500" id="formSubheading">
+              Log in to manage your properties.
+            </p>
+          </div>
+
+          <form class="mt-8 space-y-5" id="authForm">
+            <div class="space-y-4" id="formFields"></div>
+
+            <div
+              class="flex items-center justify-between"
+              id="additionalActions"
+            ></div>
+
+            <button
+              class="w-full rounded-xl bg-primary py-3 text-base font-semibold text-white shadow-sm transition hover:bg-primary-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2"
+              id="primaryAction"
+              type="submit"
+            ></button>
+
+            <p class="text-center text-sm text-slate-500" id="toggleText"></p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <template id="loginTemplate">
+      <div class="space-y-4">
+        <div class="relative">
+          <label
+            class="mb-2 block text-sm font-medium text-slate-600"
+            for="loginEmail"
+            >Email Address</label
+          >
+          <div class="relative">
+            <span
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+            >
+              <span class="material-symbols-outlined text-[20px]">mail</span>
+            </span>
+            <input
+              class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-3 text-sm text-slate-800 transition focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+              id="loginEmail"
+              name="email"
+              placeholder="you@example.com"
+              type="email"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="relative">
+          <label
+            class="mb-2 block text-sm font-medium text-slate-600"
+            for="loginPassword"
+            >Password</label
+          >
+          <div class="relative">
+            <span
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+            >
+              <span class="material-symbols-outlined text-[20px]">lock</span>
+            </span>
+            <input
+              class="password-input w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-12 text-sm text-slate-800 transition focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+              id="loginPassword"
+              name="password"
+              placeholder="••••••••"
+              type="password"
+              required
+            />
+            <button
+              class="toggle-password absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 transition hover:text-primary"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >visibility</span
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <a
+          class="text-sm font-semibold text-primary transition hover:text-primary-dark"
+          href="#"
+          >Forgot Password?</a
+        >
+      </div>
+
+      <button
+        class="w-full rounded-xl bg-primary py-3 text-base font-semibold text-white shadow-sm transition hover:bg-primary-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2"
+        type="submit"
+      >
+        Login
+      </button>
+
+      <p class="text-center text-sm text-slate-500">
+        Don't have an account?
+        <button
+          class="switch-view font-semibold text-primary transition hover:text-primary-dark"
+          data-view="register"
+          type="button"
+        >
+          Sign Up
+        </button>
+      </p>
+    </template>
+
+    <template id="registerTemplate">
+      <div class="space-y-4">
+        <div class="relative">
+          <label
+            class="mb-2 block text-sm font-medium text-slate-600"
+            for="registerName"
+            >Full Name</label
+          >
+          <div class="relative">
+            <span
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+            >
+              <span class="material-symbols-outlined text-[20px]">person</span>
+            </span>
+            <input
+              class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-3 text-sm text-slate-800 transition focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+              id="registerName"
+              name="name"
+              placeholder="Juan Dela Cruz"
+              type="text"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="relative">
+          <label
+            class="mb-2 block text-sm font-medium text-slate-600"
+            for="registerEmail"
+            >Email Address</label
+          >
+          <div class="relative">
+            <span
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+            >
+              <span class="material-symbols-outlined text-[20px]">mail</span>
+            </span>
+            <input
+              class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-3 text-sm text-slate-800 transition focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+              id="registerEmail"
+              name="email"
+              placeholder="you@example.com"
+              type="email"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="relative">
+          <label
+            class="mb-2 block text-sm font-medium text-slate-600"
+            for="registerPhone"
+            >Contact Number</label
+          >
+          <div class="relative">
+            <span
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+            >
+              <span class="material-symbols-outlined text-[20px]">call</span>
+            </span>
+            <input
+              class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-3 text-sm text-slate-800 transition focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+              id="registerPhone"
+              name="phone"
+              placeholder="09XX XXX XXXX"
+              pattern="09[0-9]{2} [0-9]{3} [0-9]{4}"
+              type="tel"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="relative">
+          <label
+            class="mb-2 block text-sm font-medium text-slate-600"
+            for="registerPassword"
+            >Password</label
+          >
+          <div class="relative">
+            <span
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+            >
+              <span class="material-symbols-outlined text-[20px]">lock</span>
+            </span>
+            <input
+              class="password-input w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-12 text-sm text-slate-800 transition focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+              id="registerPassword"
+              name="password"
+              placeholder="Create a password"
+              type="password"
+              required
+            />
+            <button
+              class="toggle-password absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 transition hover:text-primary"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >visibility</span
+              >
+            </button>
+          </div>
+        </div>
+
+        <div class="relative">
+          <label
+            class="mb-2 block text-sm font-medium text-slate-600"
+            for="registerConfirmPassword"
+            >Confirm Password</label
+          >
+          <div class="relative">
+            <span
+              class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"
+            >
+              <span class="material-symbols-outlined text-[20px]">lock</span>
+            </span>
+            <input
+              class="password-input w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-11 pr-12 text-sm text-slate-800 transition focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+              id="registerConfirmPassword"
+              name="confirmPassword"
+              placeholder="Confirm your password"
+              type="password"
+              required
+            />
+            <button
+              class="toggle-password absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 transition hover:text-primary"
+              type="button"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >visibility</span
+              >
+            </button>
+          </div>
+        </div>
+
+        <label class="flex items-start gap-3 text-sm text-slate-600">
+          <input
+            class="mt-1 h-4 w-4 rounded border-slate-300 text-primary focus:ring-primary"
+            id="terms"
+            required
+            type="checkbox"
+          />
+          <span
+            >I agree to the
+            <a
+              class="font-semibold text-primary transition hover:text-primary-dark"
+              href="#"
+              >Terms of Service</a
+            >
+            and
+            <a
+              class="font-semibold text-primary transition hover:text-primary-dark"
+              href="#"
+              >Privacy Policy</a
+            >.</span
+          >
+        </label>
+      </div>
+
+      <button
+        class="w-full rounded-xl bg-primary py-3 text-base font-semibold text-white shadow-sm transition hover:bg-primary-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 focus-visible:ring-offset-2"
+        type="submit"
+      >
+        Create Account
+      </button>
+
+      <p class="text-center text-sm text-slate-500">
+        Already have an account?
+        <button
+          class="switch-view font-semibold text-primary transition hover:text-primary-dark"
+          data-view="login"
+          type="button"
+        >
+          Log In
+        </button>
+      </p>
+    </template>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const formHeading = document.getElementById("formHeading");
+        const formSubheading = document.getElementById("formSubheading");
+        const formFields = document.getElementById("formFields");
+        const additionalActions = document.getElementById("additionalActions");
+        const primaryAction = document.getElementById("primaryAction");
+        const toggleText = document.getElementById("toggleText");
+        const authForm = document.getElementById("authForm");
+
+        const templates = {
+          login: document.getElementById("loginTemplate"),
+          register: document.getElementById("registerTemplate"),
+        };
+
+        let currentView = "login";
+
+        const renderView = (view) => {
+          currentView = view;
+          const content = templates[view].content.cloneNode(true);
+
+          formFields.innerHTML = "";
+          additionalActions.innerHTML = "";
+          toggleText.innerHTML = "";
+
+          const sections = content.querySelectorAll(".space-y-4 > div, label");
+          sections.forEach((section) => {
+            formFields.appendChild(section);
+          });
+
+          const actionButton = content.querySelector("button[type='submit']");
+          if (actionButton) {
+            primaryAction.textContent = actionButton.textContent.trim();
+          }
+
+          const actions = content.querySelector(
+            "div.flex.items-center.justify-between"
+          );
+          if (actions) {
+            additionalActions.appendChild(actions);
+            additionalActions.classList.remove("hidden");
+          } else {
+            additionalActions.classList.add("hidden");
+          }
+
+          const footer = content.querySelector("p.text-center");
+          if (footer) {
+            toggleText.appendChild(footer);
+          }
+
+          formHeading.textContent =
+            view === "login" ? "Welcome Back" : "Create Your Landowner Account";
+          formSubheading.textContent =
+            view === "login"
+              ? "Log in to manage your properties."
+              : "Join our network of trusted landowners.";
+
+          enablePasswordToggles();
+          registerSwitchListeners();
+        };
+
+        const enablePasswordToggles = () => {
+          const toggles = authForm.querySelectorAll(".toggle-password");
+          toggles.forEach((toggle) => {
+            toggle.addEventListener("click", () => {
+              const input = toggle
+                .closest("div")
+                .querySelector(".password-input");
+              if (!input) return;
+              const isHidden = input.type === "password";
+              input.type = isHidden ? "text" : "password";
+              toggle.querySelector("span").textContent = isHidden
+                ? "visibility_off"
+                : "visibility";
+            });
+          });
+        };
+
+        const registerSwitchListeners = () => {
+          const switches = authForm.querySelectorAll(".switch-view");
+          switches.forEach((button) => {
+            button.addEventListener("click", () => {
+              renderView(button.dataset.view);
+            });
+          });
+        };
+
+        authForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const formData = new FormData(authForm);
+          const payload = Object.fromEntries(formData.entries());
+          console.info(`Submitting ${currentView} payload`, payload);
+        });
+
+        primaryAction.addEventListener("click", (event) => {
+          if (event.target.closest("form")) return;
+          authForm.requestSubmit();
+        });
+
+        renderView("login");
+      });
+    </script>
+  </body>
+</html>

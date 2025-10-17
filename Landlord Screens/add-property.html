@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Add Property · Boarding House Finder</title>
+    <link href="../assets/css/plus-jakarta-sans.css" rel="stylesheet" />
+    <link href="../assets/css/material-symbols.css" rel="stylesheet" />
+    <script src="../assets/js/tailwindcdn.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137FEC",
+              "primary-dark": "#0E63B9",
+              surface: "#EDF3FB",
+              ink: "#0E1824",
+              "ink-soft": "#5B6C7F",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            boxShadow: {
+              panel: "0 24px 64px -32px rgba(14, 99, 185, 0.45)",
+              card: "0 18px 48px -24px rgba(14, 24, 36, 0.45)",
+            },
+            borderRadius: {
+              xl: "0.85rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: linear-gradient(180deg, #edf3fb 0%, #f9fbff 100%);
+        color: #0e1824;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-surface text-ink">
+    <div class="flex min-h-screen flex-col lg:flex-row">
+      <aside
+        class="order-2 hidden w-full flex-col justify-between bg-white/90 px-6 py-8 backdrop-blur lg:order-1 lg:flex lg:w-72 lg:border-r lg:border-primary/10 lg:px-8"
+      >
+        <div class="space-y-10">
+          <div class="flex items-center gap-4">
+            <img src="../Images/profile.png" alt="Alex Rivera profile" class="h-11 w-11 rounded-2xl border-4 border-white shadow-card" />
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-ink-soft/70">Submission steps</p>
+              <p class="text-base font-semibold text-ink">Property onboarding</p>
+            </div>
+          </div>
+          <ol class="space-y-6 text-sm">
+            <li class="flex items-start gap-3">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white shadow-card">1</span>
+              <div>
+                <p class="font-semibold text-ink">Property Details</p>
+                <p class="text-ink-soft">Describe the listing, pricing, and capacity.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white text-ink ring-2 ring-primary/30">2</span>
+              <div>
+                <p class="font-semibold text-ink">Location & Amenities</p>
+                <p class="text-ink-soft">Pin the address and select available perks.</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white text-ink ring-2 ring-primary/30">3</span>
+              <div>
+                <p class="font-semibold text-ink">Media & Verification</p>
+                <p class="text-ink-soft">Upload photos and required documents.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="rounded-2xl bg-primary px-5 py-6 text-white shadow-panel">
+          <p class="text-sm text-white/80">Fast approval tip</p>
+          <p class="mt-2 text-lg font-semibold">Upload at least 5 high-quality images.</p>
+          <button class="mt-4 flex items-center gap-2 rounded-xl bg-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/25" type="button">
+            <span class="material-symbols-outlined text-base">tips_and_updates</span>
+            Best practices
+          </button>
+        </div>
+      </aside>
+      <main class="order-1 flex-1 px-6 py-10 lg:order-2 lg:px-10">
+        <div class="mx-auto w-full max-w-5xl space-y-10">
+          <header class="space-y-4 text-center sm:text-left">
+            <span class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+              <span class="material-symbols-outlined text-sm">home_add</span>
+              Add a new listing
+            </span>
+            <div>
+              <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Share your property with verified renters</h1>
+              <p class="mt-2 text-sm text-ink-soft">
+                Complete the details below to publish your unit. You can save progress at any time and return later from the draft list.
+              </p>
+            </div>
+          </header>
+
+          <section class="grid gap-8 lg:grid-cols-[3fr_2fr]">
+            <form class="space-y-8 rounded-3xl bg-white/95 p-8 shadow-panel ring-1 ring-primary/10">
+              <div class="space-y-6">
+                <div class="space-y-2">
+                  <label class="flex items-center justify-between text-sm font-semibold text-ink" for="property-name">
+                    Property name
+                    <span class="text-xs font-medium text-primary">Step 1 of 3</span>
+                  </label>
+                  <input
+                    id="property-name"
+                    name="propertyName"
+                    type="text"
+                    required
+                    placeholder="e.g. Sunnyvale Student Residence"
+                    class="w-full rounded-xl border border-primary/20 bg-surface/80 px-4 py-3 text-sm text-ink placeholder:text-ink-soft focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  />
+                </div>
+
+                <div class="space-y-2">
+                  <label class="text-sm font-semibold text-ink" for="description">Description</label>
+                  <textarea
+                    id="description"
+                    name="description"
+                    rows="4"
+                    placeholder="Highlight what makes this property special, nearby landmarks, and house rules."
+                    class="w-full rounded-xl border border-primary/20 bg-surface/80 px-4 py-3 text-sm leading-relaxed text-ink placeholder:text-ink-soft focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  ></textarea>
+                  <p class="text-xs text-ink-soft">Keep it between 80-180 words for best engagement.</p>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div class="space-y-2">
+                    <label class="text-sm font-semibold text-ink" for="monthly-rate">Monthly rate (₱)</label>
+                    <input
+                      id="monthly-rate"
+                      name="monthlyRate"
+                      type="number"
+                      inputmode="numeric"
+                      placeholder="18500"
+                      class="w-full rounded-xl border border-primary/20 bg-surface/80 px-4 py-3 text-sm text-ink placeholder:text-ink-soft focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label class="text-sm font-semibold text-ink" for="security-deposit">Security deposit (₱)</label>
+                    <input
+                      id="security-deposit"
+                      name="securityDeposit"
+                      type="number"
+                      inputmode="numeric"
+                      placeholder="18500"
+                      class="w-full rounded-xl border border-primary/20 bg-surface/80 px-4 py-3 text-sm text-ink placeholder:text-ink-soft focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    />
+                  </div>
+                  <div class="space-y-2">
+                    <label class="text-sm font-semibold text-ink" for="occupancy">Maximum occupants</label>
+                    <select
+                      id="occupancy"
+                      name="occupancy"
+                      class="w-full rounded-xl border border-primary/20 bg-surface/80 px-4 py-3 text-sm text-ink focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    >
+                      <option value="">Select capacity</option>
+                      <option value="1">1 person</option>
+                      <option value="2">2 persons</option>
+                      <option value="3">3 persons</option>
+                      <option value="4">4+ persons</option>
+                    </select>
+                  </div>
+                  <div class="space-y-2">
+                    <label class="text-sm font-semibold text-ink" for="property-type">Property type</label>
+                    <select
+                      id="property-type"
+                      name="propertyType"
+                      class="w-full rounded-xl border border-primary/20 bg-surface/80 px-4 py-3 text-sm text-ink focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    >
+                      <option value="">Choose type</option>
+                      <option value="boarding">Boarding House</option>
+                      <option value="apartment">Apartment</option>
+                      <option value="dorm">Dormitory</option>
+                      <option value="studio">Studio</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <label class="text-sm font-semibold text-ink" for="address-line">Street address</label>
+                  <input
+                    id="address-line"
+                    name="addressLine"
+                    type="text"
+                    placeholder="Unit 3A, 123 University Avenue"
+                    class="w-full rounded-xl border border-primary/20 bg-surface/80 px-4 py-3 text-sm text-ink placeholder:text-ink-soft focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                  />
+                  <div class="grid gap-4 sm:grid-cols-2">
+                    <input
+                      type="text"
+                      name="barangay"
+                      placeholder="Barangay"
+                      class="w-full rounded-xl border border-primary/20 bg-surface/80 px-4 py-3 text-sm text-ink placeholder:text-ink-soft focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    />
+                    <input
+                      type="text"
+                      name="city"
+                      placeholder="City / Municipality"
+                      class="w-full rounded-xl border border-primary/20 bg-surface/80 px-4 py-3 text-sm text-ink placeholder:text-ink-soft focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/30"
+                    />
+                  </div>
+                </div>
+
+                <fieldset class="space-y-4">
+                  <legend class="text-sm font-semibold text-ink">Amenities included</legend>
+                  <div class="grid gap-3 sm:grid-cols-2">
+                    <label class="flex items-center gap-3 rounded-xl border border-primary/10 bg-surface/70 px-4 py-3 text-sm font-medium text-ink-soft transition hover:border-primary hover:text-ink">
+                      <input type="checkbox" name="amenities" value="wifi" class="h-4 w-4 rounded border-primary/30 text-primary focus:ring-primary" />
+                      High-speed Wi-Fi
+                    </label>
+                    <label class="flex items-center gap-3 rounded-xl border border-primary/10 bg-surface/70 px-4 py-3 text-sm font-medium text-ink-soft transition hover:border-primary hover:text-ink">
+                      <input type="checkbox" name="amenities" value="laundry" class="h-4 w-4 rounded border-primary/30 text-primary focus:ring-primary" />
+                      Laundry area
+                    </label>
+                    <label class="flex items-center gap-3 rounded-xl border border-primary/10 bg-surface/70 px-4 py-3 text-sm font-medium text-ink-soft transition hover:border-primary hover:text-ink">
+                      <input type="checkbox" name="amenities" value="ac" class="h-4 w-4 rounded border-primary/30 text-primary focus:ring-primary" />
+                      Air conditioning
+                    </label>
+                    <label class="flex items-center gap-3 rounded-xl border border-primary/10 bg-surface/70 px-4 py-3 text-sm font-medium text-ink-soft transition hover:border-primary hover:text-ink">
+                      <input type="checkbox" name="amenities" value="kitchen" class="h-4 w-4 rounded border-primary/30 text-primary focus:ring-primary" />
+                      Shared kitchen
+                    </label>
+                    <label class="flex items-center gap-3 rounded-xl border border-primary/10 bg-surface/70 px-4 py-3 text-sm font-medium text-ink-soft transition hover:border-primary hover:text-ink">
+                      <input type="checkbox" name="amenities" value="parking" class="h-4 w-4 rounded border-primary/30 text-primary focus:ring-primary" />
+                      Parking space
+                    </label>
+                    <label class="flex items-center gap-3 rounded-xl border border-primary/10 bg-surface/70 px-4 py-3 text-sm font-medium text-ink-soft transition hover:border-primary hover:text-ink">
+                      <input type="checkbox" name="amenities" value="security" class="h-4 w-4 rounded border-primary/30 text-primary focus:ring-primary" />
+                      24/7 security
+                    </label>
+                  </div>
+                </fieldset>
+
+                <div class="space-y-3">
+                  <p class="text-sm font-semibold text-ink">Upload media</p>
+                  <div class="rounded-2xl border-2 border-dashed border-primary/30 bg-surface/70 p-6 text-center">
+                    <span class="material-symbols-outlined text-3xl text-primary">add_photo_alternate</span>
+                    <p class="mt-3 text-sm font-semibold text-ink">Drag & drop photos</p>
+                    <p class="text-xs text-ink-soft">JPEG or PNG · Up to 10 MB each</p>
+                    <button class="mt-4 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-primary-dark" type="button">Browse files</button>
+                  </div>
+                </div>
+
+                <div class="flex flex-col gap-3 border-t border-primary/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+                  <button class="rounded-xl border border-primary/20 px-4 py-2.5 text-sm font-semibold text-ink transition hover:border-primary" type="button">Save as draft</button>
+                  <div class="flex gap-3">
+                    <button class="rounded-xl border border-primary/20 px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-primary" type="button">Previous</button>
+                    <button class="rounded-xl bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-dark" type="submit">Continue to location</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+
+            <aside class="space-y-6">
+              <div class="rounded-3xl bg-white/95 p-6 shadow-card ring-1 ring-primary/10">
+                <div class="overflow-hidden rounded-2xl">
+                  <img src="../Images/home bh 4.png" alt="Preview of property" class="h-40 w-full object-cover" />
+                </div>
+                <div class="mt-5 space-y-3 text-sm">
+                  <div class="flex items-center justify-between">
+                    <p class="font-semibold text-ink">Preview card</p>
+                    <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Draft</span>
+                  </div>
+                  <p class="text-ink-soft">See how this listing will appear to renters once it goes live.</p>
+                  <div class="rounded-2xl bg-surface/80 p-4">
+                    <div class="flex items-center justify-between text-sm">
+                      <span class="font-semibold text-ink">Sunnyvale Student Residence</span>
+                      <span class="text-primary">₱18,500</span>
+                    </div>
+                    <p class="mt-1 text-xs text-ink-soft">2 guests · High-speed Wi-Fi · 450m from campus</p>
+                    <div class="mt-3 flex items-center gap-1 text-amber-400">
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base">star</span>
+                      <span class="material-symbols-outlined text-base">star</span>
+                      <span class="ml-1 text-xs text-ink-soft">No reviews yet</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="rounded-3xl bg-gradient-to-br from-primary to-primary-dark px-6 py-7 text-white shadow-panel">
+                <h3 class="text-lg font-semibold">Helpful reminders</h3>
+                <ul class="mt-4 space-y-3 text-sm text-white/90">
+                  <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-base">verified_user</span>
+                    Submit a recent business permit for faster verification.
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-base">photo_camera</span>
+                    Capture bright, landscape photos of every room.
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="material-symbols-outlined text-base">campaign</span>
+                    Activate promo rates to appear in weekly spotlights.
+                  </li>
+                </ul>
+                <button class="mt-5 w-full rounded-xl bg-white/15 py-2 text-sm font-semibold text-white transition hover:bg-white/25" type="button">View submission guide</button>
+              </div>
+            </aside>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

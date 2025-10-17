@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Landlord Dashboard · Boarding House Finder</title>
+    <link href="../assets/css/plus-jakarta-sans.css" rel="stylesheet" />
+    <link href="../assets/css/material-symbols.css" rel="stylesheet" />
+    <script src="../assets/js/tailwindcdn.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137FEC",
+              "primary-dark": "#0E63B9",
+              surface: "#EDF3FB",
+              ink: "#0E1824",
+              "ink-soft": "#5B6C7F",
+            },
+            fontFamily: {
+              sans: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            boxShadow: {
+              panel: "0 24px 64px -32px rgba(14, 99, 185, 0.45)",
+              card: "0 18px 48px -24px rgba(14, 24, 36, 0.45)",
+            },
+            borderRadius: {
+              xl: "0.85rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background: linear-gradient(180deg, #edf3fb 0%, #f9fbff 100%);
+        color: #0e1824;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-surface text-ink">
+    <div class="flex min-h-screen flex-col lg:flex-row">
+      <aside
+        class="order-2 flex w-full flex-col justify-between bg-white/90 px-6 py-8 backdrop-blur lg:order-1 lg:w-72 lg:border-r lg:border-primary/10 lg:px-8"
+      >
+        <div class="space-y-10">
+          <div class="flex items-center gap-4">
+            <img
+              src="../Images/profile.png"
+              alt="Alex Rivera profile"
+              class="h-12 w-12 rounded-2xl border-4 border-white shadow-card"
+            />
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-ink-soft/70">
+                Landlord Portal
+              </p>
+              <p class="text-lg font-semibold">Alex Rivera</p>
+            </div>
+          </div>
+          <nav class="space-y-2">
+            <a
+              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
+              href="#"
+            >
+              <span class="material-symbols-outlined">dashboard</span>
+              <span>Dashboard</span>
+            </a>
+            <a
+              class="flex items-center gap-3 rounded-xl bg-primary px-4 py-3 font-medium text-white shadow-card transition hover:bg-primary-dark"
+              href="property.html"
+            >
+              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">apartment</span>
+              <span>My Properties</span>
+            </a>
+            <a
+              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
+              href="#"
+            >
+              <span class="material-symbols-outlined">person</span>
+              <span>Profile</span>
+            </a>
+            <a
+              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
+              href="#"
+            >
+              <span class="material-symbols-outlined">chat</span>
+              <span>Messages</span>
+            </a>
+            <a
+              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
+              href="#"
+            >
+              <span class="material-symbols-outlined">settings</span>
+              <span>Settings</span>
+            </a>
+          </nav>
+        </div>
+        <div class="rounded-2xl bg-primary px-5 py-6 text-white shadow-panel">
+          <p class="text-sm text-white/80">Need assistance?</p>
+          <p class="mt-1 text-lg font-semibold">support@safestay.app</p>
+          <button
+            class="mt-4 flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20"
+            type="button"
+          >
+            <span class="material-symbols-outlined text-base">headset_mic</span>
+            Contact Support
+          </button>
+        </div>
+      </aside>
+      <main class="order-1 flex-1 px-6 py-10 lg:order-2 lg:px-12">
+        <div class="mx-auto w-full max-w-6xl space-y-10">
+          <section class="rounded-3xl bg-white/90 p-8 shadow-panel ring-1 ring-primary/10 backdrop-blur">
+            <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-wide text-primary/80">
+                  Portfolio Snapshot
+                </p>
+                <h1 class="mt-2 text-3xl font-bold tracking-tight">Welcome back, Alex!</h1>
+                <p class="mt-2 text-sm text-ink-soft">
+                  Here's how your listings performed this week. Review the highlights and take quick action where needed.
+                </p>
+              </div>
+              <div class="flex flex-col gap-3 sm:flex-row">
+                <button
+                  class="flex items-center justify-center gap-2 rounded-xl border border-primary/20 px-5 py-3 text-sm font-semibold text-primary shadow-sm transition hover:border-primary hover:text-primary-dark"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined text-base">download</span>
+                  Export Report
+                </button>
+                <button
+                  class="flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-card transition hover:bg-primary-dark"
+                  onclick="location.href='add-property.html'"
+                  type="button"
+                >
+                  <span class="material-symbols-outlined">add</span>
+                  Add Property
+                </button>
+              </div>
+            </div>
+            <dl class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <div class="rounded-2xl bg-surface/80 px-5 py-4 ring-1 ring-primary/10">
+                <div class="flex items-center justify-between">
+                  <dt class="text-xs font-semibold uppercase tracking-widest text-ink-soft/80">Active Listings</dt>
+                  <span class="material-symbols-outlined text-primary">apartment</span>
+                </div>
+                <dd class="mt-4 text-3xl font-bold">12</dd>
+                <p class="mt-2 text-xs font-medium text-emerald-500">+2 new this week</p>
+              </div>
+              <div class="rounded-2xl bg-surface/80 px-5 py-4 ring-1 ring-primary/10">
+                <div class="flex items-center justify-between">
+                  <dt class="text-xs font-semibold uppercase tracking-widest text-ink-soft/80">Occupancy Rate</dt>
+                  <span class="material-symbols-outlined text-primary">trending_up</span>
+                </div>
+                <dd class="mt-4 text-3xl font-bold">94%</dd>
+                <p class="mt-2 text-xs font-medium text-emerald-500">+5% vs last month</p>
+              </div>
+              <div class="rounded-2xl bg-surface/80 px-5 py-4 ring-1 ring-primary/10">
+                <div class="flex items-center justify-between">
+                  <dt class="text-xs font-semibold uppercase tracking-widest text-ink-soft/80">Pending Reviews</dt>
+                  <span class="material-symbols-outlined text-primary">rate_review</span>
+                </div>
+                <dd class="mt-4 text-3xl font-bold">3</dd>
+                <p class="mt-2 text-xs font-medium text-amber-500">Action required</p>
+              </div>
+              <div class="rounded-2xl bg-surface/80 px-5 py-4 ring-1 ring-primary/10">
+                <div class="flex items-center justify-between">
+                  <dt class="text-xs font-semibold uppercase tracking-widest text-ink-soft/80">Average Rating</dt>
+                  <span class="material-symbols-outlined text-primary">star</span>
+                </div>
+                <dd class="mt-4 text-3xl font-bold">4.7</dd>
+                <p class="mt-2 text-xs font-medium text-emerald-500">+0.3 this quarter</p>
+              </div>
+            </dl>
+          </section>
+
+          <section class="grid gap-8 lg:grid-cols-[2fr_1fr]">
+            <div class="space-y-6">
+              <div class="flex items-center justify-between">
+                <h2 class="text-xl font-semibold text-ink">Featured Listings</h2>
+                <a class="text-sm font-semibold text-primary transition hover:text-primary-dark" href="property.html">View all</a>
+              </div>
+              <div class="grid gap-6 md:grid-cols-2">
+                <article class="overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-primary/5">
+                  <img src="../Images/home bh 1.png" alt="Cozy Studio Apartment" class="h-40 w-full object-cover" />
+                  <div class="space-y-4 p-5">
+                    <div class="flex items-center justify-between">
+                      <h3 class="text-lg font-semibold text-ink">Cozy Studio Apartment</h3>
+                      <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-600">Verified</span>
+                    </div>
+                    <p class="text-sm text-ink-soft">Near University Avenue · 1 bathroom · High-speed Wi-Fi</p>
+                    <div class="flex items-center justify-between text-sm">
+                      <span class="font-semibold text-primary">₱18,000 / month</span>
+                      <div class="flex items-center gap-1 text-amber-400">
+                        <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                        <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                        <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                        <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                        <span class="material-symbols-outlined text-base">star</span>
+                        <span class="ml-1 text-xs text-ink-soft">4.4</span>
+                      </div>
+                    </div>
+                    <div class="flex gap-2">
+                      <button class="flex-1 rounded-xl bg-primary/10 py-2 text-sm font-semibold text-primary transition hover:bg-primary/20" type="button">Manage</button>
+                      <button class="flex-1 rounded-xl border border-primary/20 py-2 text-sm font-semibold text-ink transition hover:border-primary" type="button">Analytics</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-primary/5">
+                  <img src="../Images/home bh 2.png" alt="Spacious 2-Bedroom Home" class="h-40 w-full object-cover" />
+                  <div class="space-y-4 p-5">
+                    <div class="flex items-center justify-between">
+                      <h3 class="text-lg font-semibold text-ink">Spacious 2-Bedroom Home</h3>
+                      <span class="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-600">Pending</span>
+                    </div>
+                    <p class="text-sm text-ink-soft">Downtown district · Parking · Near transit</p>
+                    <div class="flex items-center justify-between text-sm">
+                      <span class="font-semibold text-primary">₱28,500 / month</span>
+                      <span class="text-xs text-ink-soft">Awaiting verification</span>
+                    </div>
+                    <div class="flex gap-2">
+                      <button class="flex-1 rounded-xl bg-primary/10 py-2 text-sm font-semibold text-primary transition hover:bg-primary/20" type="button">Update</button>
+                      <button class="flex-1 rounded-xl border border-primary/20 py-2 text-sm font-semibold text-ink transition hover:border-primary" type="button">Preview</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="overflow-hidden rounded-2xl bg-white shadow-card ring-1 ring-primary/5 md:col-span-2">
+                  <div class="grid gap-0 lg:grid-cols-2">
+                    <img src="../Images/home bh 3.png" alt="Modern Loft" class="h-44 w-full object-cover lg:h-full" />
+                    <div class="space-y-4 p-5">
+                      <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-ink">Modern Loft</h3>
+                        <span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-600">Fully Booked</span>
+                      </div>
+                      <p class="text-sm text-ink-soft">City center · Smart locks · Weekly cleaning included</p>
+                      <div class="space-y-2 text-sm">
+                        <div class="flex items-center justify-between">
+                          <span class="text-ink-soft">Occupancy</span>
+                          <span class="font-semibold text-primary">100%</span>
+                        </div>
+                        <div class="h-2 rounded-full bg-surface">
+                          <div class="h-full rounded-full bg-primary" style="width: 100%"></div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                          <span class="text-ink-soft">Average Stay</span>
+                          <span class="font-semibold text-ink">5.2 months</span>
+                        </div>
+                      </div>
+                      <div class="flex gap-2">
+                        <button class="flex-1 rounded-xl bg-primary/10 py-2 text-sm font-semibold text-primary transition hover:bg-primary/20" type="button">View Insights</button>
+                        <button class="flex-1 rounded-xl border border-primary/20 py-2 text-sm font-semibold text-ink transition hover:border-primary" type="button">Share</button>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <aside class="space-y-6">
+              <div class="rounded-2xl bg-white p-6 shadow-card ring-1 ring-primary/5">
+                <h3 class="text-lg font-semibold text-ink">Action Center</h3>
+                <p class="mt-1 text-sm text-ink-soft">Quick wins to keep guests happy.</p>
+                <ul class="mt-4 space-y-3 text-sm">
+                  <li class="flex items-start gap-3">
+                    <span class="mt-0.5 rounded-full bg-primary/10 p-1 text-primary">
+                      <span class="material-symbols-outlined text-base">mail</span>
+                    </span>
+                    <div>
+                      <p class="font-semibold">Reply to 2 new inquiries</p>
+                      <p class="text-ink-soft">Average response time 42 minutes</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-0.5 rounded-full bg-primary/10 p-1 text-primary">
+                      <span class="material-symbols-outlined text-base">verified</span>
+                    </span>
+                    <div>
+                      <p class="font-semibold">Submit utility documents</p>
+                      <p class="text-ink-soft">Required for “Spacious 2-Bedroom Home”</p>
+                    </div>
+                  </li>
+                  <li class="flex items-start gap-3">
+                    <span class="mt-0.5 rounded-full bg-primary/10 p-1 text-primary">
+                      <span class="material-symbols-outlined text-base">event</span>
+                    </span>
+                    <div>
+                      <p class="font-semibold">Schedule maintenance visit</p>
+                      <p class="text-ink-soft">Preferred time: Oct 20 · 2:00 PM</p>
+                    </div>
+                  </li>
+                </ul>
+                <button class="mt-6 w-full rounded-xl bg-primary py-2.5 text-sm font-semibold text-white transition hover:bg-primary-dark" type="button">View task board</button>
+              </div>
+
+              <div class="rounded-2xl bg-gradient-to-br from-primary to-primary-dark px-6 py-7 text-white shadow-panel">
+                <h3 class="text-lg font-semibold">Boost visibility</h3>
+                <p class="mt-1 text-sm text-white/80">Upgrade to Premium listings and appear at the top of search results.</p>
+                <button class="mt-4 w-full rounded-xl bg-white/15 py-2 text-sm font-semibold text-white transition hover:bg-white/25" type="button">Compare plans</button>
+              </div>
+            </aside>
+          </section>
+
+          <section class="space-y-6">
+            <div class="flex items-center justify-between">
+              <h2 class="text-xl font-semibold text-ink">Recent Reviews</h2>
+              <a class="text-sm font-semibold text-primary transition hover:text-primary-dark" href="#">See all reviews</a>
+            </div>
+            <div class="grid gap-4 md:grid-cols-2">
+              <article class="rounded-2xl bg-white p-6 shadow-card ring-1 ring-primary/5">
+                <div class="flex items-start gap-4">
+                  <img src="../Images/review profile.png" alt="Review by Ethan Carter" class="h-12 w-12 rounded-full object-cover" />
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <h3 class="font-semibold text-ink">Ethan Carter</h3>
+                        <p class="text-xs text-ink-soft">Stayed at Cozy Studio Apartment</p>
+                      </div>
+                      <span class="text-xs text-ink-soft">2 weeks ago</span>
+                    </div>
+                    <div class="mt-2 flex items-center gap-1 text-amber-400">
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base">star</span>
+                      <span class="ml-1 text-xs text-ink-soft">4.0</span>
+                    </div>
+                    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+                      Great location and amenities. The landlord was helpful and accommodating throughout my stay.
+                    </p>
+                    <div class="mt-4 flex items-center gap-4 text-xs font-semibold text-primary">
+                      <button class="flex items-center gap-1 transition hover:text-primary-dark" type="button">
+                        <span class="material-symbols-outlined text-base">reply</span>
+                        Reply
+                      </button>
+                      <button class="flex items-center gap-1 transition hover:text-primary-dark" type="button">
+                        <span class="material-symbols-outlined text-base">bookmark_add</span>
+                        Pin
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="rounded-2xl bg-white p-6 shadow-card ring-1 ring-primary/5">
+                <div class="flex items-start gap-4">
+                  <img src="../Images/message profile 1.png" alt="Review by Sophia Bennett" class="h-12 w-12 rounded-full object-cover" />
+                  <div class="flex-1">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <h3 class="font-semibold text-ink">Sophia Bennett</h3>
+                        <p class="text-xs text-ink-soft">Stayed at Modern Loft</p>
+                      </div>
+                      <span class="text-xs text-ink-soft">1 month ago</span>
+                    </div>
+                    <div class="mt-2 flex items-center gap-1 text-amber-400">
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1">star_half</span>
+                      <span class="ml-1 text-xs text-ink-soft">4.5</span>
+                    </div>
+                    <p class="mt-3 text-sm leading-relaxed text-ink-soft">
+                      Loved the smart lock system and the weekly cleaning. Would definitely recommend this loft to other students.
+                    </p>
+                    <div class="mt-4 flex items-center gap-4 text-xs font-semibold text-primary">
+                      <button class="flex items-center gap-1 transition hover:text-primary-dark" type="button">
+                        <span class="material-symbols-outlined text-base">reply</span>
+                        Reply
+                      </button>
+                      <button class="flex items-center gap-1 transition hover:text-primary-dark" type="button">
+                        <span class="material-symbols-outlined text-base">bookmark_add</span>
+                        Pin
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
