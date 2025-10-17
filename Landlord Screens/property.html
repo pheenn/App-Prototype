@@ -41,60 +41,127 @@
       .material-symbols-outlined {
         font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
       }
+      body.sidebar-open {
+        overflow: hidden;
+      }
+      .mobile-sidebar {
+        transform: translateX(-100%);
+      }
+      body.sidebar-open .mobile-sidebar {
+        transform: translateX(0);
+      }
+      .sidebar-overlay {
+        opacity: 0;
+        pointer-events: none;
+      }
+      body.sidebar-open .sidebar-overlay {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .nav-link.active-nav {
+        background: #137fec;
+        color: #fff;
+        box-shadow: 0 18px 48px -24px rgba(14, 24, 36, 0.45);
+      }
+      .nav-link.active-nav:hover {
+        background: #0e63b9;
+      }
+      .nav-link.active-nav .material-symbols-outlined {
+        color: #fff;
+      }
+      .nav-icon-active {
+        font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+      }
+      @media (min-width: 768px) {
+        .mobile-sidebar {
+          transform: none;
+        }
+        .sidebar-overlay {
+          display: none;
+        }
+      }
     </style>
   </head>
-  <body class="min-h-screen bg-surface text-ink">
+  <body class="min-h-screen bg-surface text-ink" data-active-nav="properties">
     <div class="flex min-h-screen flex-col lg:flex-row">
+  <div class="sidebar-overlay fixed inset-0 z-30 bg-ink/40 transition-opacity md:hidden" id="sidebarOverlay"></div>
       <aside
-        class="order-2 flex w-full flex-col justify-between bg-white/90 px-6 py-8 backdrop-blur lg:order-1 lg:w-72 lg:border-r lg:border-primary/10 lg:px-8"
+        class="mobile-sidebar fixed inset-y-0 left-0 z-40 w-72 max-w-full overflow-y-auto border-r border-primary/10 bg-white/95 px-6 py-8 shadow-panel backdrop-blur transition-transform md:static md:flex md:w-20 md:flex-col md:items-center md:justify-between md:px-4 md:py-10 lg:w-72 lg:items-stretch lg:px-8"
+        id="sidebar"
       >
-        <div class="space-y-10">
-          <div class="flex items-center gap-4">
-            <img src="../Images/profile.png" alt="Alex Rivera profile" class="h-12 w-12 rounded-2xl border-4 border-white shadow-card" />
-            <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-ink-soft/70">Portfolio manager</p>
-              <p class="text-lg font-semibold">Alex Rivera</p>
+        <div class="flex h-full w-full flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-4 md:flex-col md:gap-3">
+              <div class="flex items-center gap-4 md:flex-col">
+                <img src="../Images/profile.png" alt="Alex Rivera profile" class="h-12 w-12 rounded-2xl border-4 border-white shadow-card" />
+                <div class="flex flex-col md:hidden lg:flex">
+                  <p class="text-xs font-semibold uppercase tracking-wider text-ink-soft/70">Landlord Portal</p>
+                  <p class="text-lg font-semibold">Alex Rivera</p>
+                </div>
+              </div>
+              <button class="rounded-xl bg-primary/10 p-2 text-primary transition hover:bg-primary/20 md:hidden" id="sidebarClose" type="button">
+                <span class="material-symbols-outlined">close</span>
+              </button>
+            </div>
+            <div class="mt-6 hidden lg:block">
+              <p class="text-xs font-semibold uppercase tracking-wider text-ink-soft/70">Landlord Portal</p>
+              <p class="mt-1 text-lg font-semibold">Alex Rivera</p>
+            </div>
+            <nav class="mt-10 space-y-2">
+              <a
+                class="nav-link flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary md:justify-center md:px-2"
+                data-nav="dashboard"
+                href="dashboard.html"
+              >
+                <span class="material-symbols-outlined">dashboard</span>
+                <span class="inline md:hidden lg:inline">Dashboard</span>
+              </a>
+              <a
+                class="nav-link flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary md:justify-center md:px-2"
+                data-nav="properties"
+                href="property.html"
+              >
+                <span class="material-symbols-outlined">apartment</span>
+                <span class="inline md:hidden lg:inline">My Properties</span>
+              </a>
+              <a
+                class="nav-link flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary md:justify-center md:px-2"
+                data-nav="profile"
+                href="profile.html"
+              >
+                <span class="material-symbols-outlined">person</span>
+                <span class="inline md:hidden lg:inline">Profile</span>
+              </a>
+              <a
+                class="nav-link flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary md:justify-center md:px-2"
+                data-nav="messages"
+                href="message_threads.html"
+              >
+                <span class="material-symbols-outlined">chat</span>
+                <span class="inline md:hidden lg:inline">Messages</span>
+              </a>
+              <a
+                class="nav-link flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary md:justify-center md:px-2"
+                data-nav="settings"
+                href="#"
+              >
+                <span class="material-symbols-outlined">settings</span>
+                <span class="inline md:hidden lg:inline">Settings</span>
+              </a>
+            </nav>
+          </div>
+          <div class="mt-10 hidden w-full flex-col space-y-6 md:flex lg:hidden">
+            <div class="rounded-2xl bg-primary px-5 py-6 text-white shadow-panel">
+              <p class="text-sm text-white/80">Need to post quickly?</p>
+              <p class="mt-1 text-lg font-semibold">Use the bulk uploader to import multiple rooms at once.</p>
+              <button class="mt-4 flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20" type="button">
+                <span class="material-symbols-outlined text-base">upload_file</span>
+                Bulk upload
+              </button>
             </div>
           </div>
-          <nav class="space-y-2">
-            <a
-              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
-              href="dashboard.html"
-            >
-              <span class="material-symbols-outlined">dashboard</span>
-              <span>Dashboard</span>
-            </a>
-            <a
-              class="flex items-center gap-3 rounded-xl bg-primary px-4 py-3 font-medium text-white shadow-card transition hover:bg-primary-dark"
-              href="#"
-            >
-              <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">apartment</span>
-              <span>My Properties</span>
-            </a>
-            <a
-              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
-              href="#"
-            >
-              <span class="material-symbols-outlined">person</span>
-              <span>Profile</span>
-            </a>
-            <a
-              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
-              href="#"
-            >
-              <span class="material-symbols-outlined">chat</span>
-              <span>Messages</span>
-            </a>
-            <a
-              class="flex items-center gap-3 rounded-xl px-4 py-3 font-medium text-ink transition hover:bg-primary/10 hover:text-primary"
-              href="#"
-            >
-              <span class="material-symbols-outlined">settings</span>
-              <span>Settings</span>
-            </a>
-          </nav>
         </div>
-        <div class="rounded-2xl bg-primary px-5 py-6 text-white shadow-panel">
+        <div class="mt-10 rounded-2xl bg-primary px-5 py-6 text-white shadow-panel md:hidden lg:block">
           <p class="text-sm text-white/80">Need to post quickly?</p>
           <p class="mt-1 text-lg font-semibold">Use the bulk uploader to import multiple rooms at once.</p>
           <button class="mt-4 flex items-center gap-2 rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold transition hover:bg-white/20" type="button">
@@ -104,8 +171,17 @@
         </div>
       </aside>
       <main class="order-1 flex-1 px-6 py-10 lg:order-2 lg:px-12">
+        <header class="mb-6 flex items-center justify-between md:hidden">
+          <div>
+            <h1 class="text-2xl font-bold">My Properties</h1>
+            <p class="text-xs font-semibold uppercase tracking-wide text-primary/80">Manage listings</p>
+          </div>
+          <button class="rounded-xl bg-white p-2 shadow-card ring-1 ring-primary/10 transition hover:bg-primary/10 hover:text-primary" id="sidebarOpen" type="button">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </header>
         <div class="mx-auto w-full max-w-6xl space-y-10">
-          <header class="flex flex-col gap-6 rounded-3xl bg-white/95 p-8 shadow-panel ring-1 ring-primary/10 backdrop-blur">
+          <header class="hidden flex-col gap-6 rounded-3xl bg-white/95 p-8 shadow-panel ring-1 ring-primary/10 backdrop-blur md:flex">
             <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
               <div>
                 <h1 class="text-3xl font-bold tracking-tight">My Properties</h1>
@@ -289,5 +365,35 @@
         </div>
       </main>
     </div>
+    <script>
+      const sidebar = document.getElementById("sidebar");
+      const sidebarOverlay = document.getElementById("sidebarOverlay");
+      const sidebarOpen = document.getElementById("sidebarOpen");
+      const sidebarClose = document.getElementById("sidebarClose");
+      const toggleSidebar = (open) => {
+        if (!sidebar || !sidebarOverlay) return;
+        document.body.classList.toggle("sidebar-open", open);
+      };
+      sidebarOpen?.addEventListener("click", () => toggleSidebar(true));
+      sidebarClose?.addEventListener("click", () => toggleSidebar(false));
+      sidebarOverlay?.addEventListener("click", () => toggleSidebar(false));
+
+      const activeNav = document.body.dataset?.activeNav;
+      if (activeNav) {
+        sidebar?.querySelectorAll(".nav-link").forEach((link) => {
+          if (link.dataset.nav === activeNav) {
+            link.classList.add("active-nav");
+            const icon = link.querySelector(".material-symbols-outlined");
+            icon?.classList.add("nav-icon-active");
+          }
+        });
+      }
+      const handleResize = () => {
+        if (window.innerWidth >= 1024) {
+          toggleSidebar(false);
+        }
+      };
+      window.addEventListener("resize", handleResize);
+    </script>
   </body>
 </html>
